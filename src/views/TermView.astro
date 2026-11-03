@@ -1,0 +1,156 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { entryPath, path, type Locale } from '@/i18n/routes';
+import { getTerms, termUrl, type Term } from '@/lib/content';
+import { definedTerm } from '@/lib/schema';
+
+interface Props {
+  locale: Locale;
+  term: Term;
+}
+const { locale, term } = Astro.props;
+const d = term.data;
+const alternates = { id: entryPath('term', 'id', d.slug.id), en: entryPath('term', 'en', d.slug.en) };
+const all = await getTerms();
+const related = d.related.map((r) => all.find((t) => t.id === r)).filter((t): t is Term => Boolean(t));
+const setPath = path('glossary', locale);
+const relHref = (t: Term) => (t.data.major ? termUrl(t, locale) : `${setPath}#term-${t.data.slug[locale]}`);
+
+const copy = {
+  id: {
+    kicker: 'Kamus Rajut',
+    title: `${d.term.id}: arti dan cara membuatnya`,
+    seoTitle: `${d.term.id} (${d.us}) dalam Merajut | Kamus Rajut`,
+    desc: `Apa itu ${d.term.id.toLowerCase()} dalam merajut? ${d.definition.id}`.slice(0, 155),
+    names: 'Nama di pola',
+    us: 'Istilah US',
+    uk: 'Istilah UK',
+    how: 'Cara membuat',
+    tip: 'Tips dari studio',
+    related: 'Istilah terkait',
+    back: 'Kembali ke Kamus Rajut A–Z',
+    learn: 'Belajar tusuk dasar lainnya',
+  },
+  en: {
+    kicker: 'Crochet Glossary',
+    title: `${d.term.en}: meaning and how to work it`,
+    seoTitle: `${d.term.en} in Crochet (US & UK Terms) | Glossary`,
+    desc: `What is ${d.term.en.toLowerCase()} in crochet? ${d.definition.en}`.slice(0, 155),
+    names: 'Names in patterns',
+    us: 'US term',
+    uk: 'UK term',
+    how: 'How to work it',
+    tip: 'Studio tip',
+    related: 'Related terms',
+    back: 'Back to the A–Z glossary',
+    learn: 'Learn the other basic stitches',
+  },
+}[locale];
+const beginnerHref =
+  locale === 'id' ? '/jurnal/cara-merajut-untuk-pemula/' : '/en/journal/crochet-for-beginners-basic-stitches/';
+const desc = copy.desc.length === 155 ? `${copy.desc.slice(0, copy.desc.lastIndexOf(' '))}…` : copy.desc;
+---
+
+<BaseLayout
+  locale={locale}
+  title={copy.seoTitle}
+  description={desc}
+  alternates={alternates}
+  breadcrumbs={[
+    { name: pageMeta.glossary[locale].label, path: setPath },
+    { name: d.term[locale], path: alternates[locale] },
+  ]}
+  schema={[
+    definedTerm({
+      url: new URL(alternates[locale], site.url).toString(),
+      name: d.term[locale],
+      description: d.definition[locale],
+      alternateNames: [d.term[locale === 'id' ? 'en' : 'id'], d.us, d.uk].filter(
+        (n, i, a) => n !== d.term[locale] && a.indexOf(n) === i,
+      ),
+      setUrl: new URL(setPath, site.url).toString(),
+    }),
+  ]}>
+  <article class="container-lc grid gap-12 pt-8 lg:grid-cols-[1.3fr_0.7fr]">
+    <div>
+      <p class="kicker">{copy.kicker}</p>
+      <h1 class="mt-3 text-step-5">{copy.title}</h1>
+      <p class="mt-5 text-step-1">{d.definition[locale]}</p>
+
+      {d.howTo && (
+        <section class="mt-10" aria-labelledby="howto">
+          <h2 id="howto" class="text-step-3">
+            {copy.how}
+          </h2>
+          <ol class="prose-lc mt-4">
+            {d.howTo[locale].map((s) => (
+              <li>{s}</li>
+            ))}
+          </ol>
+        </section>
+      )}
+      {d.tip && (
+        <aside class="blob mt-10 bg-blush p-6" aria-labelledby="tip">
+          <h2 id="tip" class="text-step-2">
+            {copy.tip}
+          </h2>
+          <p class="mt-2">{d.tip[locale]}</p>
+        </aside>
+      )}
+      <p class="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+        <a href={setPath} class="link-hand">
+          ← {copy.back}
+        </a>
+        <a href={beginnerHref} class="link-hand">
+          {copy.learn}
+        </a>
+      </p>
+    </div>
+
+    <aside class="space-y-6">
+      <div class="scallop p-6 shadow-[var(--shadow-warm)]">
+        <h2 class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{copy.names}</h2>
+        <dl class="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
+          <dt class="font-bold">{copy.us}</dt>
+          <dd>
+            {d.us}
+            {d.abbrUs && (
+              <>
+                {' '}
+                (<code>{d.abbrUs}</code>)
+              </>
+            )}
+          </dd>
+          <dt class="font-bold">{copy.uk}</dt>
+          <dd>
+            {d.uk}
+            {d.abbrUk && (
+              <>
+                {' '}
+                (<code>{d.abbrUk}</code>)
+              </>
+            )}
+          </dd>
+          <dt class="font-bold">ID</dt>
+          <dd lang="id-ID">{d.term.id}</dd>
+        </dl>
+      </div>
+      {related.length > 0 && (
+        <div class="scallop p-6">
+          <h2 class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{copy.related}</h2>
+          <ul class="mt-3 flex flex-wrap gap-2">
+            {related.map((r) => (
+              <li>
+                <a href={relHref(r)} class="marker marker--sage">
+                  {r.data.term[locale]}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </aside>
+  </article>
+</BaseLayout>

@@ -1,0 +1,34 @@
+---
+/**
+ * A strip of the continuous yarn strand that runs down the page between
+ * sections. Each strip enters at `from` (% of width) and leaves at `to`, and
+ * the next strip starts where this one ended, so the thread reads as one
+ * strand that tucks behind each section. It draws itself as it scrolls in.
+ */
+interface Props {
+  from?: number;
+  to?: number;
+  loop?: boolean;
+  color?: string;
+  class?: string;
+}
+const { from = 88, to = 12, loop = true, color = 'var(--color-rose-clay)', class: cls } = Astro.props;
+
+const W = 1440;
+const H = 150;
+const a = (from / 100) * W;
+const b = (to / 100) * W;
+const m = (a + b) / 2;
+const dir = b < a ? -1 : 1;
+
+const k = (n: number) => n * dir;
+const d = loop
+  ? `M${a} 0 C${a} 45 ${m - k(220)} 30 ${m} 70 c${k(36)} 22 ${k(30)} 72 ${k(-14)} 64 c${k(-46)} -8 ${k(-30)} -66 ${k(22)} -62 C${m + k(160)} 78 ${b} 100 ${b} ${H}`
+  : `M${a} 0 C${a} 70 ${b} 80 ${b} ${H}`;
+---
+
+<div class:list={['pointer-events-none relative -my-8', cls]} aria-hidden="true">
+  <svg viewBox={`0 0 ${W} ${H}`} class="block h-auto w-full" preserveAspectRatio="xMidYMid meet" focusable="false">
+    <path class="yarn-path yarn-draw" pathLength="1" stroke={color} stroke-width="7" d={d}></path>
+  </svg>
+</div>

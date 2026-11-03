@@ -1,0 +1,50 @@
+---
+import { Picture } from 'astro:assets';
+import type { Locale } from '@/i18n/routes';
+import { getImage } from '@/lib/images';
+
+interface Props {
+  name: string;
+  locale: Locale;
+  /** `sizes` attribute: how wide the image renders at each breakpoint. */
+  sizes: string;
+  widths?: number[];
+  class?: string;
+  /** Only the hero image is eager + high priority. */
+  eager?: boolean;
+  alt?: string;
+  /** Set alt="" for purely decorative duplicates. */
+  decorative?: boolean;
+}
+
+const {
+  name,
+  locale,
+  sizes,
+  widths = [320, 480, 640, 800, 1024, 1280, 1600],
+  class: cls,
+  eager = false,
+  alt,
+  decorative = false,
+} = Astro.props;
+const img = getImage(name);
+// Never upscale: drop widths larger than the source, and use the source width instead
+// only when a larger width was actually requested.
+const usable = widths.filter((w) => w < img.src.width);
+if (widths.some((w) => w >= img.src.width)) usable.push(img.src.width);
+---
+
+<Picture
+  src={img.src}
+  alt={decorative ? '' : (alt ?? img.alt[locale])}
+  formats={['avif', 'webp']}
+  widths={usable}
+  sizes={sizes}
+  width={img.src.width}
+  height={img.src.height}
+  class={cls}
+  loading={eager ? 'eager' : 'lazy'}
+  decoding={eager ? 'sync' : 'async'}
+  fetchpriority={eager ? 'high' : 'auto'}
+  data-pin-description={decorative ? undefined : img.pinterest[locale]}
+/>

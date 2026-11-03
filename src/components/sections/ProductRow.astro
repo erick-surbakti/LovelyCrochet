@@ -1,0 +1,35 @@
+---
+import ProductCard from '@/components/ui/ProductCard.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import type { Locale } from '@/i18n/routes';
+import type { Product } from '@/lib/content';
+
+interface Props {
+  locale: Locale;
+  products: Product[];
+  kicker?: string;
+  title: string;
+  lede?: string;
+  id: string;
+  morph?: boolean;
+  cta?: { href: string; label: string };
+}
+const { locale, products, kicker, title, lede, id, morph = false, cta } = Astro.props;
+const tilts = [-1.5, 1, -0.5, 1.5];
+---
+
+<section class="container-lc py-16" aria-labelledby={id}>
+  <div class="flex flex-wrap items-end justify-between gap-6">
+    <SectionTitle id={id} kicker={kicker} title={title} lede={lede} />
+    {cta && (
+      <a href={cta.href} class="link-hand">
+        {cta.label} →
+      </a>
+    )}
+  </div>
+  <div class="mt-12 grid grid-cols-2 gap-x-4 gap-y-12 md:gap-x-8 lg:grid-cols-4">
+    {products.map((p, i) => (
+      <ProductCard product={p} locale={locale} morph={morph} tilt={tilts[i % 4]} />
+    ))}
+  </div>
+</section>

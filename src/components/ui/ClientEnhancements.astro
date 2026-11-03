@@ -1,0 +1,21 @@
+---
+/**
+ * Site-wide progressive enhancements, bundled as one small module:
+ * - analytics event delegation ([data-track])
+ * - IntersectionObserver fallback for the yarn drawing when the browser
+ *   has no CSS scroll-driven animations
+ * - the yarn-ball cursor follower (fine pointers only, motion allowed)
+ */
+---
+
+<script>
+  import { initTracking } from '@/scripts/track';
+  import { initYarnFallback } from '@/scripts/yarn-fallback';
+  import { mountYarnCursor } from '@/scripts/yarn-cursor';
+
+  initTracking();
+  document.addEventListener('astro:page-load', () => {
+    initYarnFallback();
+    mountYarnCursor();
+  });
+</script>

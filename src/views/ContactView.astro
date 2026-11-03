@@ -1,0 +1,195 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { locality, site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { path, staticAlternates, type Locale } from '@/i18n/routes';
+import { formatTime, weekdayName } from '@/lib/format';
+import { localBusiness } from '@/lib/schema';
+import { siteFacts } from '@/lib/siteFacts';
+import { generalMessage, waLink } from '@/lib/whatsapp';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.contact[locale];
+const hours = site.hours.map(
+  (h) =>
+    `${weekdayName(h.days[0]!, locale)}–${weekdayName(h.days[h.days.length - 1]!, locale)}: ${formatTime(h.opens, locale)}–${formatTime(h.closes, locale)} ${site.timezoneLabel}`,
+);
+const socials = [
+  ['Instagram', site.social.instagram],
+  ['TikTok', site.social.tiktok],
+  ['Pinterest', site.social.pinterest],
+].filter((s): s is [string, string] => Boolean(s[1]));
+
+const copy = {
+  id: {
+    lede: 'Cara tercepat menghubungi kami adalah lewat WhatsApp. Kamu juga bisa kirim email untuk pesanan korporat atau kerja sama.',
+    wa: 'WhatsApp (paling cepat)',
+    email: 'Email',
+    hours: 'Jam balas chat',
+    closed: 'Minggu & tanggal merah: libur',
+    studio: 'Studio',
+    studioBody: `Studio rumahan di ${locality}, ${site.address.region}. Pengambilan langsung hanya dengan janji temu.`,
+    area: 'Area layanan',
+    areaBody:
+      'Same-day ke Kota & Kabupaten Bekasi dan Jabodetabek. Kurir ke seluruh Indonesia. Luar negeri atas permintaan.',
+    map: 'Buka area kami di Google Maps',
+    mapAlt:
+      'Peta ilustrasi area layanan LovelyCrochet: Bekasi di tengah, dikelilingi Jakarta, Depok, Bogor, dan Tangerang',
+    social: 'Media sosial',
+    faq: 'Cek dulu FAQ, siapa tahu jawabannya sudah ada',
+  },
+  en: {
+    lede: 'The quickest way to reach us is WhatsApp. You can also email us for corporate orders or collaborations.',
+    wa: 'WhatsApp (fastest)',
+    email: 'Email',
+    hours: 'Chat hours',
+    closed: 'Sundays & public holidays: closed',
+    studio: 'Studio',
+    studioBody: `Home studio in ${locality}, ${site.address.region}. Pickup by appointment only.`,
+    area: 'Service area',
+    areaBody:
+      'Same-day across Kota & Kabupaten Bekasi and Jabodetabek. Couriers to all of Indonesia. International on request.',
+    map: 'Open our area in Google Maps',
+    mapAlt:
+      'Illustrated map of the LovelyCrochet service area: Bekasi in the centre, surrounded by Jakarta, Depok, Bogor and Tangerang',
+    social: 'Social media',
+    faq: 'Check the FAQ first, your answer may already be there',
+  },
+}[locale];
+
+const cities: [string, number, number, number][] = [
+  ['Jakarta', 150, 120, 46],
+  ['Bekasi', 300, 140, 58],
+  ['Depok', 170, 250, 34],
+  ['Bogor', 190, 350, 38],
+  ['Tangerang', 50, 150, 36],
+  ['Cikarang', 420, 170, 32],
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('contact')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('contact')[locale] }]}
+  schema={[localBusiness(siteFacts(locale))]}>
+  <section class="container-lc pt-8 pb-10">
+    <SectionTitle as="h1" title={meta.h1} lede={copy.lede} />
+  </section>
+
+  <section class="container-lc grid gap-10 lg:grid-cols-2">
+    <address class="scallop space-y-6 p-8 not-italic shadow-[var(--shadow-warm)]">
+      <div>
+        <h2 class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{copy.wa}</h2>
+        <a
+          href={waLink(generalMessage(locale))}
+          class="btn btn-wa mt-3"
+          rel="noopener"
+          target="_blank"
+          data-track="whatsapp"
+          data-track-context="contact">
+          <Icon name="lucide:message-circle" class="size-5" aria-hidden="true" />
+          {site.phone.display}
+        </a>
+      </div>
+      <div>
+        <h2 class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{copy.email}</h2>
+        <a href={`mailto:${site.email}`} class="link-hand mt-2 inline-block text-step-1">
+          {site.email}
+        </a>
+      </div>
+      <div>
+        <h2 class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{copy.hours}</h2>
+        <p class="mt-2">
+          {hours.join(' · ')}
+          <br />
+          <span class="text-cocoa-soft">{copy.closed}</span>
+        </p>
+      </div>
+      <div>
+        <h2 class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{copy.studio}</h2>
+        <p class="mt-2">
+          <strong>{site.name}</strong>
+          <br />
+          {copy.studioBody}
+        </p>
+      </div>
+      <div>
+        <h2 class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{copy.area}</h2>
+        <p class="mt-2">{copy.areaBody}</p>
+      </div>
+      {socials.length > 0 && (
+        <div>
+          <h2 class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{copy.social}</h2>
+          <ul class="mt-2 flex flex-wrap gap-2">
+            {socials.map(([n, u]) => (
+              <li>
+                <a href={u} class="marker marker--oat" rel="noopener me" target="_blank">
+                  {n}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </address>
+
+    <div>
+      <a href={site.mapsUrl} rel="noopener" target="_blank" class="polaroid block" style="--tilt:1.5deg">
+        <svg viewBox="0 0 480 400" role="img" aria-label={copy.mapAlt} class="w-full rounded-lg bg-[#e8efe5]">
+          <path d="M0 300 C120 280 200 330 300 300 S440 250 480 270 V400 H0Z" fill="#dfe7dc"></path>
+          <path
+            d="M0 90 C80 70 160 110 260 90 S420 60 480 80"
+            fill="none"
+            stroke="#9DB8D2"
+            stroke-width="10"
+            opacity=".6"></path>
+          <g fill="none" stroke="var(--color-rose-clay)" stroke-width="2.5" stroke-dasharray="6 6">
+            {cities
+              .filter(([n]) => n !== 'Bekasi')
+              .map(([, x, y]) => (
+                <path d={`M300 140 Q${(300 + x) / 2} ${(140 + y) / 2 - 40} ${x} ${y}`} />
+              ))}
+          </g>
+          {cities.map(([name, x, y, r]) => (
+            <g>
+              <circle
+                cx={x}
+                cy={y}
+                r={r}
+                fill={name === 'Bekasi' ? 'var(--color-blush)' : 'var(--color-paper)'}
+                stroke="var(--color-cocoa)"
+                stroke-width="2"
+              />
+              <text
+                x={x}
+                y={y + 5}
+                text-anchor="middle"
+                font-family="var(--font-sans)"
+                font-weight="700"
+                font-size={name === 'Bekasi' ? 17 : 13}
+                fill="var(--color-cocoa)">
+                {name}
+              </text>
+            </g>
+          ))}
+        </svg>
+        <span class="mt-3 flex items-center justify-center gap-2 font-semibold">
+          <Icon name="lucide:map-pin" class="size-4 text-rose-ink" aria-hidden="true" />
+          {copy.map}
+        </span>
+      </a>
+      <p class="mt-8">
+        <a href={path('faq', locale)} class="link-hand">
+          {copy.faq} →
+        </a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+
+interface Props {
+  locale: Locale;
+  class?: string;
+}
+const { locale, class: cls } = Astro.props;
+const t = useTranslations(locale);
+const items = [
+  ['lucide:hand-heart', t('trust.handmade')],
+  ['lucide:sparkles', t('trust.yarn')],
+  ['lucide:palette', t('trust.custom')],
+  ['lucide:package', t('trust.nationwide')],
+  ['lucide:truck', t('trust.sameday')],
+] as const;
+---
+
+<ul class:list={['flex flex-wrap justify-center gap-3', cls]}>
+  {items.map(([icon, label], i) => (
+    <li
+      class="inline-flex items-center gap-2 rounded-full border-2 border-dashed border-rose-clay/50 bg-paper px-4 py-2 text-step--1 font-bold"
+      style={`rotate:${[-1.5, 1, -0.5, 1.5, -1][i]}deg`}>
+      <Icon name={icon} class="size-4 text-rose-ink" aria-hidden="true" />
+      {label}
+    </li>
+  ))}
+</ul>

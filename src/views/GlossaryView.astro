@@ -1,0 +1,127 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { staticAlternates, type Locale } from '@/i18n/routes';
+import { getTerms, termUrl, type Term } from '@/lib/content';
+import { definedTermSet } from '@/lib/schema';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.glossary[locale];
+const terms = (await getTerms()).sort((a, b) => a.data.term[locale].localeCompare(b.data.term[locale], locale));
+const setUrl = new URL(staticAlternates('glossary')[locale], site.url).toString();
+const letter = (t: Term) => t.data.term[locale].charAt(0).toUpperCase();
+const letters = [...new Set(terms.map(letter))];
+const anchor = (t: Term) => `term-${t.data.slug[locale]}`;
+const href = (t: Term) => (t.data.major ? termUrl(t, locale) : `#${anchor(t)}`);
+
+const copy = {
+  id: {
+    lede: 'Istilah rajut dalam bahasa Indonesia, lengkap dengan padanan bahasa Inggris dan perbedaan istilah US dan UK. Pola internasional sering memakai singkatan, jadi simpan halaman ini untuk dibuka saat membaca pola.',
+    usuk: 'Awas tertukar: US vs UK',
+    usukBody:
+      'Pola dari Amerika (US) dan Inggris/Australia (UK) memakai nama tusukan yang sama untuk tusukan yang berbeda. "Double crochet" di pola UK sama dengan "single crochet" di pola US. Semua pola di LovelyCrochet memakai istilah US.',
+    us: 'US',
+    uk: 'UK',
+    details: 'Penjelasan lengkap',
+    jump: 'Lompat ke huruf',
+  },
+  en: {
+    lede: 'Crochet terms with their Indonesian names and the difference between US and UK terminology. International patterns use a lot of abbreviations, so keep this page open while you read one.',
+    usuk: 'Watch out: US vs UK',
+    usukBody:
+      'Patterns from the US and from the UK/Australia use the same stitch names for different stitches. A UK "double crochet" is a US "single crochet". All LovelyCrochet patterns use US terms.',
+    us: 'US',
+    uk: 'UK',
+    details: 'Full explanation',
+    jump: 'Jump to letter',
+  },
+}[locale];
+
+const schemaTerms = terms.map((t) => ({
+  url: t.data.major ? new URL(termUrl(t, locale), site.url).toString() : `${setUrl}#${anchor(t)}`,
+  name: t.data.term[locale],
+  description: t.data.definition[locale],
+  alternateNames: [t.data.term[locale === 'id' ? 'en' : 'id'], t.data.us, t.data.uk].filter(
+    (n, i, a) => n !== t.data.term[locale] && a.indexOf(n) === i,
+  ),
+  setUrl,
+}));
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('glossary')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('glossary')[locale] }]}
+  schema={[definedTermSet(setUrl, meta.h1, schemaTerms)]}>
+  <section class="container-lc pt-8 pb-6">
+    <SectionTitle as="h1" title={meta.h1} lede={copy.lede} />
+    <aside class="blob mt-8 max-w-3xl bg-butter/70 p-6" aria-labelledby="usuk">
+      <h2 id="usuk" class="text-step-2">
+        {copy.usuk}
+      </h2>
+      <p class="mt-2">{copy.usukBody}</p>
+    </aside>
+    <nav class="mt-8" aria-label={copy.jump}>
+      <ul class="flex flex-wrap gap-2">
+        {letters.map((l) => (
+          <li>
+            <a href={`#letter-${l}`} class="marker marker--oat !px-3">
+              {l}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </section>
+
+  <div class="container-lc space-y-12 py-10">
+    {letters.map((l) => (
+      <section aria-labelledby={`letter-${l}`}>
+        <h2 id={`letter-${l}`} class="font-display text-step-5 text-rose-clay">
+          {l}
+        </h2>
+        <dl class="mt-4 grid gap-5 md:grid-cols-2">
+          {terms
+            .filter((t) => letter(t) === l)
+            .map((t) => (
+              <div id={anchor(t)} class="scallop p-6 shadow-[var(--shadow-warm)]">
+                <dt>
+                  <span class="font-display text-step-2">{t.data.term[locale]}</span>
+                  <span class="mt-2 flex flex-wrap gap-2 text-step--1">
+                    <span class="marker marker--sage">
+                      {copy.us}: {t.data.us}
+                      {t.data.abbrUs && ` (${t.data.abbrUs})`}
+                    </span>
+                    <span class="marker marker--butter">
+                      {copy.uk}: {t.data.uk}
+                      {t.data.abbrUk && ` (${t.data.abbrUk})`}
+                    </span>
+                    {locale === 'en' && (
+                      <span class="marker marker--oat" lang="id-ID">
+                        ID: {t.data.term.id}
+                      </span>
+                    )}
+                  </span>
+                </dt>
+                <dd class="mt-3">
+                  {t.data.definition[locale]}
+                  {t.data.major && (
+                    <a href={href(t)} class="link-hand mt-2 block w-fit">
+                      {copy.details} →
+                    </a>
+                  )}
+                </dd>
+              </div>
+            ))}
+        </dl>
+      </section>
+    ))}
+  </div>
+</BaseLayout>

@@ -1,0 +1,182 @@
+---
+import { Icon } from 'astro-icon/components';
+import Logo from '@/components/ui/Logo.astro';
+import Newsletter from '@/components/sections/Newsletter.astro';
+import PaymentMarks from '@/components/ui/PaymentMarks.astro';
+import { locality, site } from '@/config/site';
+import { path, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { formatTime, weekdayName } from '@/lib/format';
+import { generalMessage, waLink } from '@/lib/whatsapp';
+
+interface Props {
+  locale: Locale;
+  hideNewsletter?: boolean;
+}
+const { locale, hideNewsletter = false } = Astro.props;
+const t = useTranslations(locale);
+const year = new Date().getFullYear();
+
+const cols = [
+  {
+    title: t('footer.explore'),
+    links: [
+      [path('shop', locale), t('nav.shop')],
+      [path('gifts', locale), t('nav.gifts')],
+      [path('custom', locale), t('nav.custom')],
+      [path('bekasi', locale), t('nav.bekasi')],
+      [path('about', locale), t('nav.about')],
+    ],
+  },
+  {
+    title: t('footer.learn'),
+    links: [
+      [path('journal', locale), t('nav.journal')],
+      [path('patterns', locale), t('nav.patterns')],
+      [path('glossary', locale), t('nav.glossary')],
+      [path('care', locale), t('nav.care')],
+      [path('size', locale), t('nav.size')],
+    ],
+  },
+  {
+    title: t('footer.help'),
+    links: [
+      [path('faq', locale), t('nav.faq')],
+      [path('shipping', locale), t('nav.shipping')],
+      [path('contact', locale), t('nav.contact')],
+      [path('privacy', locale), t('nav.privacy')],
+      [path('terms', locale), t('nav.terms')],
+    ],
+  },
+] as const;
+
+const hours = site.hours.map((h) => {
+  const first = h.days[0] ?? 'Monday';
+  const last = h.days[h.days.length - 1] ?? first;
+  return `${weekdayName(first, locale)}–${weekdayName(last, locale)}, ${formatTime(h.opens, locale)}–${formatTime(h.closes, locale)} ${site.timezoneLabel}`;
+});
+const socials = [
+  ['Instagram', site.social.instagram],
+  ['TikTok', site.social.tiktok],
+  ['Pinterest', site.social.pinterest],
+].filter((s): s is [string, string] => Boolean(s[1]));
+---
+
+<footer role="contentinfo" class="relative mt-24 bg-oat">
+  <!-- The yarn that ran down the page ties itself into a bow here -->
+  <svg
+    class="pointer-events-none absolute -top-[150px] left-1/2 w-[320px] -translate-x-1/2 md:-top-[190px] md:w-[400px]"
+    viewBox="0 0 400 260"
+    aria-hidden="true">
+    <path
+      class="yarn-path yarn-draw"
+      pathLength="1"
+      stroke="var(--color-rose-clay)"
+      stroke-width="5"
+      d="M200 0 C200 50 236 64 214 104 C206 118 200 124 200 130"></path>
+    <path
+      class="yarn-path yarn-draw yarn-draw--late"
+      pathLength="1"
+      stroke="var(--color-rose-clay)"
+      stroke-width="5"
+      d="M200 140 C150 80 70 90 76 140 C82 190 160 170 200 140 C240 110 318 90 324 140 C330 190 250 170 200 140 C186 170 160 210 128 250 M200 140 C214 172 240 206 276 246"></path>
+    <ellipse cx="200" cy="140" rx="13" ry="11" fill="var(--color-rose-clay)"></ellipse>
+  </svg>
+
+  <div class="stitch-divider" style="--divider-color: var(--color-rose-clay)" aria-hidden="true"></div>
+
+  <div class="container-lc pt-16 pb-10">
+    {!hideNewsletter && <Newsletter locale={locale} />}
+
+    <p
+      class="font-display mx-auto mt-16 max-w-2xl text-center text-step-3 text-rose-ink"
+      style="font-variation-settings: 'WONK' 1; font-weight: 500;">
+      {t('footer.signoff')}
+      <span class="mt-2 block text-step-1 text-cocoa-soft">— {site.founder}</span>
+    </p>
+
+    <div class="mt-16 grid gap-10 md:grid-cols-[1.3fr_repeat(3,1fr)]">
+      <div class="space-y-4">
+        <Logo />
+        <p class="max-w-xs text-step--1 text-cocoa-soft">{t('site.tagline')}</p>
+        <address class="space-y-2 text-step--1 not-italic">
+          <p class="flex gap-2">
+            <Icon name="lucide:map-pin" class="mt-1 size-4 shrink-0 text-rose-ink" aria-hidden="true" />
+            <span>
+              <strong>{site.name}</strong>
+              <br />
+              {locality}, {site.address.region}, {site.address.countryName}
+            </span>
+          </p>
+          <p class="flex gap-2">
+            <Icon name="lucide:message-circle" class="mt-1 size-4 shrink-0 text-rose-ink" aria-hidden="true" />
+            <a
+              href={waLink(generalMessage(locale))}
+              class="link-draw"
+              rel="noopener"
+              target="_blank"
+              data-track="whatsapp"
+              data-track-context="footer">
+              {site.phone.display} (WhatsApp)
+            </a>
+          </p>
+          <p class="flex gap-2">
+            <Icon name="lucide:mail" class="mt-1 size-4 shrink-0 text-rose-ink" aria-hidden="true" />
+            <a href={`mailto:${site.email}`} class="link-draw">
+              {site.email}
+            </a>
+          </p>
+          <p class="flex gap-2">
+            <Icon name="lucide:clock" class="mt-1 size-4 shrink-0 text-rose-ink" aria-hidden="true" />
+            <span>
+              {t('footer.hours')}: {hours.join(' · ')}
+            </span>
+          </p>
+        </address>
+        {socials.length > 0 && (
+          <ul class="flex flex-wrap gap-2">
+            {socials.map(([name, url]) => (
+              <li>
+                <a href={url} class="marker marker--oat" rel="noopener me" target="_blank">
+                  {name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {cols.map((col) => (
+        <nav aria-label={col.title}>
+          <h2 class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{col.title}</h2>
+          <ul class="mt-4 space-y-2.5">
+            {col.links.map(([href, label]) => (
+              <li>
+                <a href={href} class="link-draw">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))}
+    </div>
+
+    <div class="mt-14 grid gap-6 border-t border-dashed border-cocoa/25 pt-8 md:grid-cols-2">
+      <div>
+        <h2 class="mb-3 font-sans text-step--1 font-bold text-cocoa-soft">{t('footer.payments')}</h2>
+        <PaymentMarks names={['QRIS', ...site.payment.banks, ...site.payment.ewallets]} />
+      </div>
+      <div>
+        <h2 class="mb-3 font-sans text-step--1 font-bold text-cocoa-soft">{t('footer.couriers')}</h2>
+        <PaymentMarks names={[...site.couriers, ...site.sameDayCouriers]} />
+      </div>
+    </div>
+
+    <p class="mt-10 text-center text-step--1 text-cocoa-soft">
+      © {year}
+      {site.name}. {t('footer.rights')}
+      {t('footer.studio', { area: locality })}
+    </p>
+  </div>
+</footer>

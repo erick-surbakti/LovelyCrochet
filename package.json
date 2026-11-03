@@ -1,0 +1,63 @@
+{
+  "name": "lovelycrochet",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LovelyCrochet — rajutan & crochet handmade dari Bekasi.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "images:standins": "node scripts/generate-standins.mjs",
+    "images:map": "node scripts/build-image-map.mjs",
+    "ci": "npm run check && npm run lint && npm run format:check && npm test && npm run build && npm run validate:jsonld && npm run check:links && npm run test:e2e",
+    "validate:jsonld": "node scripts/validate-jsonld.mjs",
+    "qa:sweep": "node scripts/sweep.mjs",
+    "lighthouse": "node scripts/lighthouse-report.mjs",
+    "lhci": "lhci autorun",
+    "check:links": "node scripts/check-links.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^8.1.2",
+    "@astrojs/preact": "^6.1.1",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "@iconify-json/lucide": "^1.2.150",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.4",
+    "astro-icon": "^1.2.0",
+    "preact": "^11.1.1",
+    "satori": "^0.63.2",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@eslint/js": "^10.0.1",
+    "@lhci/cli": "^0.16.0",
+    "@playwright/test": "^1.64.1",
+    "eslint": "^10.14.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "globals": "^17.14.0",
+    "lighthouse": "^13.6.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.0.5"
+  }
+}

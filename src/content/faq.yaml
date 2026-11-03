@@ -1,0 +1,147 @@
+- id: cara-pesan
+  group: ordering
+  order: 1
+  preview: true
+  q: { id: "Bagaimana cara memesan?", en: "How do I order?" }
+  a:
+    id: Klik tombol "Pesan via WhatsApp" di halaman produk. Pesanmu otomatis berisi nama produk, varian, warna, dan jumlah. Kami balas dengan total harga dan ongkir, lalu kamu tinggal membayar. Kamu juga bisa membeli lewat toko kami di marketplace.
+    en: Tap "Order via WhatsApp" on a product page. The message is pre-filled with the product, variant, colour and quantity. We reply with the total including shipping, then you pay. You can also buy through our marketplace stores.
+- id: ready-vs-po
+  group: ordering
+  order: 2
+  preview: true
+  q: { id: "Apa bedanya Ready Stock dan Pre-Order?", en: "What's the difference between Ready Stock and Pre-Order?" }
+  a:
+    id: Ready Stock sudah jadi dan bisa dikirim di hari yang sama jika pembayaran masuk sebelum pukul 14.00 WIB. Pre-Order dirajut setelah kamu memesan, dengan lama pengerjaan tertera di setiap produk, biasanya 3–14 hari kerja.
+    en: Ready Stock pieces are finished and can ship the same day if payment arrives before 2 pm WIB. Pre-Order pieces are crocheted after you order, with the lead time shown on each product, usually 3–14 working days.
+- id: jam-balas
+  group: ordering
+  order: 3
+  q: { id: "Kapan chat WhatsApp dibalas?", en: "When do you reply on WhatsApp?" }
+  a:
+    id: Senin–Sabtu pukul 09.00–18.00 WIB. Pesan di luar jam itu kami balas di jam kerja berikutnya. Hari Minggu dan tanggal merah kami libur.
+    en: Monday to Saturday, 09:00–18:00 WIB. Messages outside those hours are answered the next working morning. We're closed on Sundays and public holidays.
+- id: metode-bayar
+  group: payment
+  order: 4
+  preview: true
+  q: { id: "Pembayaran bisa lewat apa saja?", en: "How can I pay?" }
+  a:
+    id: QRIS, transfer bank BCA, dan e-wallet (GoPay, OVO, DANA, ShopeePay). Kalau membeli lewat marketplace, ikuti metode pembayaran di aplikasinya.
+    en: QRIS, BCA bank transfer and e-wallets (GoPay, OVO, DANA, ShopeePay). On marketplaces, use the app's own payment options.
+- id: dp-custom
+  group: payment
+  order: 5
+  q: { id: "Apakah pesanan custom perlu DP?", en: "Do custom orders need a deposit?" }
+  a:
+    id: Ya, DP 50% setelah desain dan harga disepakati. Pelunasan dilakukan setelah kamu melihat foto hasil jadi dan sebelum barang dikirim. DP tidak dapat dikembalikan setelah kami mulai merajut, karena benang sudah dipotong khusus untuk pesananmu.
+    en: Yes, a 50% deposit once the design and price are agreed. The balance is due after you've seen photos of the finished piece and before it ships. The deposit is non-refundable once we start, because the yarn has been cut for your order.
+- id: invoice
+  group: payment
+  order: 6
+  q: { id: "Bisa minta invoice untuk perusahaan?", en: "Can I get an invoice for my company?" }
+  a:
+    id: Bisa. Sebutkan nama perusahaan dan alamat penagihan saat memesan, nanti invoice kami kirim dalam format PDF.
+    en: Yes. Give us the company name and billing address when you order and we'll send a PDF invoice.
+- id: kurir
+  group: shipping
+  order: 7
+  preview: true
+  q: { id: "Pakai kurir apa?", en: "Which couriers do you use?" }
+  a:
+    id: JNE, J&T, SiCepat, dan AnterAja untuk seluruh Indonesia. Untuk Bekasi dan Jabodetabek tersedia same-day lewat GoSend atau GrabExpress.
+    en: JNE, J&T, SiCepat and AnterAja across Indonesia. Same-day delivery by GoSend or GrabExpress is available in Bekasi and Jabodetabek.
+- id: same-day
+  group: shipping
+  order: 8
+  q: { id: "Bagaimana syarat pengiriman same-day?", en: "How does same-day delivery work?" }
+  a:
+    id: Berlaku untuk produk Ready Stock dengan pembayaran sebelum pukul 14.00 WIB. Area utama meliputi Kota dan Kabupaten Bekasi, lalu Jakarta, Depok, Bogor, dan Tangerang sesuai jangkauan kurir. Ongkir mengikuti tarif aplikasi saat pemesanan.
+    en: It applies to Ready Stock pieces paid before 2 pm WIB. Our main area is Kota and Kabupaten Bekasi, plus Jakarta, Depok, Bogor and Tangerang within courier range. Shipping costs follow the app rate at the time of booking.
+- id: luar-negeri
+  group: shipping
+  order: 9
+  q: { id: "Bisa kirim ke luar negeri?", en: "Do you ship internationally?" }
+  a:
+    id: Bisa atas permintaan. Chat kami dengan negara dan kode pos tujuan, nanti kami cek ongkir dan perkiraan waktu lewat Pos Indonesia atau kurir internasional.
+    en: Yes, on request. Message us with the destination country and postcode and we'll check rates and timing via Pos Indonesia or an international courier.
+- id: lacak
+  group: shipping
+  order: 10
+  q: { id: "Bagaimana cara melacak paket?", en: "How do I track my parcel?" }
+  a:
+    id: Nomor resi kami kirim lewat WhatsApp di hari yang sama dengan pengiriman. Kamu bisa melacaknya di situs atau aplikasi kurir.
+    en: We send the tracking number on WhatsApp the day your parcel ships. Track it on the courier's website or app.
+- id: lama-custom
+  group: custom
+  order: 11
+  preview: true
+  q: { id: "Berapa lama pesanan custom?", en: "How long do custom orders take?" }
+  a:
+    id: Tergantung jenis dan ukurannya. Aksesoris 3–5 hari kerja, buket 3–7 hari kerja, boneka 7–14 hari kerja, dan pakaian 10–14 hari kerja. Waktu dihitung sejak DP diterima dan desain disetujui.
+    en: It depends on the type and size. Accessories take 3–5 working days, bouquets 3–7, dolls 7–14 and clothing 10–14. The clock starts once the deposit is paid and the design is approved.
+- id: dari-foto
+  group: custom
+  order: 12
+  q: { id: "Bisa buat boneka sesuai foto?", en: "Can you make a doll from a photo?" }
+  a:
+    id: Bisa. Kirim 2–3 foto dari depan dan samping. Kami sederhanakan ke gaya amigurumi dan mengonfirmasi detailnya denganmu sebelum mulai merajut.
+    en: Yes. Send 2–3 photos from the front and side. We'll simplify them into amigurumi style and confirm the details with you before we start.
+- id: revisi
+  group: custom
+  order: 13
+  q: { id: "Apakah bisa revisi?", en: "Can I ask for changes?" }
+  a:
+    id: Revisi gratis dua kali di tahap konfirmasi desain dan pemilihan warna. Setelah perajutan dimulai, perubahan besar seperti ganti ukuran atau model dikenakan biaya tambahan.
+    en: Two free revisions at the design and colour stage. Once crocheting starts, big changes such as a new size or style cost extra.
+- id: mendesak
+  group: custom
+  order: 14
+  q: { id: "Butuh cepat, bisa dibantu?", en: "I need it quickly. Can you help?" }
+  a:
+    id: Chat dulu dengan tanggal yang kamu butuhkan. Jika antrean memungkinkan, kami bisa mengerjakan lebih cepat dengan biaya prioritas 20% dari harga.
+    en: Message us with your date first. If the queue allows, we can rush it for a 20% priority fee.
+- id: retur
+  group: returns
+  order: 15
+  preview: true
+  q: { id: "Bagaimana kalau barang rusak saat diterima?", en: "What if my order arrives damaged?" }
+  a:
+    id: Rekam video unboxing tanpa jeda, lalu kirim ke WhatsApp kami dalam 2 × 24 jam setelah paket diterima. Kami akan memperbaiki, mengganti, atau mengembalikan dana sesuai kondisinya.
+    en: Record an unedited unboxing video and send it to our WhatsApp within 48 hours of delivery. We'll repair, replace or refund depending on the damage.
+- id: tukar-warna
+  group: returns
+  order: 16
+  q: { id: "Bisa tukar karena salah pilih warna?", en: "Can I exchange if I chose the wrong colour?" }
+  a:
+    id: Produk Ready Stock bisa ditukar dalam 3 hari jika belum dipakai dan label masih ada, dengan ongkir ditanggung pembeli. Produk custom dan Pre-Order tidak bisa ditukar karena dibuat khusus untukmu.
+    en: Ready Stock pieces can be exchanged within 3 days if unused with the tag on, with shipping paid by the buyer. Custom and Pre-Order pieces can't be exchanged because they were made just for you.
+- id: perbedaan-warna
+  group: returns
+  order: 17
+  q: { id: "Apakah warnanya sama persis dengan foto?", en: "Will the colour match the photo exactly?" }
+  a:
+    id: Kami memotret di cahaya alami supaya warnanya mendekati aslinya, tapi layar HP bisa menampilkan warna sedikit berbeda. Perbedaan warna tipis bukan termasuk cacat produk.
+    en: We photograph in natural light so colours look true, but phone screens can show them slightly differently. A small colour difference isn't considered a defect.
+- id: cuci
+  group: care
+  order: 18
+  preview: true
+  q: { id: "Bagaimana cara mencuci rajutan?", en: "How do I wash crochet?" }
+  a:
+    id: Cuci tangan dengan air dingin dan sabun lembut, tekan perlahan tanpa diperas, lalu keringkan mendatar di tempat teduh. Detail per jenis benang ada di Panduan Perawatan.
+    en: Hand-wash in cool water with mild soap, press gently without wringing, then dry flat in the shade. Details for each yarn type are in the Care Guide.
+- id: berbulu
+  group: care
+  order: 19
+  q: { id: "Rajutan saya berbulu, bagaimana mengatasinya?", en: "My crochet is pilling. What can I do?" }
+  a:
+    id: Bulu halus (pilling) wajar terjadi di area yang sering bergesekan. Cukur perlahan dengan alat pencukur bulu kain atau gunting kecil. Jangan ditarik.
+    en: Some pilling is normal where the fabric rubs a lot. Shave it gently with a fabric shaver or small scissors. Don't pull the bobbles off.
+- id: simpan
+  group: care
+  order: 20
+  q: { id: "Bagaimana menyimpan rajutan agar tidak melar?", en: "How should I store crochet so it doesn't stretch?" }
+  a:
+    id: Lipat pakaian rajut, jangan digantung. Isi tas dengan kertas agar bentuknya terjaga. Simpan boneka dan buket di tempat kering, bisa dengan silica gel di lemari yang lembap.
+    en: Fold crochet clothing, don't hang it. Stuff bags with paper to hold their shape. Keep dolls and bouquets somewhere dry, adding silica gel in damp cupboards.

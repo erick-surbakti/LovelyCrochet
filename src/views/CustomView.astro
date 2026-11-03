@@ -1,0 +1,138 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CustomBuilder from '@/components/islands/CustomBuilder.tsx';
+import FaqList from '@/components/ui/FaqList.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import YarnThread from '@/components/ui/YarnThread.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { staticAlternates, type Locale } from '@/i18n/routes';
+import { getFaqs } from '@/lib/content';
+import { PIECE_TYPES } from '@/lib/custom-order';
+import { formatIDR, isoDate } from '@/lib/format';
+import { faqPage } from '@/lib/schema';
+import { generalMessage, waLink } from '@/lib/whatsapp';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.custom[locale];
+const faqs = (await getFaqs())
+  .filter((f) => f.data.group === 'custom')
+  .map((f) => ({ q: f.data.q[locale], a: f.data.a[locale] }));
+
+const copy = {
+  id: {
+    lede: 'Ikuti enam langkah di bawah. Lihat pratinjau warnanya langsung, lalu kirim rancanganmu ke WhatsApp. Kami balas dengan konfirmasi detail, harga pasti, dan jadwal pengerjaan.',
+    rules: 'Aturan waktu pengerjaan',
+    rulesLede: 'Dihitung dalam hari kerja (Senin–Sabtu) sejak DP diterima dan desain disetujui.',
+    type: 'Jenis',
+    lead: 'Waktu pengerjaan',
+    from: 'Harga mulai',
+    days: (a: number, b: number) => `${a}–${b} hari kerja`,
+    deposit: 'Kebijakan DP',
+    depositBody: [
+      `DP ${site.depositPercent}% dibayar setelah desain, warna, dan harga disepakati. Perajutan dimulai setelah DP masuk.`,
+      'Pelunasan dibayar setelah kamu melihat foto hasil jadi, sebelum barang dikirim.',
+      'DP tidak dapat dikembalikan setelah perajutan dimulai, karena benang sudah dipotong dan dipakai khusus untuk pesananmu.',
+      'Revisi gratis dua kali di tahap desain dan warna. Perubahan besar setelah perajutan dimulai dikenakan biaya tambahan.',
+      'Butuh lebih cepat dari jadwal normal? Pesanan prioritas dikenakan biaya tambahan 20% jika antrean memungkinkan.',
+    ],
+    faq: 'Tanya jawab pesanan custom',
+    nojs: 'Builder interaktif butuh JavaScript. Kamu tetap bisa memesan custom langsung lewat WhatsApp:',
+  },
+  en: {
+    lede: "Follow the six steps below. Preview your colours live, then send your design on WhatsApp. We'll reply with the confirmed details, a firm price and a timeline.",
+    rules: 'Lead-time rules',
+    rulesLede: 'Counted in working days (Monday–Saturday) from when the deposit is paid and the design approved.',
+    type: 'Type',
+    lead: 'Lead time',
+    from: 'Starting price',
+    days: (a: number, b: number) => `${a}–${b} working days`,
+    deposit: 'Deposit policy',
+    depositBody: [
+      `A ${site.depositPercent}% deposit is paid once the design, colours and price are agreed. We start crocheting when it arrives.`,
+      'The balance is paid after you see photos of the finished piece, before it ships.',
+      'The deposit is non-refundable once crocheting starts, because the yarn has been cut and used for your order.',
+      'Two free revisions at the design and colour stage. Major changes after crocheting starts cost extra.',
+      'Need it sooner than the usual lead time? Priority orders cost an extra 20%, if the queue allows.',
+    ],
+    faq: 'Custom order questions',
+    nojs: 'The interactive builder needs JavaScript. You can still order a custom piece directly on WhatsApp:',
+  },
+}[locale];
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('custom')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('custom')[locale] }]}
+  schema={[faqPage(faqs)]}
+  waMessage={generalMessage(locale, locale === 'id' ? 'pesanan custom' : 'a custom order')}>
+  <section class="container-lc pt-8 pb-10">
+    <SectionTitle as="h1" kicker={meta.label} title={meta.h1} lede={copy.lede} />
+  </section>
+
+  <section class="container-lc" aria-label={meta.h1}>
+    <CustomBuilder client:visible locale={locale} today={isoDate(new Date())} />
+    <noscript>
+      <p class="scallop mt-6 p-6">
+        {copy.nojs}
+        <a
+          href={waLink(generalMessage(locale, locale === 'id' ? 'pesanan custom' : 'a custom order'))}
+          class="link-hand">
+          WhatsApp {site.phone.display}
+        </a>
+      </p>
+    </noscript>
+  </section>
+
+  <YarnThread from={84} to={18} class="mt-16" />
+
+  <section class="container-lc grid gap-12 py-12 lg:grid-cols-2" aria-label={copy.rules}>
+    <div>
+      <h2 class="text-step-3">{copy.rules}</h2>
+      <p class="mt-2 text-cocoa-soft">{copy.rulesLede}</p>
+      <div class="prose-lc mt-6">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">{copy.type}</th>
+              <th scope="col">{copy.lead}</th>
+              <th scope="col">{copy.from}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {PIECE_TYPES.map((p) => (
+              <tr>
+                <th scope="row">{p.name[locale]}</th>
+                <td>{copy.days(p.leadDays[0], p.leadDays[1])}</td>
+                <td>{formatIDR(Math.min(...p.sizes.map((s) => s.from)))}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h2 class="text-step-3">{copy.deposit}</h2>
+      <ol class="prose-lc mt-6">
+        {copy.depositBody.map((b) => (
+          <li>{b}</li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="container-lc py-12" aria-labelledby="custom-faq">
+    <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <h2 id="custom-faq" class="text-step-3">
+        {copy.faq}
+      </h2>
+      <FaqList items={faqs} />
+    </div>
+  </section>
+</BaseLayout>

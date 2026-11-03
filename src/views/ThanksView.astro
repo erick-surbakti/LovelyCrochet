@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { path, staticAlternates, type Locale } from '@/i18n/routes';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.thanks[locale];
+const patternHref = locale === 'id' ? '/pola-gratis/pola-tulip-mini/' : '/en/free-patterns/mini-tulip-pattern/';
+const copy = {
+  id: {
+    lede: 'Kabar pertama dari kami akan masuk ke email-mu. Sambil menunggu, ini pola tulip mini yang dijanjikan.',
+    open: 'Buka pola tulip mini',
+    shop: 'Atau lihat koleksi',
+  },
+  en: {
+    lede: "Our first letter will land in your inbox soon. Meanwhile, here's the mini tulip pattern we promised.",
+    open: 'Open the mini tulip pattern',
+    shop: 'Or browse the shop',
+  },
+}[locale];
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('thanks')}
+  noindex
+  hideNewsletter>
+  <section class="container-lc py-16 text-center">
+    <SectionTitle as="h1" title={meta.h1} lede={copy.lede} align="center" />
+    <div class="mt-10 flex flex-wrap justify-center gap-3">
+      <a
+        href={patternHref}
+        class="btn btn-primary"
+        data-track="pattern-download"
+        data-track-context={site.newsletter.leadMagnetPattern}>
+        {copy.open}
+      </a>
+      <a href={path('shop', locale)} class="btn btn-ghost">
+        {copy.shop}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

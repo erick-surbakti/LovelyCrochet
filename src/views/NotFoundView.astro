@@ -1,0 +1,91 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { path, staticAlternates, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const copy = {
+  id: {
+    title: 'Halaman Tidak Ditemukan | LovelyCrochet',
+    h1: 'Yah, benangnya putus!',
+    lede: 'Halaman yang kamu cari sudah pindah atau belum pernah dirajut. Coba cari di bawah, atau pilih salah satu halaman favorit kami.',
+    search: 'Cari di LovelyCrochet',
+    popular: 'Halaman populer',
+  },
+  en: {
+    title: 'Page Not Found | LovelyCrochet',
+    h1: 'Oh no, the yarn snapped!',
+    lede: "The page you're after has moved or was never crocheted. Try a search, or pick one of our favourite pages.",
+    search: 'Search LovelyCrochet',
+    popular: 'Popular pages',
+  },
+}[locale];
+const links = [
+  [path('shop', locale), t('nav.shop')],
+  [path('gifts', locale), t('nav.gifts')],
+  [path('custom', locale), t('nav.custom')],
+  [path('patterns', locale), t('nav.patterns')],
+  [path('bekasi', locale), t('nav.bekasi')],
+  [path('faq', locale), t('nav.faq')],
+];
+---
+
+<BaseLayout locale={locale} title={copy.title} description={copy.lede} alternates={staticAlternates('home')} noindex>
+  <section class="container-lc py-16 text-center">
+    <svg viewBox="0 0 320 140" class="mx-auto w-72" aria-hidden="true" focusable="false">
+      <circle cx="70" cy="80" r="42" fill="var(--color-rose-clay)"></circle>
+      <g fill="none" stroke="var(--color-cream)" stroke-width="3" opacity=".8">
+        <path d="M36 70c20 10 50 10 70-4"></path>
+        <path d="M34 90c22 12 54 10 74-6"></path>
+        <path d="M58 40c-10 20-10 52 6 80"></path>
+      </g>
+      <path
+        class="yarn-path"
+        stroke="var(--color-rose-clay)"
+        stroke-width="5"
+        d="M108 96 C150 120 170 60 200 84"></path>
+      <path
+        class="yarn-path"
+        stroke="var(--color-rose-clay)"
+        stroke-width="5"
+        d="M222 70 C250 50 270 110 300 90"></path>
+      <path
+        d="M200 84 l6 -8 M204 88 l8 -4 M222 70 l-6 8 M218 66 l-8 4"
+        stroke="var(--color-cocoa)"
+        stroke-width="2"
+        stroke-linecap="round"></path>
+    </svg>
+    <p class="font-display mt-6 text-step-5 text-rose-clay">404</p>
+    <h1 class="mt-2 text-step-5">{copy.h1}</h1>
+    <p class="mx-auto mt-4 max-w-xl text-step-1 text-cocoa-soft">{copy.lede}</p>
+    <form role="search" action={path('search', locale)} method="get" class="mx-auto mt-8 flex max-w-lg gap-3">
+      <label for="nf-q" class="sr-only-lc">
+        {copy.search}
+      </label>
+      <input
+        id="nf-q"
+        name="q"
+        type="search"
+        placeholder={copy.search}
+        class="min-w-0 flex-1 rounded-full border-2 border-cocoa/20 bg-paper px-5 py-3"
+      />
+      <button type="submit" class="btn btn-primary">
+        {t('nav.search')}
+      </button>
+    </form>
+    <h2 class="mt-12 font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">{copy.popular}</h2>
+    <ul class="mt-4 flex flex-wrap justify-center gap-2">
+      {links.map(([href, label], i) => (
+        <li>
+          <a href={href} class:list={['marker', ['', 'marker--sage', 'marker--butter'][i % 3]]}>
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

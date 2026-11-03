@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import Img from '@/components/ui/Img.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { staticAlternates, type Locale } from '@/i18n/routes';
+import { getOccasions, occasionUrl } from '@/lib/content';
+import { itemList } from '@/lib/schema';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.gifts[locale];
+const occasions = await getOccasions();
+const lede = {
+  id: 'Setiap momen punya kebutuhan berbeda, mulai dari batas waktu pesan, ukuran, sampai cara mengirimnya. Pilih momenmu, dan kami tunjukkan rajutan yang paling pas beserta tipsnya.',
+  en: 'Every occasion has its own needs, from order deadlines to sizes and delivery. Pick yours and we’ll show you the best-suited pieces and our tips.',
+}[locale];
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('gifts')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('gifts')[locale] }]}
+  schema={[
+    itemList(
+      occasions.map((o) => ({ url: new URL(occasionUrl(o, locale), site.url).toString(), name: o.data.title[locale] })),
+    ),
+  ]}>
+  <section class="container-lc pt-8 pb-6">
+    <SectionTitle as="h1" title={meta.h1} lede={lede} />
+  </section>
+  <section class="container-lc py-10" aria-label={meta.h1}>
+    <ul class="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+      {occasions.map((o, i) => (
+        <li class="rise">
+          <a href={occasionUrl(o, locale)} class="group block">
+            <div class="polaroid" style={`--tilt:${[-2, 1.5, -1, 2][i % 4]}deg`}>
+              <Img
+                name={o.data.image}
+                locale={locale}
+                sizes="(min-width: 1024px) 270px, (min-width: 640px) 45vw, 90vw"
+                widths={[320, 480, 640]}
+                class="aspect-[4/5] w-full object-cover"
+              />
+              <span class="font-display mt-3 block text-center text-step-1">{o.data.name[locale]}</span>
+            </div>
+            <h2 class="mt-5 text-step-1">
+              <span class="link-draw">{o.data.title[locale]}</span>
+            </h2>
+            <p class="mt-1 text-step--1 text-cocoa-soft">{o.data.lede[locale]}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+  <CtaBand locale={locale} context="gifts" />
+</BaseLayout>

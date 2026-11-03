@@ -1,0 +1,22 @@
+---
+import { htmlLang, otherLocale, type Alternates, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+
+interface Props {
+  locale: Locale;
+  alternates: Alternates;
+}
+const { locale, alternates } = Astro.props;
+const t = useTranslations(locale);
+const target = otherLocale(locale);
+---
+
+<a
+  href={alternates[target]}
+  hreflang={htmlLang[target]}
+  class="marker marker--oat !py-2 !pr-3"
+  data-lang-switch
+  data-astro-prefetch>
+  <span>{target.toUpperCase()}</span>
+  <span class="sr-only-lc">: {t('lang.switchLabel')}</span>
+</a>

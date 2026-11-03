@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon/components';
+import { locality, site } from '@/config/site';
+import { path, type Locale } from '@/i18n/routes';
+import { formatTime } from '@/lib/format';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const cutoff = formatTime(site.shipping.sameDayCutoff, locale);
+const copy = {
+  id: {
+    kicker: 'Tetangga sendiri',
+    title: 'Dirajut di Bekasi, sampai hari ini juga',
+    body: `Studio kami ada di ${locality}. Bayar sebelum pukul ${cutoff} WIB untuk produk ready stock, dan kado kamu bisa sampai hari itu juga lewat ${site.sameDayCouriers.join(' atau ')}.`,
+    areas: 'Area same-day',
+    more: 'Selengkapnya tentang rajutan Bekasi',
+    plus: 'dan Jabodetabek lainnya',
+  },
+  en: {
+    kicker: 'Your neighbours',
+    title: 'Made in Bekasi, delivered today',
+    body: `Our studio is in ${locality}. Pay before ${cutoff} WIB for ready-stock pieces and your gift can arrive the same day by ${site.sameDayCouriers.join(' or ')}.`,
+    areas: 'Same-day areas',
+    more: 'More about crochet in Bekasi',
+    plus: 'and the rest of Jabodetabek',
+  },
+}[locale];
+---
+
+<section class="container-lc py-16" aria-labelledby="local-title">
+  <div class="blob relative overflow-hidden bg-sage-ink p-8 text-cream md:p-14">
+    <svg class="absolute -top-10 -right-10 w-72 opacity-25" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+      <circle
+        cx="100"
+        cy="100"
+        r="80"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-dasharray="6 8"></circle>
+      <circle
+        cx="100"
+        cy="100"
+        r="55"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-dasharray="4 7"></circle>
+      <circle cx="100" cy="100" r="8" fill="currentColor"></circle>
+    </svg>
+    <div class="relative grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="kicker !text-cream">{copy.kicker}</p>
+        <h2 id="local-title" class="mt-2 text-step-4">
+          {copy.title}
+        </h2>
+        <p class="mt-4 text-step-1 opacity-90">{copy.body}</p>
+        <a href={path('bekasi', locale)} class="btn mt-8 bg-cream text-cocoa">
+          <Icon name="lucide:map-pin" class="size-5" aria-hidden="true" />
+          {copy.more}
+        </a>
+      </div>
+      <div>
+        <h3 class="font-sans text-step--1 font-bold tracking-[0.14em] uppercase opacity-90">{copy.areas}</h3>
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {site.sameDayAreas.map((a) => (
+            <li class="rounded-full border-2 border-dashed border-cream/50 px-3.5 py-1.5 font-semibold">{a}</li>
+          ))}
+          <li class="rounded-full bg-[#3a4f37] px-3.5 py-1.5">{copy.plus}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

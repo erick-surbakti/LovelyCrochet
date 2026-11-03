@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon/components';
+import { path, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { generalMessage, waLink } from '@/lib/whatsapp';
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  body?: string;
+  message?: string;
+  context?: string;
+}
+const { locale, title, body, message, context = 'cta' } = Astro.props;
+const t = useTranslations(locale);
+const copy = {
+  id: {
+    title: 'Punya ide rajutan sendiri?',
+    body: 'Ceritakan untuk siapa, warna favoritnya, dan kapan dibutuhkan. Kami bantu wujudkan, simpul demi simpul.',
+  },
+  en: {
+    title: 'Got your own crochet idea?',
+    body: "Tell us who it's for, their favourite colours and when you need it. We'll make it happen, stitch by stitch.",
+  },
+}[locale];
+---
+
+<section class="container-lc py-16" aria-labelledby={`cta-${context}`}>
+  <div class="scallop relative mx-auto max-w-4xl bg-blush px-6 py-12 text-center shadow-[var(--shadow-warm)] md:px-16">
+    <h2 id={`cta-${context}`} class="text-step-4">
+      {title ?? copy.title}
+    </h2>
+    <p class="mx-auto mt-4 max-w-xl text-step-1">{body ?? copy.body}</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a
+        href={waLink(message ?? generalMessage(locale))}
+        class="btn btn-wa"
+        rel="noopener"
+        target="_blank"
+        data-track="whatsapp"
+        data-track-context={context}>
+        <Icon name="lucide:message-circle" class="size-5" aria-hidden="true" />
+        {t('cta.whatsapp')}
+        <span class="sr-only-lc"> {t('a11y.newTab')}</span>
+      </a>
+      <a href={path('custom', locale)} class="btn btn-ghost">
+        {t('cta.custom')}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,143 @@
+---
+import Img from '@/components/ui/Img.astro';
+import type { Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { formatIDR } from '@/lib/format';
+import { fromPrice, priceBand, productUrl, type Product } from '@/lib/content';
+import { colorFamilies } from '@/lib/colors';
+
+interface Props {
+  product: Product;
+  locale: Locale;
+  /** Give the image a view-transition name so it morphs into the product page. Must be unique per page. */
+  morph?: boolean;
+  headingLevel?: 'h2' | 'h3';
+  tilt?: number;
+}
+const { product, locale, morph = false, headingLevel: H = 'h3', tilt = 0 } = Astro.props;
+const t = useTranslations(locale);
+const p = product.data;
+const href = productUrl(product, locale);
+const price = fromPrice(product);
+const hasVariants = (p.variants?.length ?? 0) > 1;
+const [primary, secondary] = p.images;
+const sizes = '(min-width: 1200px) 280px, (min-width: 768px) 30vw, 46vw';
+---
+
+<article
+  class="product-card group relative"
+  data-category={p.category}
+  data-colors={colorFamilies(p.colorTags ?? p.colors.map((c) => c.key)).join(' ')}
+  data-occasions={p.occasions.join(' ')}
+  data-price={price}
+  data-price-band={priceBand(price)}
+  data-availability={p.availability}
+  style={`--tilt:${tilt}deg`}>
+  <a href={href} class="block rounded-[1.6rem] focus-visible:outline-offset-8">
+    <div class="relative">
+      <div
+        class="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] bg-oat shadow-[var(--shadow-warm)]"
+        transition:name={morph ? `product-${product.id}` : undefined}>
+        <Img name={primary!} locale={locale} sizes={sizes} class="card-img size-full object-cover" />
+        {secondary && (
+          <Img
+            name={secondary}
+            locale={locale}
+            sizes={sizes}
+            decorative
+            class="card-img-alt absolute inset-0 size-full object-cover opacity-0"
+          />
+        )}
+      </div>
+      <!-- Border that "unravels" into a dashed stitch outline on hover -->
+      <svg class="card-outline pointer-events-none absolute -inset-[6px]" aria-hidden="true" focusable="false">
+        <rect rx="30" pathLength="1" fill="none" stroke="var(--color-rose-clay)" stroke-width="2.5"></rect>
+      </svg>
+      <span class="card-badge marker marker--butter absolute top-3 left-3">{t('product.handmade')}</span>
+    </div>
+    <div class="mt-4 px-1">
+      <H class="font-display text-step-1 leading-snug">{p.name[locale]}</H>
+      <p class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <span class="font-bold">
+          {hasVariants && <span class="font-normal text-cocoa-soft">{t('product.from')} </span>}
+          {formatIDR(price)}
+        </span>
+        <span class:list={['marker', p.availability === 'ready' ? 'marker--sage' : 'marker--oat']}>
+          {p.availability === 'ready' ? t('product.ready') : t('product.preorder')}
+        </span>
+      </p>
+    </div>
+  </a>
+</article>
+
+<style>
+  .product-card {
+    rotate: var(--tilt);
+    transition: rotate 0.4s var(--ease-yarn);
+  }
+  .product-card:hover {
+    rotate: 0deg;
+  }
+  .card-outline {
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    overflow: visible;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .card-outline rect {
+    x: 2px;
+    y: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    stroke-dasharray: 1 0;
+  }
+  .card-img-alt {
+    transition: opacity 0.5s var(--ease-yarn);
+  }
+  .card-badge {
+    opacity: 0;
+    transform: translateY(-6px) rotate(-10deg);
+    transition:
+      opacity 0.3s,
+      transform 0.45s var(--ease-yarn);
+  }
+  @media (hover: hover) {
+    .product-card:hover .card-img-alt,
+    .product-card:focus-within .card-img-alt {
+      opacity: 1;
+    }
+    .product-card:hover .card-outline,
+    .product-card:focus-within .card-outline {
+      opacity: 1;
+    }
+    .product-card:hover .card-badge,
+    .product-card:focus-within .card-badge {
+      opacity: 1;
+      transform: translateY(0) rotate(-6deg);
+    }
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .card-outline rect {
+      transition: stroke-dasharray 0.6s var(--ease-yarn);
+    }
+    .product-card:hover .card-outline rect,
+    .product-card:focus-within .card-outline rect {
+      stroke-dasharray: 0.012 0.009;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .product-card,
+    .card-img-alt,
+    .card-badge {
+      transition: none;
+    }
+  }
+  /* Touch devices: badge always visible, no hover swap */
+  @media (hover: none) {
+    .card-badge {
+      opacity: 1;
+      transform: rotate(-6deg);
+    }
+  }
+</style>

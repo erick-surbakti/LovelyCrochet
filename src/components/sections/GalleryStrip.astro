@@ -1,0 +1,93 @@
+---
+import { getImage as optimize } from 'astro:assets';
+import Img from '@/components/ui/Img.astro';
+import Lightbox from '@/components/ui/Lightbox.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { site } from '@/config/site';
+import type { Locale } from '@/i18n/routes';
+import { getImage } from '@/lib/images';
+
+interface Props {
+  locale: Locale;
+  names?: string[];
+}
+const {
+  locale,
+  names = [
+    'boneka-kelinci-rajut-krem-syal-biru',
+    'boneka-donald-duck-rajut-amigurumi',
+    'boneka-penguin-rajut-kupluk-biru-kotak-kado',
+    'boneka-hello-kitty-rajut-overall-pink-kotak-kado',
+    'gantungan-kunci-anjing-amigurumi-rajut',
+    'boneka-husky-rajut-amigurumi-kotak-kado',
+  ],
+} = Astro.props;
+
+const copy = {
+  id: {
+    kicker: 'Dari studio',
+    title: 'Galeri rajutan',
+    lede: 'Ketuk foto untuk melihat lebih dekat. Simpan ke Pinterest untuk inspirasi kado berikutnya.',
+    follow: 'Ikuti di Instagram',
+    open: 'Lihat foto lebih besar:',
+    label: 'Galeri foto rajutan',
+  },
+  en: {
+    kicker: 'From the studio',
+    title: 'Crochet gallery',
+    lede: 'Tap a photo for a closer look. Save to Pinterest for your next gift idea.',
+    follow: 'Follow on Instagram',
+    open: 'View larger photo:',
+    label: 'Crochet photo gallery',
+  },
+}[locale];
+
+const items = await Promise.all(
+  names.map(async (name) => {
+    const img = getImage(name);
+    const full = await optimize({ src: img.src, width: 1400, format: 'webp' });
+    return { name, img, full };
+  }),
+);
+---
+
+<section class="py-16" aria-labelledby="gallery-title">
+  <div class="container-lc flex flex-wrap items-end justify-between gap-6">
+    <SectionTitle id="gallery-title" kicker={copy.kicker} title={copy.title} lede={copy.lede} />
+    {site.social.instagram && (
+      <a href={site.social.instagram} class="link-hand" rel="noopener me" target="_blank">
+        {copy.follow} →
+      </a>
+    )}
+  </div>
+  <Lightbox locale={locale} label={copy.label} class="container-lc mt-10">
+    <ul class="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-6">
+      {items.map(({ name, img, full }, i) => (
+        <li>
+          <button
+            type="button"
+            class="polaroid block w-full text-left"
+            style={`--tilt:${[-2, 1.5, -1, 2, -1.5, 1][i % 6]}deg`}
+            data-lightbox-item
+            data-full={full.src}
+            data-w={full.attributes.width}
+            data-h={full.attributes.height}
+            data-alt={img.alt[locale]}
+            data-caption={img.caption[locale]}>
+            <span class="sr-only-lc">{copy.open}</span>
+            <Img
+              name={name}
+              locale={locale}
+              sizes="(min-width: 1024px) 180px, (min-width: 768px) 30vw, 45vw"
+              widths={[240, 360, 480]}
+              class="aspect-square w-full object-cover"
+            />
+            <span class="font-display mt-2 block text-center text-step--1 text-cocoa-soft" aria-hidden="true">
+              {img.caption[locale].split(',')[0]}
+            </span>
+          </button>
+        </li>
+      ))}
+    </ul>
+  </Lightbox>
+</section>

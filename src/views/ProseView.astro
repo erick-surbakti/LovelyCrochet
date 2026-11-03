@@ -1,0 +1,59 @@
+---
+/** Renders a long-form page from the `pages` collection (care, size, shipping, privacy, terms). */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { pageMeta } from '@/i18n/pageMeta';
+import { staticAlternates, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { formatDate, isoDate } from '@/lib/format';
+
+interface Props {
+  locale: Locale;
+  pageKey: 'care' | 'size' | 'shipping' | 'privacy' | 'terms';
+}
+const { locale, pageKey } = Astro.props;
+const t = useTranslations(locale);
+const meta = pageMeta[pageKey][locale];
+const entry = (await getCollection('pages', (p) => p.data.key === pageKey && p.data.lang === locale))[0];
+if (!entry) throw new Error(`Missing page content: ${pageKey} (${locale})`);
+const { Content, headings } = await render(entry);
+const toc = headings.filter((h) => h.depth === 2);
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates(pageKey)}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates(pageKey)[locale] }]}>
+  <section class="container-lc pt-8 pb-6">
+    <SectionTitle as="h1" title={meta.h1} lede={entry.data.lede} />
+    <p class="mt-4 text-step--1 text-cocoa-soft">
+      {t('date.updated')}: <time datetime={isoDate(entry.data.updated)}>{formatDate(entry.data.updated, locale)}</time>
+    </p>
+  </section>
+  <div class="container-lc grid gap-12 py-8 lg:grid-cols-[1fr_16rem]">
+    <article class="prose-lc min-w-0">
+      <Content />
+    </article>
+    {toc.length > 2 && (
+      <nav aria-labelledby="toc-title" class="no-print order-first lg:order-none">
+        <div class="scallop p-5 lg:sticky lg:top-24">
+          <h2 id="toc-title" class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">
+            {t('toc.title')}
+          </h2>
+          <ol class="mt-3 space-y-2 text-step--1">
+            {toc.map((h) => (
+              <li>
+                <a href={`#${h.slug}`} class="link-draw">
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </nav>
+    )}
+  </div>
+</BaseLayout>

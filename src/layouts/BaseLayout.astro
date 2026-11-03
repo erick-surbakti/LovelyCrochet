@@ -1,0 +1,106 @@
+---
+import '@/styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import SEO from '@/components/seo/SEO.astro';
+import Header from '@/components/sections/Header.astro';
+import Footer from '@/components/sections/Footer.astro';
+import MobileBar from '@/components/sections/MobileBar.astro';
+import Breadcrumbs from '@/components/ui/Breadcrumbs.astro';
+import ClientEnhancements from '@/components/ui/ClientEnhancements.astro';
+import { site } from '@/config/site';
+import { htmlLang, path, type Alternates, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { breadcrumbList, graph, serialize, type Crumb, type JsonLd } from '@/lib/schema';
+import { ogPathFor } from '@/lib/og';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  alternates: Alternates;
+  /** Visible + schema breadcrumbs, excluding Home (added automatically). */
+  breadcrumbs?: Crumb[];
+  schema?: JsonLd[];
+  noindex?: boolean;
+  ogType?: 'website' | 'article' | 'product';
+  ogImageAlt?: string;
+  article?: { published: Date; modified?: Date; section?: string };
+  /** Hide the newsletter block above the footer. */
+  hideNewsletter?: boolean;
+  /** WhatsApp message for the sticky mobile bar on this page. */
+  waMessage?: string;
+}
+
+const {
+  locale,
+  title,
+  description,
+  alternates,
+  breadcrumbs,
+  schema = [],
+  noindex = false,
+  ogType = 'website',
+  ogImageAlt,
+  article,
+  hideNewsletter = false,
+  waMessage,
+} = Astro.props;
+
+const t = useTranslations(locale);
+const crumbs: Crumb[] | undefined = breadcrumbs
+  ? [{ name: t('breadcrumb.home'), path: path('home', locale) }, ...breadcrumbs]
+  : undefined;
+const nodes: JsonLd[] = [...schema, ...(crumbs ? [breadcrumbList(site.url, crumbs)] : [])];
+const ogImage = ogPathFor(alternates[locale]);
+const rss = locale === 'id' ? '/jurnal/rss.xml' : '/en/journal/rss.xml';
+---
+
+<!doctype html>
+<html lang={htmlLang[locale]} dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="preload" href="/fonts/fraunces-var-v2.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/plus-jakarta-sans-var-v2.woff2" as="font" type="font/woff2" crossorigin />
+    <SEO
+      locale={locale}
+      title={title}
+      description={description}
+      alternates={alternates}
+      ogImage={ogImage}
+      ogImageAlt={ogImageAlt ?? title}
+      ogType={ogType}
+      noindex={noindex}
+      article={article}
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#FBF6EE" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="alternate" type="application/rss+xml" title={`${site.name} – ${t('nav.journal')}`} href={rss} />
+    {site.analytics.enabled && (
+      <>
+        <link rel="preconnect" href="https://plausible.io" crossorigin />
+        <script is:inline defer data-domain={site.analytics.domain} src={site.analytics.scriptSrc} />
+      </>
+    )}
+    <ClientRouter />
+    {nodes.length > 0 && <script type="application/ld+json" set:html={serialize(graph(nodes))} />}
+  </head>
+  <body class="min-h-dvh">
+    <a class="skip-link" href="#main">
+      {t('a11y.skip')}
+    </a>
+    <div class="grain" aria-hidden="true"></div>
+    <Header locale={locale} alternates={alternates} />
+    <main id="main" tabindex="-1" class="outline-none">
+      {crumbs && <Breadcrumbs crumbs={crumbs} locale={locale} />}
+      <slot />
+    </main>
+    <Footer locale={locale} hideNewsletter={hideNewsletter} />
+    <MobileBar locale={locale} message={waMessage} />
+    <ClientEnhancements />
+  </body>
+</html>

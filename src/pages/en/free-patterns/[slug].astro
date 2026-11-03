@@ -1,0 +1,14 @@
+---
+import type { GetStaticPaths } from 'astro';
+import PatternView from '@/views/PatternView.astro';
+import { getPatterns, type Pattern } from '@/lib/content';
+
+export const getStaticPaths = (async () => {
+  const items = await getPatterns('en');
+  return items.map((item) => ({ params: { slug: item.data.slug }, props: { item } }));
+}) satisfies GetStaticPaths;
+
+const { item } = Astro.props as { item: Pattern };
+---
+
+<PatternView pattern={item} />

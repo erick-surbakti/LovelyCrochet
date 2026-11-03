@@ -1,0 +1,73 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ShopFilters from '@/components/sections/ShopFilters.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import ProductCard from '@/components/ui/ProductCard.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { staticAlternates, type Locale } from '@/i18n/routes';
+import { categoryUrl, getCategories, getOccasions, getProducts, productUrl } from '@/lib/content';
+import { colorFamilies } from '@/lib/colors';
+import { itemList } from '@/lib/schema';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.shop[locale];
+const [products, categories, occasions] = await Promise.all([getProducts(), getCategories(), getOccasions()]);
+const lede = {
+  id: 'Setiap karya di bawah ini dirajut tangan di studio kami di Bekasi. Ready Stock bisa dikirim hari ini, Pre-Order dirajut khusus setelah kamu memesan.',
+  en: 'Every piece below is hand-crocheted in our Bekasi studio. Ready Stock ships today. Pre-Order pieces are crocheted just for you after you order.',
+}[locale];
+const tilts = [-1.5, 1, -0.5, 1.5];
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('shop')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('shop')[locale] }]}
+  schema={[
+    itemList(
+      products.map((p) => ({ url: new URL(productUrl(p, locale), site.url).toString(), name: p.data.name[locale] })),
+    ),
+  ]}>
+  <section class="container-lc pt-8 pb-6">
+    <SectionTitle as="h1" title={meta.h1} lede={lede} />
+    <nav class="mt-8" aria-label={locale === 'id' ? 'Kategori' : 'Categories'}>
+      <ul class="flex flex-wrap gap-2">
+        {categories.map((c, i) => (
+          <li>
+            <a
+              href={categoryUrl(c, locale)}
+              class:list={['marker', ['', 'marker--sage', 'marker--butter', 'marker--oat'][i % 4]]}>
+              {c.data.name[locale]}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </section>
+
+  <section class="container-lc" aria-label={meta.h1}>
+    <ShopFilters
+      locale={locale}
+      categories={categories.filter((c) => products.some((p) => p.data.category === c.id))}
+      occasions={occasions}
+      colorKeys={[
+        ...new Set(products.flatMap((p) => colorFamilies(p.data.colorTags ?? p.data.colors.map((c) => c.key)))),
+      ]}
+      total={products.length}
+    />
+    <div class="mt-12 grid grid-cols-2 gap-x-4 gap-y-12 md:grid-cols-3 md:gap-x-8 lg:grid-cols-4" data-product-grid>
+      {products.map((p, i) => (
+        <ProductCard product={p} locale={locale} morph headingLevel="h2" tilt={tilts[i % 4]} />
+      ))}
+    </div>
+  </section>
+
+  <CtaBand locale={locale} context="shop" />
+</BaseLayout>

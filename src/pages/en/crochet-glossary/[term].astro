@@ -1,0 +1,14 @@
+---
+import type { GetStaticPaths } from 'astro';
+import TermView from '@/views/TermView.astro';
+import { getTerms, type Term } from '@/lib/content';
+
+export const getStaticPaths = (async () => {
+  const items = (await getTerms()).filter((t) => t.data.major);
+  return items.map((item) => ({ params: { term: item.data.slug.en }, props: { item } }));
+}) satisfies GetStaticPaths;
+
+const { item } = Astro.props as { item: Term };
+---
+
+<TermView locale="en" term={item} />

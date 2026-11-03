@@ -1,0 +1,98 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Img from '@/components/ui/Img.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { path, staticAlternates, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getPosts, postUrl } from '@/lib/content';
+import { formatDate, isoDate, readingMinutes } from '@/lib/format';
+import { itemList } from '@/lib/schema';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const meta = pageMeta.journal[locale];
+const posts = await getPosts(locale);
+const clusters = {
+  id: {
+    belajar: ['Belajar merajut', 'Tusuk dasar, istilah, dan pola untuk pemula.'],
+    'bahan-perawatan': ['Bahan & perawatan', 'Memilih benang dan merawat rajutan supaya awet.'],
+    kado: ['Kado & momen', 'Ide kado handmade untuk setiap perayaan.'],
+    'di-balik-layar': ['Di balik layar', 'Cerita studio dan cara menilai kualitas rajutan.'],
+  },
+  en: {
+    belajar: ['Learn to crochet', 'Basic stitches, terms and beginner patterns.'],
+    'bahan-perawatan': ['Materials & care', 'Choosing yarn and keeping crochet looking new.'],
+    kado: ['Gifts & occasions', 'Handmade gift ideas for every celebration.'],
+    'di-balik-layar': ['Behind the scenes', 'Studio stories and how to judge crochet quality.'],
+  },
+}[locale];
+const lede = {
+  id: 'Catatan dari meja rajut kami, untuk kamu yang ingin belajar merajut, merawat rajutan, atau mencari ide kado.',
+  en: 'Notes from our crochet table, for anyone learning to crochet, caring for crochet or looking for gift ideas.',
+}[locale];
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('journal')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('journal')[locale] }]}
+  schema={[itemList(posts.map((p) => ({ url: new URL(postUrl(p), site.url).toString(), name: p.data.title })))]}>
+  <section class="container-lc pt-8 pb-6">
+    <SectionTitle as="h1" title={meta.h1} lede={lede} />
+    <p class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+      <a href={path('patterns', locale)} class="link-hand">
+        {t('nav.patterns')}
+      </a>
+      <a href={path('glossary', locale)} class="link-hand">
+        {t('nav.glossary')}
+      </a>
+      <a href={locale === 'id' ? '/jurnal/rss.xml' : '/en/journal/rss.xml'} class="link-hand">
+        RSS
+      </a>
+    </p>
+  </section>
+
+  {Object.entries(clusters).map(([key, [title, sub]]) => {
+    const list = posts.filter((p) => p.data.cluster === key);
+    return list.length ? (
+      <section class="container-lc py-10" aria-labelledby={`c-${key}`}>
+        <h2 id={`c-${key}`} class="text-step-3">
+          {title}
+        </h2>
+        <p class="mt-1 text-cocoa-soft">{sub}</p>
+        <ul class="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {list.map((post, i) => (
+            <li class="rise">
+              <a href={postUrl(post)} class="group block">
+                <div class="polaroid !pb-3" style={`--tilt:${[-1.5, 1, -0.5][i % 3]}deg`}>
+                  <Img
+                    name={post.data.heroImage}
+                    locale={locale}
+                    sizes="(min-width: 1024px) 360px, (min-width: 768px) 45vw, 92vw"
+                    widths={[320, 480, 640, 800]}
+                    class="aspect-[3/2] w-full object-cover"
+                  />
+                </div>
+                <h3 class="mt-5 text-step-1">
+                  <span class="link-draw">{post.data.title}</span>
+                </h3>
+                <p class="mt-2 text-step--1 text-cocoa-soft">{post.data.description}</p>
+                <p class="mt-2 text-step--1 font-semibold">
+                  <time datetime={isoDate(post.data.publishDate)}>{formatDate(post.data.publishDate, locale)}</time> ·{' '}
+                  {t('reading.minutes', { n: readingMinutes(post.body ?? '') })}
+                </p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ) : null;
+  })}
+</BaseLayout>

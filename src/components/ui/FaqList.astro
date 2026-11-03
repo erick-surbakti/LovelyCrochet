@@ -1,0 +1,26 @@
+---
+/** Accessible FAQ accordion built on <details>, no JavaScript needed. */
+interface Props {
+  items: { q: string; a: string }[];
+  headingLevel?: 'h2' | 'h3';
+}
+const { items, headingLevel: H = 'h3' } = Astro.props;
+---
+
+<div class="divide-y-2 divide-dashed divide-cocoa/15 border-y-2 border-dashed border-cocoa/15">
+  {items.map((item) => (
+    <details class="faq group py-1" name="faq">
+      <summary class="flex cursor-pointer list-none items-start justify-between gap-6 rounded-lg py-4 [&::-webkit-details-marker]:hidden">
+        <H class="font-sans text-step-0 leading-snug font-bold">{item.q}</H>
+        <span
+          class="mt-1 grid size-7 shrink-0 place-items-center rounded-full bg-blush transition-transform duration-300 group-open:rotate-45"
+          aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12">
+            <path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </span>
+      </summary>
+      <p class="pr-12 pb-5 text-cocoa-soft">{item.a}</p>
+    </details>
+  ))}
+</div>

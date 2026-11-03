@@ -1,0 +1,244 @@
+---
+/**
+ * URL-param driven product filters. Works on top of server-rendered cards:
+ * the filter state lives in the query string (shareable links), and any
+ * filtered state is marked noindex while the canonical stays on /koleksi/.
+ * Without JavaScript every product is simply shown.
+ */
+import { COLOR_FAMILIES } from '@/lib/colors';
+import { occasionIds } from '@/lib/taxonomy';
+import type { Locale } from '@/i18n/routes';
+import type { Category, Occasion } from '@/lib/content';
+
+interface Props {
+  locale: Locale;
+  categories: Category[];
+  occasions: Occasion[];
+  /** Colour families present on at least one product. */
+  colorKeys: string[];
+  total: number;
+}
+const { locale, categories, occasions, colorKeys, total } = Astro.props;
+const colors = COLOR_FAMILIES.filter((c) => colorKeys.includes(c.key));
+
+const copy = {
+  id: {
+    title: 'Saring koleksi',
+    category: 'Kategori',
+    color: 'Warna',
+    price: 'Harga',
+    occasion: 'Momen',
+    stock: 'Ketersediaan',
+    all: 'Semua',
+    ready: 'Ready Stock',
+    preorder: 'Pre-Order',
+    prices: {
+      u100: 'Di bawah Rp 100rb',
+      '100-250': 'Rp 100–250rb',
+      '250-500': 'Rp 250–500rb',
+      o500: 'Di atas Rp 500rb',
+    },
+    reset: 'Hapus filter',
+    showing: (n: number) => `Menampilkan ${n} dari ${total} produk`,
+    empty: 'Belum ada rajutan yang cocok dengan filter ini. Coba hapus satu filter, atau pesan versi custom-nya.',
+    params: { category: 'kategori', color: 'warna', price: 'harga', occasion: 'momen', stock: 'stok' },
+  },
+  en: {
+    title: 'Filter the collection',
+    category: 'Category',
+    color: 'Colour',
+    price: 'Price',
+    occasion: 'Occasion',
+    stock: 'Availability',
+    all: 'All',
+    ready: 'Ready Stock',
+    preorder: 'Pre-Order',
+    prices: { u100: 'Under Rp 100k', '100-250': 'Rp 100–250k', '250-500': 'Rp 250–500k', o500: 'Over Rp 500k' },
+    reset: 'Clear filters',
+    showing: (n: number) => `Showing ${n} of ${total} products`,
+    empty: 'Nothing matches these filters yet. Try removing one, or order a custom version.',
+    params: { category: 'category', color: 'colour', price: 'price', occasion: 'occasion', stock: 'stock' },
+  },
+}[locale];
+const occasionName = (id: string) => occasions.find((o) => o.id === id)?.data.name[locale] ?? id;
+const selectCls = 'w-full rounded-full border-2 border-cocoa/20 bg-paper px-4 py-2.5 font-semibold';
+---
+
+<shop-filters
+  data-showing-template={copy.showing(999)}
+  data-total={total}
+  data-p-category={copy.params.category}
+  data-p-color={copy.params.color}
+  data-p-price={copy.params.price}
+  data-p-occasion={copy.params.occasion}
+  data-p-stock={copy.params.stock}>
+  <form class="scallop p-5 shadow-[var(--shadow-warm)] md:p-6" method="get" aria-labelledby="filter-title">
+    <h2 id="filter-title" class="font-sans text-step-0 font-bold">
+      {copy.title}
+    </h2>
+    <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div>
+        <label for="f-category" class="mb-1 block text-step--1 font-bold">
+          {copy.category}
+        </label>
+        <select id="f-category" name={copy.params.category} data-filter="category" class={selectCls}>
+          <option value="">{copy.all}</option>
+          {categories.map((c) => (
+            <option value={c.id}>{c.data.name[locale]}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label for="f-price" class="mb-1 block text-step--1 font-bold">
+          {copy.price}
+        </label>
+        <select id="f-price" name={copy.params.price} data-filter="price-band" class={selectCls}>
+          <option value="">{copy.all}</option>
+          {Object.entries(copy.prices).map(([k, v]) => (
+            <option value={k}>{v}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label for="f-occasion" class="mb-1 block text-step--1 font-bold">
+          {copy.occasion}
+        </label>
+        <select id="f-occasion" name={copy.params.occasion} data-filter="occasions" class={selectCls}>
+          <option value="">{copy.all}</option>
+          {occasionIds.map((o) => (
+            <option value={o}>{occasionName(o)}</option>
+          ))}
+        </select>
+      </div>
+      <fieldset>
+        <legend class="mb-1 block text-step--1 font-bold">{copy.stock}</legend>
+        <div class="flex flex-wrap gap-2">
+          <label class="choice">
+            <input type="radio" name={copy.params.stock} value="" data-filter="availability" checked />
+            <span>{copy.all}</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name={copy.params.stock} value="ready" data-filter="availability" />
+            <span>{copy.ready}</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name={copy.params.stock} value="preorder" data-filter="availability" />
+            <span>{copy.preorder}</span>
+          </label>
+        </div>
+      </fieldset>
+    </div>
+    <fieldset class="mt-4">
+      <legend class="mb-2 block text-step--1 font-bold">{copy.color}</legend>
+      <div class="flex flex-wrap gap-2">
+        {colors.map((c) => (
+          <label class="choice">
+            <input type="checkbox" name={copy.params.color} value={c.key} data-filter="colors" />
+            <span>
+              <i class="swatch" style={`background:${c.hex}`} aria-hidden="true" />
+              {c.name[locale]}
+            </span>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+    <div class="mt-5 flex flex-wrap items-center justify-between gap-3">
+      <p class="font-semibold" role="status" aria-live="polite" data-count>
+        {copy.showing(total)}
+      </p>
+      <div class="flex gap-2">
+        <noscript>
+          <button type="submit" class="btn btn-primary btn-sm">
+            OK
+          </button>
+        </noscript>
+        <button type="reset" class="btn btn-ghost btn-sm" data-reset>
+          {copy.reset}
+        </button>
+      </div>
+    </div>
+  </form>
+  <p class="scallop mt-8 hidden p-6 text-center" data-empty>
+    {copy.empty}
+  </p>
+</shop-filters>
+
+<script>
+  class ShopFilters extends HTMLElement {
+    private form!: HTMLFormElement;
+    private cards: HTMLElement[] = [];
+
+    connectedCallback() {
+      this.form = this.querySelector('form')!;
+      this.cards = [...document.querySelectorAll<HTMLElement>('[data-product-grid] .product-card')];
+      this.readUrl();
+      this.apply(false);
+      this.form.addEventListener('change', () => this.apply(true));
+      this.form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.apply(true);
+      });
+      this.querySelector('[data-reset]')?.addEventListener('click', () => setTimeout(() => this.apply(true)));
+    }
+
+    private param(kind: string) {
+      return this.dataset[`p${kind[0]!.toUpperCase()}${kind.slice(1)}`]!;
+    }
+
+    private readUrl() {
+      const q = new URLSearchParams(location.search);
+      for (const el of this.form.elements) {
+        if (!(el instanceof HTMLInputElement || el instanceof HTMLSelectElement) || !el.name) continue;
+        const values = q.getAll(el.name);
+        if (el instanceof HTMLSelectElement) el.value = values[0] ?? '';
+        else if (el.type === 'checkbox') el.checked = values.includes(el.value);
+        else if (el.type === 'radio') el.checked = (values[0] ?? '') === el.value;
+      }
+    }
+
+    private apply(writeUrl: boolean) {
+      const data = new FormData(this.form);
+      const get = (k: string) => data.getAll(this.param(k)).map(String).filter(Boolean);
+      const category = get('category')[0];
+      const price = get('price')[0];
+      const occasion = get('occasion')[0];
+      const stock = get('stock')[0];
+      const colors = get('color');
+
+      let shown = 0;
+      for (const card of this.cards) {
+        const d = card.dataset;
+        const ok =
+          (!category || d.category === category) &&
+          (!price || d.priceBand === price) &&
+          (!occasion || (d.occasions ?? '').split(' ').includes(occasion)) &&
+          (!stock || d.availability === stock) &&
+          (!colors.length || colors.some((c) => (d.colors ?? '').split(' ').includes(c)));
+        card.hidden = !ok;
+        if (ok) shown++;
+      }
+
+      const tpl = this.dataset.showingTemplate ?? '';
+      this.querySelector('[data-count]')!.textContent = tpl.replace('999', String(shown));
+      this.querySelector('[data-empty]')!.classList.toggle('hidden', shown > 0);
+
+      const filtered = Boolean(category || price || occasion || stock || colors.length);
+      // Filtered states are shareable but must not be indexed.
+      let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+      if (!robots) {
+        robots = document.createElement('meta');
+        robots.name = 'robots';
+        document.head.append(robots);
+      }
+      robots.content = filtered ? 'noindex, follow' : 'index, follow, max-image-preview:large';
+
+      if (writeUrl) {
+        const q = new URLSearchParams();
+        for (const [k, v] of data.entries()) if (String(v)) q.append(k, String(v));
+        const qs = q.toString();
+        history.replaceState(history.state, '', `${location.pathname}${qs ? `?${qs}` : ''}`);
+      }
+    }
+  }
+  if (!customElements.get('shop-filters')) customElements.define('shop-filters', ShopFilters);
+</script>

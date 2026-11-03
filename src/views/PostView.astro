@@ -1,0 +1,210 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import Img from '@/components/ui/Img.astro';
+import Logo from '@/components/ui/Logo.astro';
+import ProductCard from '@/components/ui/ProductCard.astro';
+import { locality, site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { path, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import {
+  categoryUrl,
+  getCategories,
+  getPosts,
+  postTwin,
+  postUrl,
+  productsByIds,
+  type JournalPost,
+} from '@/lib/content';
+import { formatDate, isoDate, readingMinutes } from '@/lib/format';
+import { getImage } from '@/lib/images';
+import { getImage as optimize } from 'astro:assets';
+import { blogPosting, orgId } from '@/lib/schema';
+
+interface Props {
+  post: JournalPost;
+}
+const { post } = Astro.props;
+const locale = post.data.lang as Locale;
+const t = useTranslations(locale);
+const twin = await postTwin(post);
+const self = postUrl(post);
+const alternates =
+  locale === 'id'
+    ? { id: self, en: twin ? postUrl(twin) : path('journal', 'en') }
+    : { id: twin ? postUrl(twin) : path('journal', 'id'), en: self };
+const { Content, headings } = await render(post);
+const toc = headings.filter((h) => h.depth === 2);
+const minutes = readingMinutes(post.body ?? '');
+const words = (post.body ?? '').split(/\s+/).filter(Boolean).length;
+const products = await productsByIds(post.data.relatedProducts);
+const category = (await getCategories()).find((c) => c.id === post.data.relatedCategory);
+const related = (await getPosts(locale))
+  .filter((p) => p.id !== post.id)
+  .sort((a, b) => Number(b.data.cluster === post.data.cluster) - Number(a.data.cluster === post.data.cluster))
+  .slice(0, 3);
+const hero = getImage(post.data.heroImage);
+const ogImg = await optimize({ src: hero.src, width: 1200, format: 'jpg' });
+const pageUrl = new URL(self, site.url).toString();
+
+const copy = {
+  id: {
+    by: 'Ditulis oleh',
+    bio: `${site.founder} adalah perajin di balik LovelyCrochet, studio rajut rumahan di ${locality}. Merajut buket, boneka, dan tas setiap hari, dan senang berbagi ilmu merajut untuk pemula.`,
+    shop: 'Rajutan yang disebut di artikel ini',
+    category: 'Jelajahi kategori',
+  },
+  en: {
+    by: 'Written by',
+    bio: `${site.founder} is the maker behind LovelyCrochet, a home crochet studio in ${locality}. They crochet bouquets, dolls and bags every day and love teaching beginners.`,
+    shop: 'Pieces mentioned in this article',
+    category: 'Explore the category',
+  },
+}[locale];
+---
+
+<BaseLayout
+  locale={locale}
+  title={post.data.seoTitle}
+  description={post.data.description}
+  alternates={alternates}
+  ogType="article"
+  ogImageAlt={hero.alt[locale]}
+  article={{
+    published: post.data.publishDate,
+    modified: post.data.updatedDate,
+    section: pageMeta.journal[locale].label,
+  }}
+  breadcrumbs={[
+    { name: pageMeta.journal[locale].label, path: path('journal', locale) },
+    { name: post.data.title, path: self },
+  ]}
+  schema={[
+    blogPosting({
+      url: pageUrl,
+      headline: post.data.title,
+      description: post.data.description,
+      image: new URL(ogImg.src, site.url).toString(),
+      datePublished: post.data.publishDate,
+      dateModified: post.data.updatedDate,
+      author: site.founder,
+      locale: locale === 'id' ? 'id-ID' : 'en',
+      wordCount: words,
+      publisherId: orgId(site),
+    }),
+  ]}>
+  <article>
+    <header class="container-lc pt-8">
+      <div class="max-w-3xl">
+        <p class="kicker">{pageMeta.journal[locale].label}</p>
+        <h1 class="mt-3 text-step-5">{post.data.title}</h1>
+        <p class="mt-4 text-step-1 text-cocoa-soft">{post.data.description}</p>
+        <p class="mt-4 flex flex-wrap gap-x-3 text-step--1 font-semibold">
+          <span>{site.founder}</span>·
+          <span>
+            {t('date.published')}{' '}
+            <time datetime={isoDate(post.data.publishDate)}>{formatDate(post.data.publishDate, locale)}</time>
+          </span>
+          {post.data.updatedDate && (
+            <span>
+              · {t('date.updated')}{' '}
+              <time datetime={isoDate(post.data.updatedDate)}>{formatDate(post.data.updatedDate, locale)}</time>
+            </span>
+          )}
+          ·<span>{t('reading.minutes', { n: minutes })}</span>
+        </p>
+      </div>
+      <div class="polaroid mt-8 max-w-4xl" style="--tilt:-1deg">
+        <Img
+          name={post.data.heroImage}
+          eager
+          locale={locale}
+          sizes="(min-width: 1024px) 860px, 92vw"
+          class="aspect-[16/9] w-full object-cover"
+        />
+      </div>
+    </header>
+
+    <div class="container-lc grid gap-12 py-12 lg:grid-cols-[1fr_17rem]">
+      <div class="prose-lc min-w-0">
+        <Content />
+      </div>
+      <aside class="order-first space-y-6 lg:order-none">
+        {toc.length > 0 && (
+          <nav aria-labelledby="toc" class="scallop p-5 lg:sticky lg:top-24">
+            <h2 id="toc" class="font-sans text-step--1 font-bold tracking-[0.14em] text-rose-ink uppercase">
+              {t('toc.title')}
+            </h2>
+            <ol class="mt-3 list-decimal space-y-2 pl-5 text-step--1 marker:font-bold marker:text-rose-ink">
+              {toc.map((h) => (
+                <li>
+                  <a href={`#${h.slug}`} class="link-draw">
+                    {h.text}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        )}
+      </aside>
+    </div>
+
+    <footer class="container-lc">
+      <div class="blob flex max-w-3xl flex-col gap-4 bg-oat p-6 sm:flex-row sm:items-center">
+        <Logo class="shrink-0" />
+        <div>
+          <p class="font-bold">
+            {copy.by} {site.founder}
+          </p>
+          <p class="mt-1 text-step--1 text-cocoa-soft">{copy.bio}</p>
+          <a href={path('about', locale)} class="link-hand mt-2 inline-block text-step--1">
+            {pageMeta.about[locale].label}
+          </a>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  {products.length > 0 && (
+    <section class="container-lc py-14" aria-labelledby="post-products">
+      <h2 id="post-products" class="text-step-3">
+        {copy.shop}
+      </h2>
+      <div class="mt-10 grid grid-cols-2 gap-x-4 gap-y-12 md:gap-x-8 lg:grid-cols-4">
+        {products.map((p, i) => (
+          <ProductCard product={p} locale={locale} morph tilt={[-1, 1, -0.5, 1.5][i % 4]} />
+        ))}
+      </div>
+      {category && (
+        <p class="mt-8">
+          {copy.category}:{' '}
+          <a href={categoryUrl(category, locale)} class="link-hand">
+            {category.data.name[locale]}
+          </a>
+        </p>
+      )}
+    </section>
+  )}
+
+  <section class="container-lc py-10" aria-labelledby="post-related">
+    <h2 id="post-related" class="text-step-3">
+      {t('related.posts')}
+    </h2>
+    <ul class="mt-6 grid gap-6 md:grid-cols-3">
+      {related.map((r) => (
+        <li class="scallop p-6">
+          <a href={postUrl(r)} class="block">
+            <h3 class="text-step-1">
+              <span class="link-draw">{r.data.title}</span>
+            </h3>
+            <p class="mt-2 text-step--1 text-cocoa-soft">{r.data.description}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <CtaBand locale={locale} context="journal" />
+</BaseLayout>

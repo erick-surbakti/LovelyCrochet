@@ -1,0 +1,67 @@
+---
+import { site } from '@/config/site';
+import { htmlLang, ogLocale, otherLocale, type Alternates, type Locale } from '@/i18n/routes';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  alternates: Alternates;
+  ogImage: string;
+  ogImageAlt: string;
+  ogType?: 'website' | 'article' | 'product';
+  noindex?: boolean;
+  article?: { published: Date; modified?: Date; section?: string };
+}
+
+const {
+  locale,
+  title,
+  description,
+  alternates,
+  ogImage,
+  ogImageAlt,
+  ogType = 'website',
+  noindex = false,
+  article,
+} = Astro.props;
+
+const abs = (p: string) => new URL(p, site.url).toString();
+const canonical = abs(alternates[locale]);
+const imageUrl = abs(ogImage);
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+
+<link rel="alternate" hreflang={htmlLang.id} href={abs(alternates.id)} />
+<link rel="alternate" hreflang={htmlLang.en} href={abs(alternates.en)} />
+<link rel="alternate" hreflang="x-default" href={abs(alternates.id)} />
+
+<meta property="og:site_name" content={site.name} />
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content={ogLocale[locale]} />
+<meta property="og:locale:alternate" content={ogLocale[otherLocale(locale)]} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={ogImageAlt} />
+{article && (
+  <>
+    <meta property="article:published_time" content={article.published.toISOString()} />
+    <meta property="article:modified_time" content={(article.modified ?? article.published).toISOString()} />
+    {article.section && <meta property="article:section" content={article.section} />}
+  </>
+)}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={ogImageAlt} />

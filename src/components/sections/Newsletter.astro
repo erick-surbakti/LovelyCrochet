@@ -1,0 +1,72 @@
+---
+import { site } from '@/config/site';
+import { path, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const id = `nl-${locale}`;
+---
+
+<section
+  aria-labelledby={`${id}-title`}
+  class="scallop mx-auto max-w-4xl px-6 py-10 shadow-[var(--shadow-warm)] md:px-12">
+  <div class="grid items-center gap-8 md:grid-cols-[1fr_1.1fr]">
+    <div>
+      <p class="kicker">{locale === 'id' ? 'Pola gratis' : 'Free pattern'}</p>
+      <h2 id={`${id}-title`} class="mt-2 text-step-3">
+        {t('newsletter.title')}
+      </h2>
+      <p class="mt-3 text-cocoa-soft">{t('newsletter.body')}</p>
+    </div>
+    <form
+      name={site.newsletter.formName}
+      method="POST"
+      action={path('thanks', locale)}
+      data-netlify="true"
+      netlify-honeypot="company"
+      data-astro-reload
+      class="space-y-3">
+      <input type="hidden" name="form-name" value={site.newsletter.formName} />
+      <input type="hidden" name="locale" value={locale} />
+      <p class="hidden">
+        <label>
+          Company <input name="company" tabindex="-1" autocomplete="off" />
+        </label>
+      </p>
+      <div>
+        <label for={`${id}-email`} class="mb-1 block text-step--1 font-semibold">
+          {t('newsletter.email')}
+        </label>
+        <input
+          id={`${id}-email`}
+          type="email"
+          name="email"
+          required
+          autocomplete="email"
+          class="w-full rounded-full border-2 border-cocoa/20 bg-cream px-5 py-3 focus:border-rose-ink"
+        />
+      </div>
+      <div>
+        <label for={`${id}-wa`} class="mb-1 block text-step--1 font-semibold">
+          {t('newsletter.whatsapp')}
+        </label>
+        <input
+          id={`${id}-wa`}
+          type="tel"
+          name="whatsapp"
+          inputmode="tel"
+          autocomplete="tel"
+          class="w-full rounded-full border-2 border-cocoa/20 bg-cream px-5 py-3 focus:border-rose-ink"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary w-full" data-track="newsletter-signup">
+        {t('newsletter.submit')}
+      </button>
+      <p class="text-center text-step--1 text-cocoa-soft">{t('newsletter.privacy')}</p>
+    </form>
+  </div>
+</section>

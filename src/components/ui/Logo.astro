@@ -1,0 +1,29 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: cls } = Astro.props;
+---
+
+<span class:list={['inline-flex items-center gap-2 sm:gap-2.5', cls]}>
+  <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" class="size-8 shrink-0 sm:size-10">
+    <circle cx="24" cy="24" r="17" fill="var(--color-rose-clay)"></circle>
+    <g fill="none" stroke="var(--color-cream)" stroke-width="2" stroke-linecap="round" opacity=".85">
+      <path d="M10 18c8 4 20 4 28-2"></path>
+      <path d="M8 26c10 5 24 4 32-4"></path>
+      <path d="M12 34c8 3 18 2 24-5"></path>
+      <path d="M18 8c-4 8-4 22 2 32"></path>
+    </g>
+    <path
+      d="M38 34c4 4 6 8 4 11"
+      fill="none"
+      stroke="var(--color-rose-clay)"
+      stroke-width="2.5"
+      stroke-linecap="round"></path>
+  </svg>
+  <span
+    class="font-display text-[1.2rem] leading-none sm:text-[1.45rem] font-semibold tracking-tight text-cocoa"
+    style="font-variation-settings:'WONK' 1">
+    Lovely<span class="text-rose-ink">Crochet</span>
+  </span>
+</span>

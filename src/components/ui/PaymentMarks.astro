@@ -1,0 +1,48 @@
+---
+/**
+ * Monochrome wordmark badges for payment methods and couriers.
+ * Plain text in a consistent pill (not the companies' trademarked logos),
+ * so they stay legible, accessible and on-brand.
+ */
+interface Props {
+  names: readonly string[];
+}
+const { names } = Astro.props;
+const width = (n: string) => Math.max(48, Math.round(n.length * 8.4 + 22));
+---
+
+<ul class="flex flex-wrap gap-2" role="list">
+  {names.map((n) => (
+    <li>
+      <svg
+        role="img"
+        aria-label={n}
+        width={width(n)}
+        height="30"
+        viewBox={`0 0 ${width(n)} 30`}
+        class="text-cocoa-soft">
+        <rect
+          x="1"
+          y="1"
+          width={width(n) - 2}
+          height="28"
+          rx="8"
+          fill="var(--color-paper)"
+          stroke="currentColor"
+          stroke-opacity=".35"
+          stroke-dasharray="3 2"
+        />
+        <text
+          x="50%"
+          y="19.5"
+          text-anchor="middle"
+          font-family="var(--font-sans)"
+          font-size="12.5"
+          font-weight="800"
+          fill="currentColor">
+          {n}
+        </text>
+      </svg>
+    </li>
+  ))}
+</ul>

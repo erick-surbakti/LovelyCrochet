@@ -1,0 +1,283 @@
+- id: wisuda
+  order: 1
+  image: boneka-husky-rajut-amigurumi-kotak-kado
+  relatedJournal: [ide-kado-wisuda-unik]
+  slug: { id: 'kado-wisuda', en: 'graduation-gifts' }
+  name: { id: 'Wisuda', en: 'Graduation' }
+  title: { id: 'Kado Wisuda Unik yang Tidak Akan Layu', en: 'Unique Graduation Gifts That Never Wilt' }
+  seoTitle:
+    id: 'Kado Wisuda Unik: Boneka & Buket Rajut Bekasi | LovelyCrochet'
+    en: 'Unique Graduation Gifts, Crochet Dolls & Bouquets | LovelyCrochet'
+  seoDescription:
+    id: 'Kado wisuda unik dari Bekasi. Boneka rajut dalam kotak kado dan buket bunga rajut custom warna almamater. Same-day ke kampus di Jabodetabek.'
+    en: 'Unique graduation gifts from Bekasi. Gift-boxed crochet dolls and custom crochet bouquets in campus colours. Same-day to Jabodetabek campuses.'
+  when:
+    {
+      id: 'Puncak musim wisuda biasanya Februari–April dan Agustus–Oktober.',
+      en: 'Indonesian graduation season usually peaks in February–April and August–October.',
+    }
+  lede:
+    id: Setelah bertahun-tahun begadang mengerjakan tugas dan skripsi, kado wisuda sebaiknya juga bisa disimpan bertahun-tahun.
+    en: After years of late nights and a thesis, a graduation gift should last for years too.
+  body:
+    id:
+      - Bunga segar akan layu sebelum foto wisudanya sempat dicetak. Rajutan tangan tetap utuh di meja kerja pertama si wisudawan atau di rak kamarnya. Boneka seperti husky atau Hello Kitty dalam kotak kado bisa langsung diberikan saat sesi foto, sedangkan buket bunga rajut bisa dibuat custom dengan warna almamater.
+      - Semua boneka kami dibuat sesuai pesanan, jadi hitung mundur dari tanggal wisuda. Untuk boneka kecil, pesan minimal 1 minggu sebelumnya. Untuk boneka besar dan buket custom, minimal 2 minggu. Kami bisa mengirim lewat GoSend atau GrabExpress langsung ke gedung wisuda di Bekasi dan Jabodetabek.
+    en:
+      - Fresh flowers wilt before the graduation photos are even printed. Hand-crocheted gifts stay intact on the graduate's first work desk or bedroom shelf. A gift-boxed doll like the husky or Hello Kitty is ready to hand over at the photo session, and a crochet bouquet can be made to order in campus colours.
+      - Every doll is made to order, so count back from the ceremony date. For small dolls, order at least a week ahead. For large dolls and custom bouquets, at least two weeks. We can deliver by GoSend or GrabExpress straight to the venue in Bekasi and Jabodetabek.
+  tips:
+    id:
+      - Kirim foto jas almamater jika ingin warna buket disamakan.
+      - Untuk pengiriman ke gedung wisuda, cantumkan nama penerima dan nomor HP yang aktif di hari H.
+      - Pesan lebih awal di bulan Februari–April dan Agustus–Oktober karena antrean pesanan biasanya lebih panjang.
+    en:
+      - Send a photo of the university jacket if you want the bouquet colours to match.
+      - For delivery to the venue, include the recipient's name and a phone number they'll answer on the day.
+      - Order early in February–April and August–October, when order queues tend to be longer.
+
+- id: ulang-tahun
+  order: 2
+  image: boneka-donald-duck-rajut-amigurumi
+  relatedJournal: [rajutan-tangan-vs-pabrik]
+  slug: { id: 'kado-ulang-tahun', en: 'birthday-gifts' }
+  name: { id: 'Ulang Tahun', en: 'Birthdays' }
+  title: { id: 'Kado Ulang Tahun Handmade yang Terasa Personal', en: 'Handmade Birthday Gifts That Feel Personal' }
+  seoTitle:
+    id: 'Kado Ulang Tahun Handmade, Boneka Rajut Unik | LovelyCrochet'
+    en: 'Handmade Birthday Gifts, Crochet Dolls | LovelyCrochet'
+  seoDescription:
+    id: 'Kado ulang tahun handmade untuk pacar, sahabat, dan anak. Boneka rajut karakter, hewan lucu, dan gantungan kunci dari Bekasi. Kirim ke seluruh Indonesia.'
+    en: 'Handmade birthday gifts for partners, friends and kids. Crochet character dolls, cute animals and keychains from Bekasi. Ships across Indonesia.'
+  lede:
+    id: Kado ulang tahun terbaik adalah yang membuat penerimanya berpikir, "Dia benar-benar ingat aku suka ini."
+    en: The best birthday gift makes someone think, "They really remembered I love this."
+  body:
+    id:
+      - Rajutan tangan punya kelebihan yang sulit ditandingi barang pabrik, yaitu bisa disesuaikan dengan orangnya. Penggemar Sanrio bisa dapat Hello Kitty dengan overall warna favoritnya, penggemar Disney bisa dapat Donald Duck, dan pecinta anjing bisa dapat husky atau gantungan kunci anjing.
+      - Kirim tanggal ulang tahun saat chat. Karena boneka dibuat sesuai pesanan, kami hitung mundur dari tanggalnya supaya kado sampai tepat waktu, termasuk untuk pengiriman ke luar kota.
+    en:
+      - Hand-crocheted gifts have an advantage factory goods can't match. They can be made for one particular person. A Sanrio fan can get Hello Kitty in their favourite overall colour, a Disney fan can get Donald Duck, and a dog lover can get the husky or the puppy keychain.
+      - Tell us the birthday date when you chat. Because dolls are made to order, we count back from the date so the gift arrives on time, including out-of-town deliveries.
+  tips:
+    id:
+      - Ceritakan 2–3 hal yang disukai penerima, misalnya warna, hewan, atau karakter favorit.
+      - Tambahkan pilihan kotak kado supaya boneka siap diberikan.
+      - Untuk kejutan, sebutkan jika paket tidak boleh mencantumkan harga.
+    en:
+      - Tell us 2–3 things the recipient loves, like a colour, an animal or a favourite character.
+      - Add the gift box option so the doll is ready to give.
+      - For surprises, let us know if no price should appear in the parcel.
+
+- id: anniversary
+  order: 3
+  image: boneka-penguin-rajut-pink-topi-syal
+  relatedJournal: [rajutan-tangan-vs-pabrik]
+  slug: { id: 'kado-anniversary', en: 'anniversary-gifts' }
+  name: { id: 'Anniversary', en: 'Anniversary' }
+  title: { id: 'Kado Anniversary Handmade untuk yang Tersayang', en: 'Handmade Anniversary Gifts for Your Person' }
+  seoTitle:
+    id: 'Kado Anniversary Handmade untuk Pacar & Pasangan | LovelyCrochet'
+    en: 'Handmade Anniversary Gifts for Your Partner | LovelyCrochet'
+  seoDescription:
+    id: 'Kado anniversary handmade dari Bekasi. Boneka rajut lucu, buket bunga rajut abadi, dan tas rajut custom untuk pasangan. Dikirim ke seluruh Indonesia.'
+    en: 'Handmade anniversary gifts from Bekasi. Cute crochet dolls, everlasting crochet bouquets and custom crochet bags for your partner. Ships nationwide.'
+  lede:
+    id: Kado yang dibuat pelan-pelan, tusuk demi tusuk, untuk hubungan yang ingin terus kamu rawat.
+    en: A gift made slowly, stitch by stitch, for a relationship you want to keep tending.
+  body:
+    id:
+      - Setiap boneka rajut butuh waktu, kesabaran, dan perhatian pada detail. Itu juga yang dibutuhkan sebuah hubungan. Boneka seperti penguin bertopi atau husky berbandana bisa jadi pengingat kecil di meja pasanganmu, sedangkan buket bunga rajut tidak akan layu seperti bunga segar.
+      - Kalau ingin yang lebih personal, pilih warna kesukaan pasanganmu atau minta warna syal dan bandana disesuaikan. Pesan jauh-jauh hari, karena boneka besar butuh 7–14 hari kerja.
+    en:
+      - Every crochet doll takes time, patience and attention to detail, just like a relationship. A penguin in a hat or a husky in a bandana makes a small reminder on your partner's desk, and a crochet bouquet will never wilt like fresh flowers.
+      - For something more personal, pick your partner's favourite colours or ask for the scarf or bandana colour to be changed. Order well ahead, because large dolls take 7–14 working days.
+  tips:
+    id:
+      - Sebutkan warna favorit pasangan saat memesan.
+      - Sebutkan jika ingin dikirim ke kantor pasangan sebagai kejutan.
+      - Tambahkan kartu ucapan berisi pesanmu.
+    en:
+      - Mention your partner's favourite colours when you order.
+      - Let us know if you'd like it delivered to your partner's office as a surprise.
+      - Add a greeting card with your message.
+
+- id: valentine
+  order: 4
+  image: boneka-hello-kitty-rajut-overall-merah
+  relatedJournal: [ide-kado-wisuda-unik]
+  slug: { id: 'kado-valentine', en: 'valentines-day-gifts' }
+  name: { id: 'Valentine', en: "Valentine's Day" }
+  title: { id: 'Kado Valentine Handmade, dari Hati dan Benang', en: "Handmade Valentine's Gifts, Made with Heart and Yarn" }
+  seoTitle:
+    id: 'Kado Valentine Handmade, Boneka & Bunga Rajut | LovelyCrochet'
+    en: "Handmade Valentine's Gifts, Crochet Dolls | LovelyCrochet"
+  seoDescription:
+    id: 'Kado Valentine handmade dari Bekasi. Boneka Hello Kitty rajut, gantungan kunci, dan buket bunga rajut. Pesan sebelum 7 Februari, same-day Jabodetabek.'
+    en: "Handmade Valentine's gifts from Bekasi. Crochet Hello Kitty, keychains and crochet bouquets. Order by 7 February, same-day in Jabodetabek."
+  when:
+    {
+      id: 'Pesan paling lambat 7 Februari supaya kado sampai sebelum 14 Februari.',
+      en: 'Order by 7 February so your gift arrives before the 14th.',
+    }
+  lede:
+    id: Mawar merah biasa akan layu dalam seminggu. Kado rajut akan tetap ada di Valentine tahun depan.
+    en: Ordinary red roses wilt within a week. A crochet gift will still be there next Valentine's Day.
+  body:
+    id:
+      - Untuk Valentine, Hello Kitty dengan overall merah atau pink adalah pilihan yang manis dan langsung terasa romantis. Untuk kado kecil, gantungan kunci anjing rajut bisa dipesan sepasang untuk kamu dan pasangan. Kalau ingin bunga, buket bunga rajut bisa dibuat custom dengan warna merah dan pink.
+      - Semua boneka dibuat sesuai pesanan, jadi pesanlah paling lambat 7 Februari. Untuk area Bekasi dan Jabodetabek, kado bisa diantar same-day setelah selesai dirajut.
+    en:
+      - "For Valentine's Day, Hello Kitty in a red or pink overall is a sweet, instantly romantic choice. For a small gift, the crochet puppy keychain can be ordered as a pair for you and your partner. If you'd like flowers, a crochet bouquet can be made to order in reds and pinks."
+      - Every doll is made to order, so order by 7 February at the latest. Within Bekasi and Jabodetabek, gifts can be delivered same-day once finished.
+  tips:
+    id:
+      - Pesan gantungan kunci sepasang untuk kado couple.
+      - Pilih pengiriman tanpa nama pengirim jika ingin jadi pengagum rahasia.
+      - Pesan sebelum 7 Februari supaya tidak terburu-buru.
+    en:
+      - Order a pair of keychains as a couple gift.
+      - Choose delivery without a sender name if you want to stay a secret admirer.
+      - Order before 7 February so there's no rush.
+
+- id: hari-ibu
+  order: 5
+  image: boneka-kelinci-rajut-krem-syal-biru
+  relatedJournal: [cara-merawat-barang-rajutan]
+  slug: { id: 'kado-hari-ibu', en: 'mothers-day-gifts' }
+  name: { id: 'Hari Ibu', en: "Mother's Day" }
+  title: { id: 'Kado Hari Ibu 22 Desember yang Dibuat dengan Tangan', en: "Handmade Gifts for Indonesian Mother's Day, 22 December" }
+  seoTitle:
+    id: 'Kado Hari Ibu 22 Desember, Handmade & Bermakna | LovelyCrochet'
+    en: "Mother's Day Gifts Indonesia (22 Dec), Handmade | LovelyCrochet"
+  seoDescription:
+    id: 'Kado Hari Ibu 22 Desember dari Bekasi. Boneka kelinci rajut, buket bunga rajut, tas rajut, dan pakaian rajut custom untuk ibu. Kirim ke seluruh Indonesia.'
+    en: "Gifts for Indonesian Mother's Day on 22 December. A crochet bunny, crochet bouquets, bags and clothing made to order for mum. Ships nationwide."
+  when:
+    {
+      id: 'Hari Ibu di Indonesia diperingati setiap 22 Desember.',
+      en: "Indonesia celebrates Mother's Day (Hari Ibu) on 22 December every year.",
+    }
+  lede:
+    id: Ibu mengajarimu banyak hal dengan sabar. Kado yang dibuat tusuk demi tusuk terasa seperti ucapan terima kasih yang pantas.
+    en: Mum taught you so much, patiently. A gift made stitch by stitch feels like a fitting thank-you.
+  body:
+    id:
+      - Hari Ibu jatuh setiap 22 Desember, berdekatan dengan libur akhir tahun. Kami sarankan memesan paling lambat awal Desember agar kado sampai tepat waktu, terutama untuk pengiriman ke luar Jawa yang sering terlambat saat musim liburan.
+      - Untuk ibu yang suka hal-hal lembut dan manis, boneka kelinci rajut dengan syal biru bisa jadi pajangan di kamar. Untuk ibu yang lebih suka barang yang dipakai sehari-hari, tas rajut atau pakaian rajut bisa dibuat custom sesuai warna kesukaannya.
+    en:
+      - "Indonesian Mother's Day falls on 22 December, right before the year-end holidays. We suggest ordering by early December so the gift arrives on time, especially outside Java, where deliveries often slow down in the holiday rush."
+      - For a mum who loves soft, sweet things, the crochet bunny with its blue scarf makes a lovely bedroom keepsake. For a mum who prefers everyday things, a crochet bag or a piece of crochet clothing can be made to order in her favourite colours.
+  tips:
+    id:
+      - Pesan paling lambat awal Desember untuk pengiriman luar kota.
+      - Untuk pakaian, tanyakan ukuran ibu diam-diam atau ukur pakaian lamanya.
+      - Warna favorit ibu lebih berkesan daripada warna yang sedang tren.
+    en:
+      - Order by early December for out-of-town delivery.
+      - For clothing, quietly find out mum's size or measure one of her old pieces.
+      - Mum's favourite colour means more than whatever is trending.
+
+- id: lebaran
+  order: 6
+  image: boneka-penguin-rajut-kupluk-biru-kotak-kado
+  relatedJournal: [rajutan-tangan-vs-pabrik]
+  slug: { id: 'hampers-lebaran', en: 'eid-hampers' }
+  name: { id: 'Lebaran & Hampers', en: 'Eid & Hampers' }
+  title: { id: 'Hampers Lebaran Rajut yang Beda dari Biasanya', en: 'Crochet Eid Hampers That Stand Out' }
+  seoTitle:
+    id: 'Hampers Lebaran Rajut Handmade & Unik | LovelyCrochet Bekasi'
+    en: 'Handmade Crochet Eid Hampers from Indonesia | LovelyCrochet'
+  seoDescription:
+    id: 'Hampers Lebaran rajut handmade dari Bekasi. Boneka rajut dalam kotak kado dan gantungan kunci untuk keluarga besar. Bisa kirim ke banyak alamat.'
+    en: 'Handmade crochet Eid hampers from Bekasi. Gift-boxed crochet dolls and keychains for the whole family. Can ship to several addresses.'
+  when:
+    {
+      id: 'Pesan hampers Lebaran paling lambat 3 minggu sebelum Idulfitri.',
+      en: 'Order Eid hampers at least 3 weeks before Eid al-Fitr.',
+    }
+  lede:
+    id: Hampers Lebaran biasanya isinya kue kering. Hampers rajut isinya kenang-kenangan yang awet sampai Lebaran berikutnya.
+    en: Most Eid hampers are full of cookies. A crochet hamper holds keepsakes that last until next Eid.
+  body:
+    id:
+      - Kue kering habis dalam seminggu, sedangkan boneka rajut bisa disimpan bertahun-tahun. Penguin atau Hello Kitty dalam kotak kado cocok untuk keponakan, sedangkan gantungan kunci rajut bisa dibagikan untuk sepupu atau rekan kerja.
+      - Lebaran adalah masa sibuk bagi kurir, dan boneka kami dibuat sesuai pesanan. Karena itu, pesan paling lambat 3 minggu sebelum Idulfitri. Untuk pengiriman ke banyak alamat, kirim daftar alamatnya dalam satu pesan.
+    en:
+      - Cookies are gone in a week, but a crochet doll can be kept for years. A gift-boxed penguin or Hello Kitty suits nieces and nephews, and crochet keychains can go to cousins or colleagues.
+      - Eid is peak season for couriers, and our dolls are made to order. So order at least 3 weeks before Eid. For delivery to several addresses, send the list in a single message.
+  tips:
+    id:
+      - Pesan paling lambat 3 minggu sebelum Idulfitri.
+      - Untuk kirim ke banyak alamat, siapkan daftar alamat lengkap.
+      - Pilih opsi kotak kado supaya hampers terlihat rapi.
+    en:
+      - Order at least 3 weeks before Eid.
+      - For several addresses, prepare the full address list.
+      - Choose the gift box option for a neat hamper.
+
+- id: baby-shower
+  order: 7
+  image: boneka-kelinci-rajut-krem-syal-biru
+  relatedJournal: [jenis-benang-rajut-untuk-pemula]
+  slug: { id: 'kado-baby-shower', en: 'baby-shower-gifts' }
+  name: { id: 'Baby Shower & Lahiran', en: 'Baby Shower & Newborn' }
+  title: { id: 'Kado Baby Shower dan Lahiran yang Lembut', en: 'Soft Baby Shower and Newborn Gifts' }
+  seoTitle:
+    id: 'Kado Baby Shower & Lahiran Rajut Handmade | LovelyCrochet'
+    en: 'Handmade Baby Shower & Newborn Gifts | LovelyCrochet'
+  seoDescription:
+    id: 'Kado baby shower dan lahiran rajut dari Bekasi. Boneka kelinci dan penguin rajut yang lembut, jadi pajangan dan kenang-kenangan di kamar si kecil.'
+    en: "Crochet baby shower and newborn gifts from Bekasi. Soft crochet bunnies and penguins that become nursery keepsakes."
+  lede:
+    id: Kado yang cukup cantik untuk dipajang di kamar si kecil dan disimpan jadi kenang-kenangan.
+    en: A gift pretty enough to decorate the nursery and keep as a memento.
+  body:
+    id:
+      - Boneka kelinci krem atau penguin bertopi adalah kado yang manis untuk menyambut si kecil. Ukurannya besar dan empuk, cocok jadi pajangan di kamar bayi dan teman bermain saat si kecil sudah lebih besar.
+      - Perlu diingat, boneka kami memakai mata plastik dan beberapa punya kancing, jadi ditujukan untuk usia 3 tahun ke atas. Untuk bayi, letakkan sebagai pajangan dan jauhkan dari jangkauannya. Kalau ingin versi yang lebih aman untuk bayi, chat kami dulu.
+    en:
+      - A beige bunny or a penguin in a hat is a sweet way to welcome a little one. They're large and soft, lovely as nursery decor now and as a playmate when the child is older.
+      - Please note that our dolls have plastic eyes and some have buttons, so they're meant for ages 3 and up. For babies, keep the doll as decoration out of reach. If you'd like a safer version for a baby, message us first.
+  tips:
+    id:
+      - Warna netral seperti krem dan biru muda cocok jika jenis kelamin bayi belum diketahui.
+      - Pilih opsi kotak kado untuk kunjungan ke rumah sakit atau rumah.
+      - Untuk pengiriman ke rumah sakit, pastikan nama pasien dan nomor kamar sudah benar.
+    en:
+      - Neutral colours like beige and light blue work when you don't know the baby's sex.
+      - Choose the gift box option for hospital or home visits.
+      - For hospital deliveries, double-check the patient's name and room number.
+
+- id: korporat
+  order: 8
+  image: gantungan-kunci-anjing-amigurumi-rajut
+  relatedJournal: [berapa-jam-merajut-boneka]
+  slug: { id: 'kado-korporat', en: 'corporate-gifts' }
+  name: { id: 'Kado Korporat', en: 'Corporate Gifts' }
+  title: { id: 'Kado Korporat dan Suvenir Kantor Handmade', en: 'Handmade Corporate Gifts and Office Favours' }
+  seoTitle:
+    id: 'Souvenir Perusahaan Handmade & Corporate Gift Rajut | LovelyCrochet'
+    en: 'Handmade Corporate Gifts from Indonesia | LovelyCrochet'
+  seoDescription:
+    id: 'Souvenir perusahaan handmade dari Bekasi. Gantungan kunci rajut dengan warna brand dan boneka rajut dalam kotak kado untuk klien dan karyawan.'
+    en: 'Handmade corporate gifts from Bekasi. Crochet keychains in brand colours and gift-boxed crochet dolls for clients and staff.'
+  lede:
+    id: Suvenir kantor biasanya berakhir di laci. Suvenir rajut biasanya berakhir di gantungan kunci dan meja kerja.
+    en: Most office giveaways end up in a drawer. Crochet ones end up on key rings and desks.
+  body:
+    id:
+      - Gantungan kunci rajut adalah pilihan suvenir yang praktis karena ringan, dipakai setiap hari, dan warnanya bisa disesuaikan dengan warna brand. Untuk klien penting, boneka rajut dalam kotak kado bisa jadi hadiah akhir tahun yang berkesan.
+      - Karena semuanya dirajut tangan, kapasitas kami terbatas. Kirim jumlah, desain, dan tanggal acaramu lewat WhatsApp, lalu kami hitung waktu pengerjaan dan harganya sebelum kamu memutuskan. Pembayaran memakai DP 50%.
+    en:
+      - Crochet keychains are a practical giveaway because they're light, used every day and can be made in your brand colours. For key clients, a gift-boxed crochet doll makes a memorable year-end present.
+      - Because everything is hand-crocheted, our capacity is limited. Send your quantity, design and event date on WhatsApp, and we'll work out the timeline and price before you decide. Payment is by 50% deposit.
+  tips:
+    id:
+      - Kirim kode warna brand (HEX atau Pantone) supaya benang bisa kami cocokkan.
+      - Hubungi kami jauh-jauh hari untuk pesanan dalam jumlah banyak.
+      - Minta satu contoh dulu sebelum pesanan besar dikerjakan.
+    en:
+      - Send your brand colour codes (HEX or Pantone) so we can match the yarn.
+      - Contact us well ahead for large quantities.
+      - Ask for one sample before a large order goes into production.

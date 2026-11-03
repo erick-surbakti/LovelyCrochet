@@ -1,0 +1,14 @@
+---
+import type { GetStaticPaths } from 'astro';
+import OccasionView from '@/views/OccasionView.astro';
+import { getOccasions, type Occasion } from '@/lib/content';
+
+export const getStaticPaths = (async () => {
+  const items = await getOccasions();
+  return items.map((item) => ({ params: { occasion: item.data.slug.en }, props: { item } }));
+}) satisfies GetStaticPaths;
+
+const { item } = Astro.props as { item: Occasion };
+---
+
+<OccasionView locale="en" occasion={item} />

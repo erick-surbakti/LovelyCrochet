@@ -1,0 +1,86 @@
+---
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { path, type Locale } from '@/i18n/routes';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const copy = {
+  id: {
+    kicker: 'Kenapa rajutan tangan?',
+    title: 'Dibuat pelan-pelan, supaya awet lama',
+    items: [
+      [
+        'Tidak ada yang kembar',
+        'Setiap tusukan dibuat tangan, jadi setiap buket, boneka, dan tas punya karakter sendiri. Warna dan detailnya bisa disesuaikan dengan penerimanya.',
+      ],
+      [
+        'Lebih kuat dari yang terlihat',
+        'Kami merajut lebih rapat dari anjuran benang, menjahit ganda setiap sambungan, dan memakai lapisan kain di tas. Hasilnya tidak gampang melar atau lepas.',
+      ],
+      [
+        'Bunga yang tidak layu',
+        'Buket rajut tidak butuh air, tidak rontok, dan tetap cantik bertahun-tahun. Kenangan wisuda atau anniversary tetap utuh di rak.',
+      ],
+      [
+        'Uangmu menghidupi perajin',
+        'Membeli dari studio kecil berarti mendukung kerja tangan perajin lokal di Bekasi, bukan pabrik di ujung dunia.',
+      ],
+    ],
+    compare: 'Bedanya rajutan tangan dan pabrik',
+  },
+  en: {
+    kicker: 'Why handmade?',
+    title: 'Made slowly, so it lasts',
+    items: [
+      [
+        'No two alike',
+        'Every stitch is made by hand, so each bouquet, doll and bag has its own character. Colours and details can be made to suit the person receiving it.',
+      ],
+      [
+        'Stronger than it looks',
+        'We crochet tighter than the yarn suggests, double-stitch every join and line our bags. The result doesn’t stretch out or come apart.',
+      ],
+      [
+        'Flowers that never wilt',
+        'Crochet bouquets need no water, never shed and stay pretty for years. That graduation or anniversary stays on the shelf.',
+      ],
+      [
+        'Your money pays a maker',
+        'Buying from a small studio supports local handwork in Bekasi, not a factory on the other side of the world.',
+      ],
+    ],
+    compare: 'Handmade vs machine-made crochet',
+  },
+}[locale];
+const compareHref = locale === 'id' ? '/jurnal/rajutan-tangan-vs-pabrik/' : '/en/journal/handmade-vs-machine-crochet/';
+const fills = ['bg-blush', 'bg-butter/70', 'bg-[#dfe7dc]', 'bg-oat'];
+---
+
+<section class="container-lc py-16" aria-labelledby="why-title">
+  <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <div class="lg:sticky lg:top-28">
+      <SectionTitle id="why-title" kicker={copy.kicker} title={copy.title} />
+      <p class="mt-6 flex flex-col items-start gap-3">
+        <a href={compareHref} class="link-hand">
+          {copy.compare} →
+        </a>
+        <a href={path('care', locale)} class="link-hand">
+          {locale === 'id' ? 'Cara merawat rajutan' : 'How to care for crochet'} →
+        </a>
+      </p>
+    </div>
+    <ol class="grid gap-5 sm:grid-cols-2">
+      {copy.items.map(([title, body], i) => (
+        <li class:list={['blob rise p-7', fills[i]]} style={`rotate:${[-1, 1.2, 0.8, -1.2][i]}deg`}>
+          <span class="font-display text-step-3 text-rose-ink" aria-hidden="true">
+            {['①', '②', '③', '④'][i]}
+          </span>
+          <h3 class="mt-2 text-step-2">{title}</h3>
+          <p class="mt-2">{body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

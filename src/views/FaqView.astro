@@ -1,0 +1,75 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import FaqList from '@/components/ui/FaqList.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { pageMeta } from '@/i18n/pageMeta';
+import { staticAlternates, type Locale } from '@/i18n/routes';
+import { getFaqs } from '@/lib/content';
+import { faqPage } from '@/lib/schema';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.faq[locale];
+const faqs = await getFaqs();
+const groups = {
+  id: {
+    ordering: 'Pemesanan',
+    payment: 'Pembayaran',
+    shipping: 'Pengiriman',
+    custom: 'Pesanan custom',
+    returns: 'Pengembalian',
+    care: 'Perawatan',
+  },
+  en: {
+    ordering: 'Ordering',
+    payment: 'Payment',
+    shipping: 'Shipping',
+    custom: 'Custom orders',
+    returns: 'Returns',
+    care: 'Care',
+  },
+}[locale];
+const lede = {
+  id: 'Tidak menemukan jawabannya? Chat kami di WhatsApp, Senin–Sabtu 09.00–18.00 WIB.',
+  en: "Can't find your answer? Message us on WhatsApp, Monday–Saturday 09:00–18:00 WIB.",
+}[locale];
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('faq')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('faq')[locale] }]}
+  schema={[faqPage(faqs.map((f) => ({ q: f.data.q[locale], a: f.data.a[locale] })))]}>
+  <section class="container-lc pt-8 pb-6">
+    <SectionTitle as="h1" title={meta.h1} lede={lede} />
+    <nav class="mt-8" aria-label={locale === 'id' ? 'Topik FAQ' : 'FAQ topics'}>
+      <ul class="flex flex-wrap gap-2">
+        {Object.entries(groups).map(([k, v]) => (
+          <li>
+            <a href={`#${k}`} class="marker marker--oat">
+              {v}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </section>
+  <div class="container-lc space-y-14 py-10">
+    {Object.entries(groups).map(([key, label]) => (
+      <section id={key} aria-labelledby={`h-${key}`} class="grid gap-6 lg:grid-cols-[0.6fr_1.4fr]">
+        <h2 id={`h-${key}`} class="text-step-3">
+          {label}
+        </h2>
+        <FaqList
+          items={faqs.filter((f) => f.data.group === key).map((f) => ({ q: f.data.q[locale], a: f.data.a[locale] }))}
+        />
+      </section>
+    ))}
+  </div>
+  <CtaBand locale={locale} context="faq" />
+</BaseLayout>

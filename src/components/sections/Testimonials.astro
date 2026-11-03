@@ -1,0 +1,127 @@
+---
+/**
+ * Testimonial carousel from the `testimonials` collection. CSS scroll-snap
+ * does the work; the prev/next buttons are a small enhancement. If no
+ * publishable testimonials exist, it shows a link to where reviews live
+ * instead of inventing any.
+ */
+import { Icon } from 'astro-icon/components';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import type { Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { formatDate } from '@/lib/format';
+import { getPublishableTestimonials } from '@/lib/content';
+import { generalMessage, waLink } from '@/lib/whatsapp';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const items = await getPublishableTestimonials();
+
+const copy = {
+  id: {
+    kicker: 'Kata mereka',
+    title: 'Cerita dari pelanggan',
+    empty:
+      'Ulasan pelanggan akan kami tampilkan di sini setelah mendapat izin dari pemiliknya. Sementara itu, tanya langsung pengalaman pelanggan kami lewat WhatsApp.',
+    ask: 'Tanya lewat WhatsApp',
+    region: 'Testimoni pelanggan',
+    stars: (n: number) => `${n} dari 5 bintang`,
+  },
+  en: {
+    kicker: 'Kind words',
+    title: 'Stories from customers',
+    empty:
+      "We'll show customer reviews here once their authors have given permission. In the meantime, ask us on WhatsApp about our customers' experiences.",
+    ask: 'Ask on WhatsApp',
+    region: 'Customer testimonials',
+    stars: (n: number) => `${n} out of 5 stars`,
+  },
+}[locale];
+---
+
+<section class="py-16" aria-labelledby="testi-title">
+  <div class="container-lc flex flex-wrap items-end justify-between gap-6">
+    <SectionTitle id="testi-title" kicker={copy.kicker} title={copy.title} />
+    {items.length > 1 && (
+      <div class="flex gap-2" data-carousel-controls>
+        <button type="button" class="btn btn-ghost btn-sm !px-3" data-dir="-1" aria-label={t('a11y.prev')}>
+          <Icon name="lucide:chevron-left" class="size-5" aria-hidden="true" />
+        </button>
+        <button type="button" class="btn btn-ghost btn-sm !px-3" data-dir="1" aria-label={t('a11y.next')}>
+          <Icon name="lucide:chevron-right" class="size-5" aria-hidden="true" />
+        </button>
+      </div>
+    )}
+  </div>
+
+  {items.length === 0 ? (
+    <div class="container-lc mt-10">
+      <div class="scallop flex flex-col items-start gap-4 p-8 md:flex-row md:items-center md:justify-between">
+        <p class="max-w-2xl text-cocoa-soft">{copy.empty}</p>
+        <a
+          href={waLink(generalMessage(locale))}
+          class="btn btn-wa shrink-0"
+          rel="noopener"
+          target="_blank"
+          data-track="whatsapp"
+          data-track-context="testimonials">
+          {copy.ask}
+        </a>
+      </div>
+    </div>
+  ) : (
+    <ul
+      class="testi mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[max(var(--gutter),calc((100vw-var(--maxw))/2))] pb-6"
+      tabindex="0"
+      aria-label={copy.region}
+      data-carousel>
+      {items.map((item, i) => (
+        <li class="w-[82vw] max-w-[24rem] shrink-0 snap-start">
+          <figure class="polaroid h-full !pb-6" style={`--tilt:${[-1.5, 1, -0.5][i % 3]}deg`}>
+            {item.data.sample && (
+              <p class="mb-3 rounded-md bg-butter px-2 py-1 text-step--1 font-bold">{t('testimonials.sample')}</p>
+            )}
+            <p class="flex gap-0.5 text-rose-ink" aria-label={copy.stars(item.data.rating)} role="img">
+              {Array.from({ length: 5 }, (_, s) => (
+                <Icon
+                  name="lucide:star"
+                  class:list={['size-4', s < item.data.rating ? 'fill-current' : 'opacity-30']}
+                  aria-hidden="true"
+                />
+              ))}
+            </p>
+            <blockquote
+              class="font-display mt-3 text-step-1 leading-snug"
+              lang={item.data.lang === 'id' ? 'id-ID' : 'en'}>
+              “{item.data.text}”
+            </blockquote>
+            <figcaption class="mt-4 text-step--1 text-cocoa-soft">
+              <strong class="text-cocoa">{item.data.name}</strong>, {item.data.city} ·{' '}
+              {formatDate(item.data.date, locale)}
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  )}
+</section>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const track = document.querySelector<HTMLElement>('[data-carousel]');
+    const controls = document.querySelector<HTMLElement>('[data-carousel-controls]');
+    if (!track || !controls || controls.dataset.ready) return;
+    controls.dataset.ready = '1';
+    controls.addEventListener('click', (e) => {
+      const btn = (e.target as Element).closest<HTMLButtonElement>('button[data-dir]');
+      if (!btn) return;
+      const card = track.querySelector('li');
+      const step = (card?.getBoundingClientRect().width ?? 300) + 20;
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      track.scrollBy({ left: Number(btn.dataset.dir) * step, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+</script>

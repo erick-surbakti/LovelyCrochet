@@ -1,0 +1,140 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { pageMeta } from '@/i18n/pageMeta';
+import { staticAlternates, type Locale } from '@/i18n/routes';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.search[locale];
+const copy = {
+  id: {
+    label: 'Kata kunci',
+    ph: 'Misal: buket wisuda, magic ring, cara mencuci',
+    submit: 'Cari',
+    none: 'Belum ada hasil. Coba kata lain seperti "buket", "boneka", atau "benang".',
+    found: (n: number) => `${n} hasil ditemukan`,
+    idle: 'Ketik kata kunci untuk mulai mencari.',
+  },
+  en: {
+    label: 'Search term',
+    ph: 'e.g. graduation bouquet, magic ring, washing',
+    submit: 'Search',
+    none: 'No results yet. Try another word like "bouquet", "amigurumi" or "yarn".',
+    found: (n: number) => `${n} results found`,
+    idle: 'Type a term to start searching.',
+  },
+}[locale];
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('search')}
+  noindex
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('search')[locale] }]}>
+  <section class="container-lc pt-8 pb-16">
+    <SectionTitle as="h1" title={meta.h1} />
+    <site-search
+      data-index={`/search-index-${locale}.json`}
+      data-none={copy.none}
+      data-found={copy.found(999)}
+      data-idle={copy.idle}>
+      <form role="search" method="get" class="mt-8 flex max-w-2xl flex-wrap gap-3">
+        <label for="q" class="sr-only-lc">
+          {copy.label}
+        </label>
+        <input
+          id="q"
+          name="q"
+          type="search"
+          placeholder={copy.ph}
+          class="min-w-0 flex-1 rounded-full border-2 border-cocoa/20 bg-paper px-5 py-3"
+          autocomplete="off"
+        />
+        <button type="submit" class="btn btn-primary">
+          {copy.submit}
+        </button>
+      </form>
+      <p class="mt-6 font-semibold" role="status" aria-live="polite" data-status>
+        {copy.idle}
+      </p>
+      <ul class="mt-6 grid max-w-3xl gap-4" data-results></ul>
+    </site-search>
+  </section>
+</BaseLayout>
+
+<script>
+  interface Item {
+    t: string;
+    u: string;
+    d: string;
+    k: string;
+  }
+  class SiteSearch extends HTMLElement {
+    private items: Item[] | null = null;
+    async connectedCallback() {
+      const form = this.querySelector('form')!;
+      const input = this.querySelector<HTMLInputElement>('input')!;
+      const q = new URLSearchParams(location.search).get('q') ?? '';
+      input.value = q;
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        history.replaceState(history.state, '', `?q=${encodeURIComponent(input.value)}`);
+        void this.run(input.value);
+      });
+      input.addEventListener('input', () => void this.run(input.value));
+      if (q) await this.run(q);
+    }
+    private async load() {
+      if (!this.items) this.items = (await (await fetch(this.dataset.index!)).json()) as Item[];
+      return this.items;
+    }
+    private async run(raw: string) {
+      const status = this.querySelector('[data-status]')!;
+      const list = this.querySelector('[data-results]')!;
+      const terms = raw.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      list.replaceChildren();
+      if (!terms.length) {
+        status.textContent = this.dataset.idle ?? '';
+        return;
+      }
+      const items = await this.load();
+      const hits = items
+        .map((it) => {
+          const hay = `${it.t} ${it.d}`.toLowerCase();
+          const score = terms.reduce(
+            (s, w) => s + (it.t.toLowerCase().includes(w) ? 3 : 0) + (hay.includes(w) ? 1 : 0),
+            0,
+          );
+          return { it, score, all: terms.every((w) => hay.includes(w)) };
+        })
+        .filter((h) => h.all)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 30);
+      status.textContent = hits.length
+        ? (this.dataset.found ?? '').replace('999', String(hits.length))
+        : (this.dataset.none ?? '');
+      for (const { it } of hits) {
+        const li = document.createElement('li');
+        li.className = 'scallop p-5';
+        const kind = document.createElement('span');
+        kind.className = 'marker marker--oat';
+        kind.textContent = it.k;
+        const a = document.createElement('a');
+        a.href = it.u;
+        a.className = 'font-display mt-2 block text-step-1 link-draw w-fit';
+        a.textContent = it.t;
+        const p = document.createElement('p');
+        p.className = 'mt-1 text-step--1 text-cocoa-soft';
+        p.textContent = it.d;
+        li.append(kind, a, p);
+        list.append(li);
+      }
+    }
+  }
+  if (!customElements.get('site-search')) customElements.define('site-search', SiteSearch);
+</script>

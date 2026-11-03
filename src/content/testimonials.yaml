@@ -1,0 +1,47 @@
+# Testimonials must be REAL customer words, used with permission.
+#
+# - Copy the text exactly as the customer wrote it (fix typos only).
+# - Set `permission: true` only after the customer agreed to be quoted.
+# - Use first name + initial, never a full name or phone number.
+# - `sample: true` entries are placeholders. They are shown only in `npm run dev`
+#   (labelled "Sample") and are NEVER rendered in production HTML or in
+#   AggregateRating / Review schema. Delete them once real entries exist.
+#
+# Production renders a testimonial (and adds it to Review schema) only when
+# `permission: true` and `sample: false`.
+
+- id: sample-1
+  name: Contoh A.
+  city: Kota Bekasi
+  rating: 5
+  lang: id
+  text: Ini contoh testimoni. Ganti dengan ulasan asli dari WhatsApp atau marketplace, lengkap dengan izin pelanggan.
+  product: boneka-penguin-rajut
+  date: 2026-01-10
+  source: whatsapp
+  permission: false
+  sample: true
+
+- id: sample-2
+  name: Sample B.
+  city: Jakarta Timur
+  rating: 5
+  lang: en
+  text: This is a sample testimonial. Replace it with a real review, with the customer's permission.
+  product: boneka-hello-kitty-rajut
+  date: 2026-02-14
+  source: instagram
+  permission: false
+  sample: true
+
+- id: sample-3
+  name: Contoh C.
+  city: Depok
+  rating: 5
+  lang: id
+  text: Contoh ulasan ketiga. Tampil hanya di mode pengembangan supaya desain carousel bisa dicek.
+  product: boneka-kelinci-rajut
+  date: 2026-03-02
+  source: shopee
+  permission: false
+  sample: true

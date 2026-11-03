@@ -1,0 +1,93 @@
+---
+/**
+ * Animated counters for real studio metrics from src/config/site.ts.
+ * In production the section only renders when `stats.confirmed` is true, so
+ * placeholder numbers are never published as facts.
+ */
+import { site } from '@/config/site';
+import type { Locale } from '@/i18n/routes';
+import { formatNumber } from '@/lib/format';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const show = site.stats.confirmed || import.meta.env.DEV;
+
+const labels = {
+  id: {
+    title: 'Hitungan tusuk kami',
+    pieces: 'karya sudah dirajut',
+    hours: 'jam kerja tangan',
+    customers: 'pelanggan bahagia',
+    cities: 'kota tujuan kirim',
+    draft: 'Angka contoh. Isi angka asli di src/config/site.ts lalu set stats.confirmed = true.',
+  },
+  en: {
+    title: 'Our stitch counter',
+    pieces: 'pieces crocheted',
+    hours: 'hours of handwork',
+    customers: 'happy customers',
+    cities: 'cities shipped to',
+    draft: 'Sample numbers. Add real ones in src/config/site.ts, then set stats.confirmed = true.',
+  },
+}[locale];
+
+const stats = [
+  [site.stats.piecesMade, labels.pieces, 'bg-blush'],
+  [site.stats.handworkHours, labels.hours, 'bg-butter/70'],
+  [site.stats.happyCustomers, labels.customers, 'bg-[#dfe7dc]'],
+  [site.stats.citiesShipped, labels.cities, 'bg-oat'],
+] as const;
+---
+
+{show && (
+  <section class="container-lc py-12" aria-labelledby="counter-title">
+    <h2 id="counter-title" class="sr-only-lc">
+      {labels.title}
+    </h2>
+    {!site.stats.confirmed && (
+      <p class="mb-4 rounded-xl border-2 border-dashed border-rose-ink/50 p-3 text-step--1 text-rose-ink">
+        {labels.draft}
+      </p>
+    )}
+    <ul class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      {stats.map(([value, label, bg], i) => (
+        <li class:list={['blob p-6 text-center', bg]} style={`rotate:${[-1.5, 1, -1, 1.5][i]}deg`}>
+          <stitch-counter data-to={value} data-locale={locale} class="font-display block text-step-5 leading-none">
+            {formatNumber(value, locale)}
+          </stitch-counter>
+          <span class="mt-2 block font-semibold">{label}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<script>
+  class StitchCounter extends HTMLElement {
+    connectedCallback() {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const to = Number(this.dataset.to ?? 0);
+      const fmt = new Intl.NumberFormat(this.dataset.locale === 'id' ? 'id-ID' : 'en-GB');
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry?.isIntersecting) return;
+          io.disconnect();
+          const start = performance.now();
+          const dur = 1600;
+          const step = (now: number) => {
+            const k = Math.min(1, (now - start) / dur);
+            const eased = 1 - Math.pow(1 - k, 3);
+            this.textContent = fmt.format(Math.round(to * eased));
+            if (k < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        },
+        { threshold: 0.6 },
+      );
+      io.observe(this);
+    }
+  }
+  if (!customElements.get('stitch-counter')) customElements.define('stitch-counter', StitchCounter);
+</script>

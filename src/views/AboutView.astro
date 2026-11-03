@@ -1,0 +1,172 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import ProcessTimeline from '@/components/sections/ProcessTimeline.astro';
+import Img from '@/components/ui/Img.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import YarnThread from '@/components/ui/YarnThread.astro';
+import { locality, site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { path, staticAlternates, type Locale } from '@/i18n/routes';
+import { organization } from '@/lib/schema';
+import { siteFacts } from '@/lib/siteFacts';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.about[locale];
+
+const copy = {
+  id: {
+    kicker: `Halo, aku ${site.founder}`,
+    story: [
+      'LovelyCrochet berawal dari satu gulung benang dan satu hakpen pinjaman di ruang tamu kami di Bekasi. Awalnya hanya ingin membuat gantungan kunci untuk teman-teman kantor. Lalu satu teman minta dibuatkan buket untuk wisuda adiknya, dan teman yang lain minta boneka untuk anaknya.',
+      'Sekarang studio kami masih di rumah yang sama, hanya rak benangnya yang makin penuh. Setiap karya masih dirajut dengan tangan, satu per satu, dengan sabar. Kami sengaja tetap kecil, karena dengan begitu kami bisa mengenal setiap pesanan, setiap nama yang disulam, dan setiap cerita di baliknya.',
+    ],
+    studioTitle: 'Studio kecil di Bekasi',
+    studio: `Studio kami adalah ruang rumahan di ${locality}. Tidak ada etalase toko, hanya meja kerja dekat jendela, rak benang warna-warni, dan tumpukan kotak kado yang siap dikirim. Karena studio ini juga rumah, kami tidak menerima kunjungan tanpa janji. Tapi kamu selalu bisa ngobrol dengan kami lewat WhatsApp.`,
+    valuesTitle: 'Yang kami pegang',
+    values: [
+      [
+        'Pelan tapi rapi',
+        'Kami lebih memilih merajut sedikit lebih lama daripada mengirim karya yang tusukannya longgar. Setiap sambungan dijahit ganda.',
+      ],
+      [
+        'Jujur soal waktu',
+        'Waktu pengerjaan yang kami sebutkan adalah waktu yang realistis. Kalau antrean penuh, kami bilang dari awal.',
+      ],
+      [
+        'Aman untuk anak',
+        'Boneka untuk bayi dan balita memakai mata sulam dan tanpa bagian kecil. Tidak ada pengecualian.',
+      ],
+      [
+        'Benang yang tepat',
+        'Kami memilih benang sesuai fungsi, bukan cuma warna. Itu sebabnya boneka, buket, dan tas memakai benang yang berbeda.',
+      ],
+    ],
+    materialsTitle: 'Filosofi bahan',
+    materials: [
+      'Kami percaya rajutan yang baik dimulai dari benang yang tepat. Boneka butuh benang yang lembut dan bisa dirajut rapat supaya isiannya tidak terlihat. Tas butuh benang yang lebih kuat supaya tidak mudah melar. Pakaian butuh benang yang nyaman di kulit dan tidak gerah di cuaca tropis.',
+      'Kami juga memperhatikan cara karya kami sampai ke tanganmu. Boneka bisa dikemas dalam kotak kado putih dengan serutan kertas kraft, supaya aman di perjalanan dan siap langsung diberikan.',
+    ],
+    processTitle: 'Proses di balik layar',
+    readMore: 'Baca cerita lengkapnya: berapa jam untuk satu boneka?',
+  },
+  en: {
+    kicker: `Hi, I'm ${site.founder}`,
+    story: [
+      'LovelyCrochet began with one ball of yarn and a borrowed hook in our living room in Bekasi. At first I only wanted to make keychains for friends at the office. Then one friend asked for a bouquet for her sister’s graduation, and another asked for a doll for her little one.',
+      'Today the studio is still in the same house, just with a much fuller yarn shelf. Every piece is still crocheted by hand, one at a time, patiently. We stay small on purpose, because that way we get to know every order, every embroidered name and the story behind it.',
+    ],
+    studioTitle: 'A small studio in Bekasi',
+    studio: `Our studio is a room at home in ${locality}. There’s no shopfront, just a work table by the window, shelves of colourful yarn and a stack of gift boxes ready to ship. Because the studio is also home, visits are by appointment only, but you can always chat with us on WhatsApp.`,
+    valuesTitle: 'What we stand by',
+    values: [
+      [
+        'Slow but neat',
+        'We would rather take a little longer than send out a piece with loose stitches. Every join is double-stitched.',
+      ],
+      ['Honest timelines', 'The lead times we quote are realistic. If the queue is full, we tell you up front.'],
+      [
+        'Safe for little ones',
+        'Dolls for babies and toddlers have embroidered eyes and no small parts. No exceptions.',
+      ],
+      [
+        'The right yarn',
+        'We choose yarn for the job, not just the colour. That’s why dolls, bouquets and bags each use a different yarn.',
+      ],
+    ],
+    materialsTitle: 'Our materials philosophy',
+    materials: [
+      'Good crochet starts with the right yarn. Dolls need a soft yarn that can be crocheted tightly so the stuffing never shows. Bags need a stronger yarn so they don’t stretch. Clothing needs a yarn that feels nice on the skin and stays cool in tropical weather.',
+      'We also care about how our pieces reach you. Dolls can come in a white gift box with shredded kraft paper, so they travel safely and are ready to give.',
+    ],
+    processTitle: 'Behind the scenes',
+    readMore: 'Read the full story: how many hours does one doll take?',
+  },
+}[locale];
+const storyHref = locale === 'id' ? '/jurnal/berapa-jam-merajut-boneka/' : '/en/journal/how-long-to-crochet-amigurumi/';
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('about')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('about')[locale] }]}
+  schema={[organization(siteFacts(locale))]}>
+  <section class="container-lc grid items-center gap-12 pt-8 pb-10 lg:grid-cols-[1.1fr_0.9fr]">
+    <div>
+      <SectionTitle as="h1" kicker={copy.kicker} title={meta.h1} />
+      <div class="prose-lc mt-6 text-step-1">
+        {copy.story.map((p) => (
+          <p>{p}</p>
+        ))}
+      </div>
+    </div>
+    <div class="relative mx-auto w-full max-w-md">
+      <div class="polaroid w-4/5" style="--tilt:-3deg">
+        <Img
+          name="boneka-kelinci-rajut-krem-syal-biru"
+          locale={locale}
+          sizes="(min-width: 1024px) 340px, 75vw"
+          class="aspect-[4/5] w-full object-cover"
+        />
+      </div>
+      <div class="polaroid absolute right-0 -bottom-10 w-1/2" style="--tilt:4deg">
+        <Img
+          name="gantungan-kunci-anjing-amigurumi-rajut"
+          locale={locale}
+          sizes="(min-width: 1024px) 220px, 45vw"
+          widths={[240, 360, 480]}
+          class="aspect-square w-full object-cover"
+        />
+      </div>
+    </div>
+  </section>
+
+  <YarnThread from={82} to={20} class="mt-10" />
+
+  <section class="container-lc grid gap-12 py-12 lg:grid-cols-2" aria-labelledby="studio-title">
+    <div>
+      <h2 id="studio-title" class="text-step-3">
+        {copy.studioTitle}
+      </h2>
+      <p class="prose-lc mt-4">{copy.studio}</p>
+    </div>
+    <div>
+      <h2 class="text-step-3">{copy.materialsTitle}</h2>
+      <div class="prose-lc mt-4">
+        {copy.materials.map((p) => (
+          <p>{p}</p>
+        ))}
+        <p>
+          <a href={path('care', locale)}>{pageMeta.care[locale].label}</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-lc py-12" aria-labelledby="values-title">
+    <h2 id="values-title" class="text-step-3">
+      {copy.valuesTitle}
+    </h2>
+    <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {copy.values.map(([title, body], i) => (
+        <li class:list={['blob rise p-6', ['bg-blush', 'bg-butter/70', 'bg-[#dfe7dc]', 'bg-oat'][i]]}>
+          <h3 class="text-step-1">{title}</h3>
+          <p class="mt-2">{body}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <ProcessTimeline locale={locale} />
+  <p class="container-lc">
+    <a href={storyHref} class="link-hand">
+      {copy.readMore} →
+    </a>
+  </p>
+  <CtaBand locale={locale} context="about" />
+</BaseLayout>

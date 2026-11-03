@@ -1,0 +1,227 @@
+---
+import { render } from 'astro:content';
+import { getImage as optimize } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Img from '@/components/ui/Img.astro';
+import ProductCard from '@/components/ui/ProductCard.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { path, type Locale } from '@/i18n/routes';
+import { patternTwin, patternUrl, productsByIds, type Pattern } from '@/lib/content';
+import { formatDate, isoDate } from '@/lib/format';
+import { getImage } from '@/lib/images';
+import { howTo } from '@/lib/schema';
+
+interface Props {
+  pattern: Pattern;
+}
+const { pattern } = Astro.props;
+const p = pattern.data;
+const locale = p.lang as Locale;
+const twin = await patternTwin(pattern);
+const self = patternUrl(pattern);
+const alternates =
+  locale === 'id'
+    ? { id: self, en: twin ? patternUrl(twin) : path('patterns', 'en') }
+    : { id: twin ? patternUrl(twin) : path('patterns', 'id'), en: self };
+const { Content } = await render(pattern);
+const [product] = p.relatedProduct ? await productsByIds([p.relatedProduct]) : [];
+const img = getImage(p.image);
+const ogImg = await optimize({ src: img.src, width: 1200, format: 'jpg' });
+
+const copy = {
+  id: {
+    level: 'Tingkat kesulitan',
+    time: 'Perkiraan waktu',
+    hook: 'Hakpen',
+    yarn: 'Benang',
+    gauge: 'Gauge',
+    size: 'Ukuran jadi',
+    materials: 'Bahan & alat',
+    abbr: 'Singkatan (istilah US)',
+    abbrCol: ['Singkatan', 'Arti'],
+    print: 'Cetak / simpan PDF',
+    pattern: 'Pola',
+    license:
+      'Pola ini gratis untuk dipakai belajar dan hasil rajutannya boleh dijual. Mohon jangan menyalin atau menjual ulang teks pola ini, dan cantumkan LovelyCrochet sebagai sumber jika membagikan foto hasilnya.',
+    buy: 'Lihat juga di koleksi kami',
+    stuck: 'Bingung dengan istilahnya? Buka Kamus Rajut',
+    published: 'Terbit',
+  },
+  en: {
+    level: 'Difficulty',
+    time: 'Time',
+    hook: 'Hook',
+    yarn: 'Yarn',
+    gauge: 'Gauge',
+    size: 'Finished size',
+    materials: 'Materials & tools',
+    abbr: 'Abbreviations (US terms)',
+    abbrCol: ['Abbreviation', 'Meaning'],
+    print: 'Print / save as PDF',
+    pattern: 'Pattern',
+    license:
+      "This pattern is free to use for learning, and you're welcome to sell what you make from it. Please don't copy or resell the pattern text itself, and credit LovelyCrochet when you share photos of your work.",
+    buy: 'See also in our collection',
+    stuck: 'Stuck on a term? Open the Crochet Glossary',
+    published: 'Published',
+  },
+}[locale];
+const stats = [
+  [copy.level, p.difficulty],
+  [copy.time, p.time],
+  [copy.hook, p.hook],
+  [copy.yarn, p.yarn],
+  [copy.gauge, p.gauge],
+  [copy.size, p.finishedSize],
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={p.seoTitle}
+  description={p.description}
+  alternates={alternates}
+  ogType="article"
+  ogImageAlt={img.alt[locale]}
+  breadcrumbs={[
+    { name: pageMeta.patterns[locale].label, path: path('patterns', locale) },
+    { name: p.title, path: self },
+  ]}
+  schema={[
+    howTo({
+      url: new URL(self, site.url).toString(),
+      name: p.title,
+      description: p.description,
+      image: new URL(ogImg.src, site.url).toString(),
+      supplies: p.materials,
+      tools: [p.hook, locale === 'id' ? 'Jarum tapestry' : 'Tapestry needle'],
+      steps: p.steps,
+      locale: locale === 'id' ? 'id-ID' : 'en',
+    }),
+  ]}>
+  <article class="container-lc pt-8">
+    <header class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div>
+        <p class="kicker">{pageMeta.patterns[locale].label}</p>
+        <h1 class="mt-3 text-step-5">{p.title}</h1>
+        <p class="mt-4 text-step-1 text-cocoa-soft">{p.description}</p>
+        <p class="mt-3 text-step--1">
+          {copy.published} <time datetime={isoDate(p.publishDate)}>{formatDate(p.publishDate, locale)}</time> ·{' '}
+          {site.name}
+        </p>
+        <button
+          type="button"
+          class="btn btn-primary no-print mt-6"
+          data-print
+          data-track="pattern-download"
+          data-track-context={pattern.id}>
+          <Icon name="lucide:printer" class="size-5" aria-hidden="true" />
+          {copy.print}
+        </button>
+      </div>
+      <div class="polaroid mx-auto w-full max-w-xs" style="--tilt:2deg">
+        <Img
+          name={p.image}
+          eager
+          locale={locale}
+          sizes="(min-width: 1024px) 320px, 80vw"
+          widths={[320, 480, 640]}
+          class="aspect-square w-full object-cover"
+        />
+      </div>
+    </header>
+
+    <dl class="scallop mt-10 grid gap-x-8 gap-y-4 p-6 shadow-[var(--shadow-warm)] sm:grid-cols-2 lg:grid-cols-3">
+      {stats.map(([k, v]) => (
+        <div>
+          <dt class="text-step--1 font-bold tracking-[0.12em] text-rose-ink uppercase">{k}</dt>
+          <dd class="mt-1 font-semibold">{v}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <div class="mt-12 grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+      <div class="space-y-10">
+        <section aria-labelledby="materials">
+          <h2 id="materials" class="text-step-2">
+            {copy.materials}
+          </h2>
+          <ul class="prose-lc mt-4">
+            {p.materials.map((m) => (
+              <li>{m}</li>
+            ))}
+          </ul>
+        </section>
+        <section aria-labelledby="abbr">
+          <h2 id="abbr" class="text-step-2">
+            {copy.abbr}
+          </h2>
+          <div class="prose-lc mt-4">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">{copy.abbrCol[0]}</th>
+                  <th scope="col">{copy.abbrCol[1]}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {p.abbreviations.map((a) => (
+                  <tr>
+                    <th scope="row">
+                      <code>{a.abbr}</code>
+                    </th>
+                    <td>{a.meaning}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="no-print mt-3 text-step--1">
+            <a href={path('glossary', locale)} class="link-hand">
+              {copy.stuck}
+            </a>
+          </p>
+        </section>
+      </div>
+      <section aria-labelledby="pattern-body">
+        <h2 id="pattern-body" class="text-step-3">
+          {copy.pattern}
+        </h2>
+        <div class="prose-lc pattern-body mt-4">
+          <Content />
+        </div>
+        <p class="mt-8 rounded-2xl border-2 border-dashed border-cocoa/25 p-4 text-step--1 text-cocoa-soft">
+          {copy.license}
+        </p>
+      </section>
+    </div>
+  </article>
+
+  {product && (
+    <section class="container-lc no-print py-16" aria-labelledby="pattern-buy">
+      <h2 id="pattern-buy" class="text-step-3">
+        {copy.buy}
+      </h2>
+      <div class="mt-8 max-w-xs">
+        <ProductCard product={product} locale={locale} morph />
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<script>
+  document.addEventListener('click', (e) => {
+    if ((e.target as Element).closest('[data-print]')) window.print();
+  });
+</script>
+
+<style>
+  .pattern-body :global(h3) {
+    font-size: var(--text-step-1);
+  }
+  .pattern-body :global(ol > li) {
+    padding-left: 0.25rem;
+  }
+</style>

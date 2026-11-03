@@ -1,0 +1,436 @@
+- id: rantai
+  major: true
+  slug: { id: "rantai", en: "chain-stitch" }
+  term: { id: "Rantai", en: "Chain" }
+  us: chain
+  uk: chain
+  abbrUs: ch
+  abbrUk: ch
+  related: [rantai-putar, tusuk-selip, magic-ring]
+  definition:
+    id: Tusukan paling dasar dalam merajut. Benang dililitkan ke hakpen lalu ditarik melewati simpul yang sudah ada di hakpen, membentuk mata rantai kecil. Deretan rantai biasanya menjadi fondasi baris pertama.
+    en: The most basic crochet stitch. You wrap the yarn over the hook and pull it through the loop already on the hook, making a small link. A row of chains is usually the foundation for the first row.
+  howTo:
+    id:
+      - Buat simpul hidup (slip knot) dan masukkan ke hakpen.
+      - Lilitkan benang dari belakang ke depan hakpen (yarn over).
+      - Tarik benang melewati simpul di hakpen. Satu rantai selesai.
+      - Ulangi sampai jumlah rantai sesuai pola. Jangan hitung simpul yang ada di hakpen.
+    en:
+      - Make a slip knot and put it on the hook.
+      - Wrap the yarn over the hook from back to front (yarn over).
+      - Pull the yarn through the loop on the hook. That's one chain.
+      - Repeat until you have the number the pattern asks for. Don't count the loop on the hook.
+  tip:
+    id: Rantai yang terlalu ketat membuat baris pertama sulit dirajut. Pakai hakpen satu ukuran lebih besar khusus untuk rantai dasar.
+    en: Chains that are too tight make the first row a struggle. Use a hook one size larger just for the foundation chain.
+
+- id: tusuk-selip
+  major: true
+  slug: { id: "tusuk-selip", en: "slip-stitch" }
+  term: { id: "Tusuk Selip", en: "Slip Stitch" }
+  us: slip stitch
+  uk: slip stitch
+  abbrUs: sl st
+  abbrUk: ss
+  related: [rantai, magic-ring, putaran]
+  definition:
+    id: Tusukan paling pendek yang hampir tidak menambah tinggi. Dipakai untuk menutup putaran, berpindah posisi tanpa memotong benang, dan menyambung dua bagian.
+    en: The shortest stitch, adding almost no height. It's used to close a round, move along without cutting the yarn, and join two pieces.
+  howTo:
+    id:
+      - Masukkan hakpen ke tusukan yang dituju.
+      - Lilitkan benang ke hakpen.
+      - Tarik benang melewati tusukan dan langsung melewati simpul di hakpen dalam satu gerakan.
+    en:
+      - Insert the hook into the stitch.
+      - Yarn over.
+      - Pull through the stitch and the loop on the hook in one movement.
+  tip:
+    id: Di pola Inggris (UK), tusuk selip disingkat "ss", bukan "sl st". Jangan sampai tertukar dengan tusuk tunggal.
+    en: UK patterns abbreviate slip stitch as "ss", not "sl st". Don't mix it up with single crochet.
+
+- id: tusuk-tunggal
+  major: true
+  slug: { id: "tusuk-tunggal", en: "single-crochet" }
+  term: { id: "Tusuk Tunggal", en: "Single Crochet" }
+  us: single crochet
+  uk: double crochet
+  abbrUs: sc
+  abbrUk: dc
+  related: [tusuk-setengah-ganda, penambahan, amigurumi]
+  definition:
+    id: Tusukan pendek dan rapat yang menghasilkan kain padat. Ini tusukan utama untuk amigurumi, tas, dan apa pun yang perlu kokoh. Di istilah Inggris (UK), tusukan ini disebut double crochet.
+    en: A short, tight stitch that makes dense fabric. It's the main stitch for amigurumi, bags and anything that needs to be sturdy. In UK terms it's called double crochet.
+  howTo:
+    id:
+      - Masukkan hakpen ke tusukan berikutnya.
+      - Lilitkan benang, lalu tarik melewati tusukan. Sekarang ada 2 simpul di hakpen.
+      - Lilitkan benang lagi, lalu tarik melewati kedua simpul sekaligus.
+    en:
+      - Insert the hook into the next stitch.
+      - Yarn over and pull up a loop. You now have 2 loops on the hook.
+      - Yarn over again and pull through both loops.
+  tip:
+    id: Saat membaca pola, cek dulu apakah pola itu memakai istilah US atau UK. "dc" di pola UK sama dengan "sc" di pola US.
+    en: Check whether a pattern uses US or UK terms before you start. A UK "dc" is a US "sc".
+
+- id: tusuk-setengah-ganda
+  major: true
+  slug: { id: "tusuk-setengah-ganda", en: "half-double-crochet" }
+  term: { id: "Tusuk Setengah Ganda", en: "Half Double Crochet" }
+  us: half double crochet
+  uk: half treble crochet
+  abbrUs: hdc
+  abbrUk: htr
+  related: [tusuk-tunggal, tusuk-ganda]
+  definition:
+    id: Tusukan dengan tinggi di antara tusuk tunggal dan tusuk ganda. Hasilnya kain yang lebih lentur dan cepat dirajut, cocok untuk cardigan, topi, dan selimut.
+    en: A stitch between single and double crochet in height. It makes a softer fabric that works up quickly, good for cardigans, hats and blankets.
+  howTo:
+    id:
+      - Lilitkan benang ke hakpen satu kali.
+      - Masukkan hakpen ke tusukan, lilitkan benang, lalu tarik keluar. Ada 3 simpul di hakpen.
+      - Lilitkan benang, lalu tarik melewati ketiga simpul sekaligus.
+    en:
+      - Yarn over once.
+      - Insert the hook into the stitch, yarn over and pull up a loop. You have 3 loops on the hook.
+      - Yarn over and pull through all 3 loops.
+  tip:
+    id: Rantai putar untuk tusuk setengah ganda biasanya 2 rantai.
+    en: The turning chain for half double crochet is usually 2 chains.
+
+- id: tusuk-ganda
+  major: true
+  slug: { id: "tusuk-ganda", en: "double-crochet" }
+  term: { id: "Tusuk Ganda", en: "Double Crochet" }
+  us: double crochet
+  uk: treble crochet
+  abbrUs: dc
+  abbrUk: tr
+  related: [tusuk-setengah-ganda, granny-square, tusuk-ganda-tiga]
+  definition:
+    id: Tusukan tinggi yang menghasilkan kain berongga dan cepat jadi. Ini tusukan utama granny square, syal, dan selimut. Di istilah UK disebut treble crochet.
+    en: A tall stitch that makes an open fabric and grows fast. It's the main stitch for granny squares, scarves and blankets. In UK terms it's called treble crochet.
+  howTo:
+    id:
+      - Lilitkan benang ke hakpen satu kali.
+      - Masukkan hakpen ke tusukan, lilitkan benang, lalu tarik keluar. Ada 3 simpul di hakpen.
+      - Lilitkan benang, tarik melewati 2 simpul. Tersisa 2 simpul.
+      - Lilitkan benang, tarik melewati 2 simpul terakhir.
+    en:
+      - Yarn over once.
+      - Insert the hook into the stitch, yarn over and pull up a loop. You have 3 loops on the hook.
+      - Yarn over and pull through 2 loops. You have 2 left.
+      - Yarn over and pull through the last 2 loops.
+  tip:
+    id: Rantai putar untuk tusuk ganda biasanya 3 rantai dan dihitung sebagai satu tusukan.
+    en: The turning chain for double crochet is usually 3 chains and counts as one stitch.
+
+- id: tusuk-ganda-tiga
+  slug: { id: "tusuk-ganda-tiga", en: "treble-crochet" }
+  term: { id: "Tusuk Ganda Tiga", en: "Treble Crochet" }
+  us: treble crochet
+  uk: double treble crochet
+  abbrUs: tr
+  abbrUk: dtr
+  related: [tusuk-ganda]
+  definition:
+    id: Tusukan yang lebih tinggi dari tusuk ganda. Benang dililit dua kali sebelum masuk ke tusukan, lalu simpul ditarik keluar dua demi dua. Sering dipakai untuk kelopak bunga yang panjang dan renda.
+    en: Taller than double crochet. You wrap the yarn twice before inserting the hook, then work the loops off two at a time. Often used for long petals and lace.
+
+- id: magic-ring
+  major: true
+  slug: { id: "magic-ring", en: "magic-ring" }
+  term: { id: "Magic Ring", en: "Magic Ring" }
+  us: magic ring (magic circle)
+  uk: magic ring
+  abbrUs: MR
+  abbrUk: MR
+  related: [putaran, penambahan, amigurumi]
+  definition:
+    id: Cara memulai rajutan melingkar dengan lingkaran benang yang bisa dikencangkan, sehingga tidak ada lubang di tengah. Ini awal hampir semua amigurumi, topi, dan bunga.
+    en: A way to start crocheting in the round with an adjustable loop that pulls tight, leaving no hole in the middle. Almost every amigurumi, hat and flower starts with one.
+  howTo:
+    id:
+      - Lilitkan benang membentuk lingkaran di jari, ujung benang di belakang.
+      - Masukkan hakpen ke lingkaran, ambil benang, tarik keluar, lalu buat 1 rantai untuk mengunci.
+      - Rajut tusuk tunggal ke dalam lingkaran sesuai jumlah di pola, biasanya 6.
+      - Tarik ujung benang perlahan sampai lubang di tengah menutup rapat, lalu tutup dengan tusuk selip.
+    en:
+      - Wrap the yarn into a loop around your fingers, with the tail behind.
+      - Insert the hook into the loop, grab the yarn, pull it through and chain 1 to lock it.
+      - Work single crochet into the loop as many times as the pattern says, usually 6.
+      - Pull the tail gently until the centre closes completely, then join with a slip stitch.
+  tip:
+    id: Jangan potong ujung benang terlalu pendek. Kaitkan sekali lagi di bagian dalam supaya magic ring tidak terbuka saat boneka diisi.
+    en: Don't cut the tail too short. Weave it back through on the inside so the ring can't loosen when you stuff the piece.
+
+- id: penambahan
+  major: true
+  slug: { id: "penambahan", en: "increase" }
+  term: { id: "Penambahan (Increase)", en: "Increase" }
+  us: increase
+  uk: increase
+  abbrUs: inc
+  abbrUk: inc
+  related: [pengurangan, magic-ring, putaran]
+  definition:
+    id: Membuat dua tusukan di satu tusukan yang sama untuk melebarkan rajutan. Penambahan yang diatur rata di setiap putaran menghasilkan lingkaran datar atau bola.
+    en: Working two stitches into the same stitch to widen the fabric. Spacing increases evenly each round gives you a flat circle or a ball shape.
+  howTo:
+    id:
+      - Rajut satu tusuk tunggal ke tusukan berikutnya.
+      - Rajut satu tusuk tunggal lagi ke tusukan yang sama.
+      - Di pola, ini biasa ditulis "inc" atau "2 sc dalam 1 tusukan".
+    en:
+      - Work one single crochet into the next stitch.
+      - Work another single crochet into that same stitch.
+      - Patterns usually write this as "inc" or "2 sc in next st".
+  tip:
+    id: Untuk bola yang bulat sempurna, geser posisi penambahan di setiap putaran supaya tidak membentuk sudut.
+    en: For a perfectly round ball, stagger where the increases fall each round so they don't stack into corners.
+
+- id: pengurangan
+  major: true
+  slug: { id: "pengurangan", en: "invisible-decrease" }
+  term: { id: "Pengurangan (Decrease)", en: "Invisible Decrease" }
+  us: invisible decrease
+  uk: invisible decrease
+  abbrUs: dec
+  abbrUk: dec
+  related: [penambahan, amigurumi, lubang-depan]
+  definition:
+    id: Menggabungkan dua tusukan menjadi satu untuk menyempitkan rajutan. Versi "invisible" hanya mengambil lubang depan kedua tusukan, sehingga hampir tidak terlihat. Wajib dikuasai untuk amigurumi.
+    en: Joining two stitches into one to narrow the fabric. The invisible version only picks up the front loops of both stitches, so it barely shows. A must for amigurumi.
+  howTo:
+    id:
+      - Masukkan hakpen ke lubang depan tusukan pertama.
+      - Tanpa menarik benang, masukkan hakpen ke lubang depan tusukan kedua. Ada 3 simpul di hakpen.
+      - Lilitkan benang, tarik melewati 2 simpul pertama.
+      - Lilitkan benang lagi, tarik melewati 2 simpul terakhir.
+    en:
+      - Insert the hook into the front loop of the first stitch.
+      - Without yarning over, insert it into the front loop of the second stitch. You have 3 loops on the hook.
+      - Yarn over and pull through the first 2 loops.
+      - Yarn over and pull through the last 2 loops.
+  tip:
+    id: Isi boneka sedikit demi sedikit saat lubang mulai menyempit, jangan menunggu sampai lubang tinggal kecil.
+    en: Stuff the piece bit by bit as the opening narrows. Don't wait until the hole is tiny.
+
+- id: lubang-depan
+  slug: { id: "lubang-depan", en: "front-loop-only" }
+  term: { id: "Lubang Depan Saja", en: "Front Loop Only" }
+  us: front loop only
+  uk: front loop only
+  abbrUs: FLO
+  abbrUk: FLO
+  related: [lubang-belakang, pengurangan]
+  definition:
+    id: Merajut hanya ke lubang depan tusukan (yang paling dekat denganmu). Lubang belakang yang tersisa membentuk garis dan bisa dipakai untuk menempelkan bagian lain, misalnya rok boneka.
+    en: Working only into the front loop of a stitch, the one closest to you. The unused back loops form a ridge you can attach things to, like a doll's skirt.
+
+- id: lubang-belakang
+  slug: { id: "lubang-belakang", en: "back-loop-only" }
+  term: { id: "Lubang Belakang Saja", en: "Back Loop Only" }
+  us: back loop only
+  uk: back loop only
+  abbrUs: BLO
+  abbrUk: BLO
+  related: [lubang-depan, tusuk-tunggal]
+  definition:
+    id: Merajut hanya ke lubang belakang tusukan. Hasilnya garis-garis timbul seperti rusuk, yang sering dipakai untuk tekstur seperti kaktus rajut atau pinggiran topi.
+    en: Working only into the back loop of a stitch. It creates raised ribs, often used for textures like crochet cacti or hat brims.
+
+- id: putaran
+  slug: { id: "putaran", en: "round" }
+  term: { id: "Putaran", en: "Round" }
+  us: round
+  uk: round
+  abbrUs: rnd
+  abbrUk: rnd
+  related: [baris, magic-ring, penanda-jahitan]
+  definition:
+    id: Satu lingkaran penuh saat merajut melingkar. Pola amigurumi ditulis per putaran, misalnya "Rnd 3 (sc, inc) x 6 (18)", dengan angka dalam kurung adalah jumlah tusukan di akhir putaran.
+    en: One full circle when crocheting in the round. Amigurumi patterns are written by round, for example "Rnd 3 (sc, inc) x 6 (18)", where the number in brackets is the stitch count at the end.
+
+- id: baris
+  slug: { id: "baris", en: "row" }
+  term: { id: "Baris", en: "Row" }
+  us: row
+  uk: row
+  related: [rantai-putar, putaran]
+  definition:
+    id: Satu deret tusukan yang dirajut bolak-balik. Di akhir setiap baris, rajutan dibalik dan dimulai dengan rantai putar. Tas tote dan syal biasanya dirajut per baris.
+    en: A line of stitches worked back and forth. At the end of each row you turn the work and start with a turning chain. Totes and scarves are usually made in rows.
+
+- id: rantai-putar
+  slug: { id: "rantai-putar", en: "turning-chain" }
+  term: { id: "Rantai Putar", en: "Turning Chain" }
+  us: turning chain
+  uk: turning chain
+  abbrUs: t-ch
+  abbrUk: t-ch
+  related: [baris, rantai]
+  definition:
+    id: Rantai yang dibuat di awal baris baru untuk menaikkan benang setinggi tusukan berikutnya. Biasanya 1 rantai untuk tusuk tunggal, 2 untuk tusuk setengah ganda, dan 3 untuk tusuk ganda.
+    en: Chains made at the start of a new row to bring the yarn up to the height of the next stitches. Usually 1 for single crochet, 2 for half double and 3 for double crochet.
+
+- id: penanda-jahitan
+  slug: { id: "penanda-jahitan", en: "stitch-marker" }
+  term: { id: "Penanda Jahitan", en: "Stitch Marker" }
+  us: stitch marker
+  uk: stitch marker
+  related: [putaran, amigurumi]
+  definition:
+    id: Klip kecil yang dikaitkan ke tusukan pertama putaran supaya kamu tahu kapan satu putaran selesai. Sangat membantu saat merajut spiral untuk amigurumi. Peniti atau sepotong benang kontras juga bisa dipakai.
+    en: A small clip hooked into the first stitch of a round so you know where the round ends. Very handy when working amigurumi in a spiral. A safety pin or a scrap of contrasting yarn works too.
+
+- id: gauge
+  slug: { id: "gauge", en: "gauge" }
+  term: { id: "Gauge (Ketegangan)", en: "Gauge (Tension)" }
+  us: gauge
+  uk: tension
+  related: [hakpen, baris]
+  definition:
+    id: Jumlah tusukan dan baris dalam ukuran 10 x 10 cm. Gauge memastikan hasil rajutanmu berukuran sama dengan pola. Ini penting sekali untuk pakaian dan topi.
+    en: The number of stitches and rows in a 10 × 10 cm square. Gauge makes sure your piece comes out the same size as the pattern. It matters most for clothing and hats.
+
+- id: hakpen
+  major: true
+  slug: { id: "hakpen", en: "crochet-hook" }
+  term: { id: "Hakpen", en: "Crochet Hook" }
+  us: crochet hook
+  uk: crochet hook
+  related: [gauge, rantai, jarum-tapestry]
+  definition:
+    id: Alat merajut berupa batang dengan kait di ujungnya. Ukurannya ditulis dalam milimeter, misalnya 2,5 mm, sesuai diameter batangnya. Semakin tebal benang, semakin besar hakpen yang dipakai.
+    en: The crochet tool, a shaft with a hook at the tip. Sizes are given in millimetres, such as 2.5 mm, matching the shaft diameter. The thicker the yarn, the bigger the hook.
+  howTo:
+    id:
+      - Untuk pemula, pilih hakpen 4–5 mm dan benang 8 ply supaya tusukan mudah terlihat.
+      - Untuk amigurumi, pakai hakpen 0,5–1 mm lebih kecil dari anjuran di label benang agar rajutan rapat.
+      - Hakpen bergagang karet atau ergonomis lebih nyaman untuk merajut berjam-jam.
+      - Pegang hakpen seperti pensil atau seperti pisau. Keduanya benar, pilih yang paling nyaman.
+    en:
+      - Beginners should pick a 4–5 mm hook with 8-ply yarn so the stitches are easy to see.
+      - For amigurumi, go 0.5–1 mm smaller than the yarn label suggests for tight stitches.
+      - Rubber or ergonomic handles are more comfortable for long sessions.
+      - Hold the hook like a pencil or like a knife. Both are correct, so use whichever feels better.
+  tip:
+    id: Ukuran hakpen lama kadang ditulis dengan nomor US (misalnya E/4 = 3,5 mm). Selalu cek angka milimeternya.
+    en: Older hooks sometimes use US letter sizes (for example E/4 = 3.5 mm). Always check the millimetre size.
+
+- id: granny-square
+  major: true
+  slug: { id: "granny-square", en: "granny-square" }
+  term: { id: "Granny Square", en: "Granny Square" }
+  us: granny square
+  uk: granny square
+  related: [tusuk-ganda, magic-ring, menyembunyikan-benang]
+  definition:
+    id: Motif kotak klasik yang dirajut dari tengah ke luar dengan kelompok tusuk ganda. Banyak kotak bisa disambung menjadi tas, selimut, atau cardigan.
+    en: A classic square motif crocheted from the centre out in clusters of double crochet. Many squares can be joined into bags, blankets or cardigans.
+  howTo:
+    id:
+      - Mulai dengan magic ring atau 4 rantai yang ditutup jadi lingkaran.
+      - Putaran 1. Buat 3 rantai (dihitung sebagai 1 tusuk ganda), 2 tusuk ganda, 2 rantai, lalu ulangi (3 tusuk ganda, 2 rantai) tiga kali. Tutup dengan tusuk selip.
+      - Putaran berikutnya. Di setiap sudut (ruang 2 rantai) buat 3 tusuk ganda, 2 rantai, 3 tusuk ganda. Di sisi buat 3 tusuk ganda di setiap celah.
+      - Ganti warna di awal putaran untuk efek berlapis seperti pada tas kami.
+    en:
+      - Start with a magic ring, or 4 chains joined into a ring.
+      - Round 1. Chain 3 (counts as 1 double crochet), 2 dc, ch 2, then (3 dc, ch 2) three times. Join with a slip stitch.
+      - Next rounds. In each corner (ch-2 space) work 3 dc, ch 2, 3 dc. Along the sides work 3 dc in each gap.
+      - Change colour at the start of a round for the layered look you see on our bags.
+  tip:
+    id: Blocking setiap kotak sebelum disambung membuat semua kotak berukuran sama dan sambungannya lebih rapi.
+    en: Block each square before joining so they're all the same size and the seams look neater.
+
+- id: amigurumi
+  major: true
+  slug: { id: "amigurumi", en: "amigurumi" }
+  term: { id: "Amigurumi", en: "Amigurumi" }
+  us: amigurumi
+  uk: amigurumi
+  related: [magic-ring, penambahan, pengurangan, penanda-jahitan]
+  definition:
+    id: Seni merajut boneka dan figur kecil dari Jepang. Bagian-bagiannya dirajut melingkar dalam spiral dengan tusuk tunggal rapat, diisi dakron, lalu dijahit.
+    en: The Japanese art of crocheting dolls and small figures. The parts are worked in tight single crochet spirals, stuffed with fibre fill and sewn together.
+  howTo:
+    id:
+      - Mulai setiap bagian dengan magic ring berisi 6 tusuk tunggal.
+      - Lebarkan dengan penambahan rata di setiap putaran (6, 12, 18, 24 tusukan, dan seterusnya).
+      - Rajut beberapa putaran tanpa penambahan untuk membentuk tinggi.
+      - Sempitkan dengan invisible decrease sambil mengisi dakron sedikit demi sedikit.
+      - Jahit semua bagian dengan jarum tapestry dan benang yang sama.
+    en:
+      - Start each part with a magic ring of 6 single crochet.
+      - Widen with evenly spaced increases each round (6, 12, 18, 24 stitches and so on).
+      - Work a few rounds without increases to build height.
+      - Narrow with invisible decreases while stuffing a little at a time.
+      - Sew the parts together with a tapestry needle and matching yarn.
+  tip:
+    id: Kata "amigurumi" berasal dari bahasa Jepang, gabungan "ami" (merajut) dan "nuigurumi" (boneka isi).
+    en: The word comes from Japanese "ami" (crocheted or knitted) and "nuigurumi" (stuffed doll).
+
+- id: tusuk-popcorn
+  slug: { id: "tusuk-popcorn", en: "popcorn-stitch" }
+  term: { id: "Tusuk Popcorn", en: "Popcorn Stitch" }
+  us: popcorn stitch
+  uk: popcorn stitch
+  abbrUs: pc
+  abbrUk: pc
+  related: [tusuk-bobble, tusuk-puff, tusuk-ganda]
+  definition:
+    id: Beberapa tusuk ganda (biasanya 5) dirajut di satu tusukan, lalu ditutup bersama sehingga menonjol seperti berondong jagung. Sering dipakai untuk tekstur selimut dan tas.
+    en: Several double crochet (usually 5) worked into one stitch, then closed together so they pop out like popcorn. Often used for texture on blankets and bags.
+
+- id: tusuk-puff
+  slug: { id: "tusuk-puff", en: "puff-stitch" }
+  term: { id: "Tusuk Puff", en: "Puff Stitch" }
+  us: puff stitch
+  uk: puff stitch
+  related: [tusuk-popcorn, tusuk-bobble]
+  definition:
+    id: Beberapa lilitan benang yang ditarik keluar dari satu tusukan, lalu ditutup sekaligus. Hasilnya gumpalan lembut yang lebih rata dari popcorn. Cocok untuk kelopak bunga dan scrunchie.
+    en: Several yarn-over loops pulled up from one stitch and closed together. It makes a soft cluster that sits flatter than a popcorn. Good for petals and scrunchies.
+
+- id: tusuk-bobble
+  slug: { id: "tusuk-bobble", en: "bobble-stitch" }
+  term: { id: "Tusuk Bobble", en: "Bobble Stitch" }
+  us: bobble stitch
+  uk: bobble stitch
+  related: [tusuk-popcorn, tusuk-puff]
+  definition:
+    id: Beberapa tusuk ganda yang belum selesai dirajut di satu tusukan, lalu ditutup bersama. Bobble menonjol di sisi belakang rajutan dan kami pakai untuk hiasan bulatan pada gaun boneka kelinci.
+    en: Several unfinished double crochet in one stitch, closed together. Bobbles pop out on the back of the fabric. We use them for the dotted trim on our bunny's dress.
+
+- id: menyembunyikan-benang
+  slug: { id: "menyembunyikan-benang", en: "weaving-in-ends" }
+  term: { id: "Menyembunyikan Ujung Benang", en: "Weaving In Ends" }
+  us: weave in ends
+  uk: weave in ends
+  related: [jarum-tapestry, granny-square]
+  definition:
+    id: Menyelipkan sisa ujung benang ke dalam rajutan dengan jarum tapestry agar tidak terlihat dan tidak terurai. Ujung benang sebaiknya diselipkan ke tiga arah berbeda supaya terkunci.
+    en: Threading leftover tails into the fabric with a tapestry needle so they're hidden and won't unravel. Weave each tail in three different directions to lock it in.
+
+- id: blocking
+  slug: { id: "blocking", en: "blocking" }
+  term: { id: "Blocking", en: "Blocking" }
+  us: blocking
+  uk: blocking
+  related: [granny-square, gauge]
+  definition:
+    id: Membasahi atau menguapi rajutan yang sudah jadi, lalu menyematkannya di alas sesuai ukuran sampai kering. Blocking merapikan tusukan dan menyamakan ukuran granny square sebelum disambung.
+    en: Wetting or steaming a finished piece and pinning it to size on a board until it dries. Blocking evens out the stitches and makes granny squares the same size before joining.
+
+- id: jarum-tapestry
+  slug: { id: "jarum-tapestry", en: "tapestry-needle" }
+  term: { id: "Jarum Tapestry", en: "Tapestry Needle" }
+  us: tapestry needle
+  uk: darning needle
+  related: [menyembunyikan-benang, amigurumi]
+  definition:
+    id: Jarum besar berujung tumpul dengan lubang lebar, dipakai untuk menjahit bagian amigurumi dan menyembunyikan ujung benang tanpa merusak serat benang.
+    en: A large blunt needle with a wide eye, used to sew amigurumi parts together and weave in ends without splitting the yarn.

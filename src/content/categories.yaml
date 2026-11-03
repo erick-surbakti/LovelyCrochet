@@ -1,0 +1,184 @@
+- id: buket-bunga-rajut
+  order: 3
+  image: ilustrasi-buket-tulip-rajut
+  slug: { id: "buket-bunga-rajut", en: "crochet-flower-bouquets" }
+  name: { id: "Buket Bunga Rajut", en: "Crochet Flower Bouquets" }
+  short:
+    id: Bunga abadi yang tidak layu, tidak rontok, dan bisa disimpan bertahun-tahun.
+    en: Everlasting flowers that never wilt, shed or need water.
+  seoTitle:
+    id: Buket Bunga Rajut Bekasi, Bunga Abadi Handmade | LovelyCrochet
+    en: Crochet Flower Bouquets, Handmade in Bekasi | LovelyCrochet
+  seoDescription:
+    id: Buket bunga rajut handmade dari Bekasi. Tulip, mawar, dan bunga campur yang tidak pernah layu. Bisa custom warna, same-day Jabodetabek.
+    en: Handmade crochet flower bouquets from Bekasi. Tulips, roses and mixed blooms that never wilt. Custom colours, same-day Jabodetabek.
+  intro:
+    id:
+      - Bunga segar cantik, tapi tiga hari kemudian sudah layu. Buket bunga rajut kami dibuat untuk momen yang ingin kamu simpan lebih lama. Setiap kelopak dirajut satu per satu dari benang cotton milk yang lembut, lalu dibentuk dengan kawat bunga berlapis agar tetap tegak tanpa terlihat kaku. Hasilnya buket yang tetap rapi di meja belajar, rak kamar, atau lemari kaca bertahun-tahun kemudian.
+      - Buket rajut cocok untuk wisuda, ulang tahun, anniversary, dan Hari Ibu. Kamu bisa memilih bunga tulip, mawar, daisy, atau campuran, lalu menentukan palet warnanya. Ada palet pastel yang manis, warna bumi yang kalem, atau warna kampus dan almamater. Ingin menambah toga mini, kartu ucapan, atau boneka kecil? Tinggal sebutkan saat chat.
+      - Untuk area Bekasi dan Jabodetabek, buket bisa dikirim same-day lewat GoSend atau GrabExpress supaya tetap utuh sampai tangan penerima. Ke luar kota, buket dikemas dalam kotak kardus tebal dengan penyangga, jadi aman dikirim lewat JNE, J&T, SiCepat, atau AnterAja ke seluruh Indonesia.
+    en:
+      - Fresh flowers are lovely, but three days later they are gone. Our crochet bouquets are made for the moments you want to keep. Every petal is crocheted one by one from soft cotton milk yarn, then shaped on wrapped floral wire so the stems stand tall without looking stiff. The result is a bouquet that still looks neat on a desk, bedroom shelf or display cabinet years later.
+      - Crochet bouquets suit graduations, birthdays, anniversaries and Indonesian Mother's Day. Choose tulips, roses, daisies or a mix, then pick a palette. Go with soft pastels, calm earth tones, or your campus colours. Want a mini mortarboard, a greeting card or a small amigurumi tucked in? Just mention it in the chat.
+      - Within Bekasi and Jabodetabek we can send bouquets same-day by GoSend or GrabExpress, so they arrive in perfect shape. For other cities, bouquets travel in a sturdy box with inner supports and ship safely with JNE, J&T, SiCepat or AnterAja anywhere in Indonesia.
+  faq:
+    - q: { id: "Apakah buket bunga rajut bisa kena air?", en: "Can a crochet bouquet get wet?" }
+      a:
+        id: Kelopaknya boleh dibersihkan dengan kain lembap, tapi jangan direndam karena tangkainya berisi kawat. Simpan di tempat kering dan jauh dari sinar matahari langsung agar warnanya awet.
+        en: You can wipe the petals with a damp cloth, but don't soak the bouquet because the stems contain wire. Keep it dry and out of direct sunlight so the colours last.
+    - q: { id: "Berapa lama membuat satu buket custom?", en: "How long does a custom bouquet take?" }
+      a:
+        id: Buket ready stock bisa dikirim hari ini. Buket custom biasanya 3–7 hari kerja, tergantung jumlah bunga. Untuk musim wisuda, pesan minimal dua minggu sebelumnya.
+        en: Ready-stock bouquets can ship today. Custom bouquets usually take 3–7 working days, depending on the number of flowers. In graduation season, order at least two weeks ahead.
+    - q: { id: "Bisa minta warna sesuai almamater?", en: "Can you match my university colours?" }
+      a:
+        id: Bisa. Kirim nama kampus atau foto jas almamater, nanti kami cocokkan dengan benang yang paling mendekati sebelum mulai merajut.
+        en: Yes. Send us the campus name or a photo of the jacket and we'll match the closest yarn shades before we start.
+
+- id: boneka-rajut
+  order: 1
+  image: boneka-kelinci-rajut-krem-syal-biru
+  slug: { id: "boneka-rajut", en: "amigurumi-dolls" }
+  name: { id: "Boneka Rajut & Amigurumi", en: "Amigurumi & Crochet Dolls" }
+  short:
+    id: Boneka amigurumi dan karakter yang dirajut rapat, empuk dipeluk, dan bisa custom.
+    en: Tightly stitched amigurumi and character dolls, soft to hug and customisable.
+  seoTitle:
+    id: Boneka Rajut Custom & Amigurumi Handmade | LovelyCrochet
+    en: Custom Amigurumi & Crochet Dolls from Indonesia | LovelyCrochet
+  seoDescription:
+    id: Boneka rajut amigurumi handmade dari Bekasi. Kelinci, penguin, husky, karakter favorit, dan boneka custom sesuai foto. Rajutan rapat dan empuk.
+    en: Handmade amigurumi crochet dolls from Bekasi. Bunnies, penguins, huskies, favourite characters and custom dolls from your photo.
+  intro:
+    id:
+      - Amigurumi adalah seni merajut boneka kecil dari Jepang, dan di studio kami ini kategori yang paling banyak makan waktu sekaligus paling menyenangkan. Satu boneka besar ukuran 25–30 cm bisa butuh 12 sampai 18 jam kerja. Kepala, badan, telinga, tangan, dan kaki dirajut terpisah dalam putaran spiral, diisi dakron, lalu dijahit satu per satu.
+      - Kami merajut dengan tegangan rapat menggunakan hakpen yang lebih kecil dari anjuran label benang, supaya isian tidak mengintip dari sela tusukan. Setiap bagian dijahit tangan ke badan, dan aksesoris seperti syal, pita, dan topi dijahit kuat supaya tidak mudah lepas. Boneka kami memakai mata plastik, jadi ditujukan untuk usia 3 tahun ke atas.
+      - Mau boneka mirip hewan peliharaanmu, karakter kesayangan si kecil, atau versi lain dari boneka di koleksi kami? Itu bisa dibuat lewat pesanan custom. Kirim foto referensi, ukuran, dan warna, lalu kami buatkan sketsa dan estimasi harga sebelum mulai.
+    en:
+      - Amigurumi is the Japanese art of crocheting small stuffed figures, and in our studio it is both the most time-consuming category and the most fun. A large 25–30 cm doll can take 12 to 18 hours of work. The head, body, ears, arms and legs are crocheted separately in spiral rounds, stuffed with polyester fibre, then sewn together one by one.
+      - We crochet tightly, using a hook smaller than the yarn label suggests, so the stuffing never peeks through the stitches. Every part is hand-sewn to the body, and accessories like scarves, bows and hats are stitched on firmly. Our dolls have plastic eyes, so they are meant for ages 3 and up.
+      - Want a doll that looks like your pet, your child's favourite character, or a twist on one from our collection? That's what custom orders are for. Send a reference photo, size and colours, and we'll come back with a sketch and a price before we start.
+  faq:
+    - q: { id: "Apakah boneka rajut aman untuk bayi?", en: "Is amigurumi safe for babies?" }
+      a:
+        id: Boneka kami memakai mata plastik dan beberapa punya kancing, jadi ditujukan untuk usia 3 tahun ke atas. Kalau boneka untuk bayi, chat kami dulu supaya bisa dibahas pilihan yang lebih aman.
+        en: Our dolls have plastic eyes and some have buttons, so they are meant for ages 3 and up. If the doll is for a baby, message us first so we can talk through safer options.
+    - q: { id: "Bisa buat boneka dari foto?", en: "Can you make a doll from a photo?" }
+      a:
+        id: Bisa. Kirim 2–3 foto dari depan dan samping. Kami akan menyederhanakannya menjadi gaya amigurumi dan mengonfirmasi detail serta harganya dulu sebelum mulai merajut.
+        en: Yes. Send 2–3 photos from the front and side. We'll simplify them into an amigurumi style and confirm the details and price with you before we start.
+    - q: { id: "Bagaimana cara mencuci boneka rajut?", en: "How do I wash an amigurumi?" }
+      a:
+        id: Cuci tangan dengan air dingin dan sabun bayi, tekan perlahan tanpa diperas, lalu keringkan dengan diangin-anginkan di tempat teduh. Jangan pakai mesin pengering.
+        en: Hand-wash in cool water with baby soap, press gently without wringing, then air-dry in the shade. Never tumble-dry.
+
+- id: tas-rajut
+  order: 4
+  image: ilustrasi-tas-tote-rajut
+  slug: { id: "tas-rajut", en: "crochet-bags" }
+  name: { id: "Tas Rajut", en: "Crochet Bags" }
+  short:
+    id: Tas rajut handmade yang kuat dipakai harian, bukan cuma untuk pajangan.
+    en: Handmade crochet bags built for daily use, not just for show.
+  seoTitle:
+    id: Tas Rajut Handmade, Tote & Granny Square | LovelyCrochet
+    en: Handmade Crochet Bags, Totes & Granny Square | LovelyCrochet
+  seoDescription:
+    id: Tas rajut handmade dari Bekasi. Tote bag rajut katun dan tas bahu granny square dengan lapisan kain dalam. Kuat untuk kerja dan kuliah.
+    en: Handmade crochet bags from Bekasi. Cotton crochet totes and granny square shoulder bags with fabric lining. Sturdy for work and campus.
+  intro:
+    id:
+      - Tas rajut sering dianggap mudah melar dan cepat kendur. Tas kami dirancang supaya tidak begitu. Badan tas dirajut dengan tusuk tunggal yang rapat dari benang katun polyester, jadi bentuknya tetap tegak walau diisi laptop atau botol minum. Pegangan dirajut dobel, dan model yang lebih besar diberi lapisan kain katun di dalam, lengkap dengan kantong kecil untuk kunci dan HP.
+      - Pilihan modelnya mulai dari tote harian yang muat laptop 13 inci, tas bahu granny square bergaya vintage, sampai tas kecil untuk kondangan. Granny square kami dirajut kotak per kotak lalu disambung, jadi kombinasi warnanya hampir tidak pernah sama persis antara satu tas dan yang lain.
+      - Setiap tas mencantumkan ukuran panjang, lebar, dan tinggi dalam sentimeter serta panjang tali. Cek juga Panduan Ukuran kami sebelum memesan. Untuk merawatnya, cukup cuci tangan dengan air dingin dan jemur mendatar agar bentuknya tidak berubah.
+    en:
+      - People often assume crochet bags stretch out and sag. Ours are designed not to. The body is worked in dense single crochet using a cotton-poly blend, so it keeps its shape even with a laptop or water bottle inside. Handles are crocheted double, and the larger models are lined with cotton fabric and have a small inner pocket for keys and your phone.
+      - Styles range from an everyday tote that fits a 13-inch laptop, to a vintage-style granny square shoulder bag, to small bags for weddings and parties. Our granny squares are made one square at a time and then joined, so no two bags ever have quite the same colour layout.
+      - Every bag lists its length, width and height in centimetres plus the strap drop. Check our Size Guide before ordering. Care is simple. Hand-wash in cool water and dry flat so the bag keeps its shape.
+  faq:
+    - q: { id: "Apakah tas rajut bisa melar?", en: "Will a crochet bag stretch?" }
+      a:
+        id: Rajutan rapat dan benang campuran polyester membuat tas kami jauh lebih stabil. Untuk beban berat, pilih model berlapis kain dan jangan menggantung tas yang penuh terlalu lama.
+        en: Dense stitches and a poly-blend yarn make our bags much more stable. For heavy loads, choose a lined model and avoid hanging a full bag for long periods.
+    - q: { id: "Muat laptop berapa inci?", en: "What size laptop fits?" }
+      a:
+        id: Tote besar kami bisa dibuat muat laptop 13 inci. Patokan ukuran lainnya ada di Panduan Ukuran.
+        en: Our large tote can be made to fit a 13-inch laptop. Other size guidelines are in the Size Guide.
+    - q: { id: "Bisa ganti warna tali?", en: "Can I change the strap colour?" }
+      a:
+        id: Bisa. Untuk tas pre-order, kamu boleh memilih warna badan, tali, dan aplikasi bunga tanpa biaya tambahan.
+        en: Yes. For pre-order bags you can pick the body, strap and flower appliqué colours at no extra cost.
+
+- id: aksesoris-rajut
+  order: 2
+  image: gantungan-kunci-anjing-amigurumi-rajut
+  slug: { id: "aksesoris-rajut", en: "crochet-accessories" }
+  name: { id: "Gantungan Kunci & Aksesoris Rajut", en: "Crochet Keychains & Accessories" }
+  short:
+    id: Gantungan kunci boneka rajut yang kecil, ringan, dan pas jadi kado.
+    en: Small, light crochet doll keychains made for gifting.
+  seoTitle:
+    id: Gantungan Kunci Rajut Boneka Handmade | LovelyCrochet
+    en: Crochet Doll Keychains, Handmade | LovelyCrochet
+  seoDescription:
+    id: Gantungan kunci boneka rajut handmade dari Bekasi. Kecil, empuk, dan bisa custom warna. Cocok untuk kado kecil, couple, dan suvenir kantor.
+    en: Handmade crochet doll keychains from Bekasi. Small, squishy and available in custom colours. Great for small gifts, couples and office favours.
+  intro:
+    id:
+      - Gantungan kunci boneka rajut adalah cara paling mudah membawa sedikit kehangatan ke barang sehari-hari. Ukurannya kecil, sekitar 10 cm, empuk karena berisi dakron, dan cukup ringan untuk kunci motor, tas sekolah, atau ritsleting dompet. Setiap boneka dirajut tangan satu per satu, lalu disambungkan ke ring kunci besi dengan jahitan benang dobel.
+      - Harganya bersahabat dan pengerjaannya relatif cepat, jadi gantungan kunci cocok untuk kado kecil untuk sahabat, pasangan, atau teman kantor. Kamu juga bisa memesan sepasang dengan warna berbeda untuk kado couple.
+      - Ingin warna yang disamakan dengan hewan peliharaan penerima, atau butuh dalam jumlah banyak untuk suvenir acara? Chat kami lewat WhatsApp. Kami bantu hitung jumlah, waktu pengerjaan, dan harganya dulu sebelum mulai.
+    en:
+      - A crochet doll keychain is the easiest way to bring a little warmth to everyday things. It's small, about 10 cm, squishy with polyester fill, and light enough for motorbike keys, a school bag or a wallet zip. Every doll is hand-crocheted one at a time, then attached to a steel key ring with a doubled yarn stitch.
+      - They're affordable and relatively quick to make, so keychains are great small gifts for friends, partners or colleagues. You can also order a matching pair in two colours as a couple gift.
+      - Want colours that match the recipient's own pet, or need a larger number as event favours? Message us on WhatsApp. We'll work out the quantity, lead time and price with you before we start.
+  faq:
+    - q: { id: "Apakah gantungan kunci rajut mudah putus?", en: "Do crochet keychains break easily?" }
+      a:
+        id: Boneka disambung ke ring kunci dengan jahitan benang dobel, jadi kuat untuk pemakaian sehari-hari. Hindari menarik boneka terlalu keras saat mengambil kunci.
+        en: The doll is attached to the key ring with a doubled yarn stitch, so it holds up to daily use. Avoid yanking the doll when pulling your keys out.
+    - q: { id: "Bisa pesan banyak untuk suvenir?", en: "Can I order in bulk for favours?" }
+      a:
+        id: Bisa. Kirim jumlah, desain, dan tanggal acaramu lewat WhatsApp. Karena semuanya dirajut tangan, pesan jauh-jauh hari supaya waktunya cukup.
+        en: Yes. Send the quantity, design and event date on WhatsApp. Because everything is hand-crocheted, order well ahead so there's enough time.
+    - q: { id: "Bisa ganti warna?", en: "Can I change the colours?" }
+      a:
+        id: Bisa. Sebutkan warna yang kamu mau saat memesan, misalnya disamakan dengan warna hewan peliharaan atau warna favorit penerima.
+        en: Yes. Tell us the colours you'd like when you order, for example to match a pet or the recipient's favourite colour.
+
+- id: pakaian-rajut
+  order: 5
+  image: ilustrasi-cardigan-rajut
+  slug: { id: "pakaian-rajut", en: "crochet-clothing" }
+  name: { id: "Pakaian Rajut", en: "Crochet Clothing" }
+  short:
+    id: Atasan, outer, dan pakaian rajut berumbai yang dibuat sesuai ukuranmu.
+    en: Tops, outerwear and fringed crochet pieces made to your measurements.
+  seoTitle:
+    id: Pakaian Rajut Custom, Atasan & Outer Rumbai | LovelyCrochet
+    en: Made-to-Measure Crochet Clothing & Fringe Tops | LovelyCrochet
+  seoDescription:
+    id: Pakaian rajut handmade dari Bekasi, dari atasan sampai outer berumbai, dibuat sesuai ukuran badanmu. Pesan custom lewat WhatsApp.
+    en: Handmade crochet clothing from Bekasi, from tops to fringed outerwear, made to your measurements. Order custom pieces on WhatsApp.
+  intro:
+    id:
+      - Pakaian rajut di toko sering dibuat satu ukuran untuk semua. Di LovelyCrochet, atasan, outer, dan pakaian rajut berumbai dibuat setelah kami menerima ukuran badanmu, yaitu lingkar dada, panjang badan, dan panjang lengan. Karena itu pakaian di kategori ini dibuat sesuai pesanan, dengan waktu pengerjaan sekitar 10 sampai 14 hari kerja.
+      - Rumbai memberi gerakan dan kesan santai pada pakaian rajut, cocok untuk jalan-jalan, foto, atau acara santai. Kamu bisa memilih panjang rumbai, warna, dan model sesuai selera. Pola rajut yang berongga juga membuat pakaian tetap nyaman dipakai di cuaca Indonesia.
+      - Bingung soal ukuran? Panduan Ukuran kami menjelaskan cara mengukur badan sendiri dengan meteran jahit, ditambah tabel ukuran S sampai XL sebagai titik awal. Foto koleksi pakaian kami segera hadir. Sementara itu, ceritakan model yang kamu mau lewat pesanan custom.
+    en:
+      - Shop-bought knitwear is often one size fits all. At LovelyCrochet, tops, outerwear and fringed crochet pieces are made once we have your measurements, which are chest, body length and sleeve length. That's why everything in this category is made to order, with a lead time of about 10 to 14 working days.
+      - Fringe adds movement and a relaxed feel to crochet clothing, perfect for outings, photos or casual events. You can choose the fringe length, colour and style. Open crochet stitches also keep the pieces comfortable in Indonesian weather.
+      - Not sure about sizing? Our Size Guide shows how to measure yourself with a tailor's tape and gives an S to XL chart as a starting point. Photos of our clothing are coming soon. In the meantime, tell us the style you want through a custom order.
+  faq:
+    - q: { id: "Apakah pakaian rajut panas dipakai di Indonesia?", en: "Is crochet clothing too warm for Indonesia?" }
+      a:
+        id: Pola rajut yang berongga membiarkan udara mengalir, jadi tetap nyaman dipakai, terutama di ruangan ber-AC, kafe, atau malam hari.
+        en: Open crochet stitches let air through, so the pieces stay comfortable, especially in air-conditioned rooms, cafés and evenings.
+    - q: { id: "Bagaimana kalau ukurannya tidak pas?", en: "What if the size doesn't fit?" }
+      a:
+        id: Kami bantu permak satu kali tanpa biaya rajut tambahan jika hasilnya tidak sesuai ukuran yang disepakati. Ongkir pengiriman ulang ditanggung pembeli.
+        en: We'll alter it once at no extra crochet cost if it doesn't match the agreed measurements. The buyer covers return shipping.
+    - q: { id: "Bagaimana cara mencuci pakaian rajut berumbai?", en: "How do I wash fringed crochet clothing?" }
+      a:
+        id: Cuci tangan dengan air dingin, jangan diperas, lalu keringkan mendatar. Rapikan rumbai dengan jari selagi masih lembap supaya tidak kusut.
+        en: Hand-wash in cool water, don't wring, and dry flat. Comb the fringe straight with your fingers while it's still damp so it doesn't tangle.

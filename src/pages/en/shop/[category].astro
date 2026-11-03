@@ -1,0 +1,14 @@
+---
+import type { GetStaticPaths } from 'astro';
+import CategoryView from '@/views/CategoryView.astro';
+import { getCategories, type Category } from '@/lib/content';
+
+export const getStaticPaths = (async () => {
+  const categories = await getCategories();
+  return categories.map((category) => ({ params: { category: category.data.slug.en }, props: { category } }));
+}) satisfies GetStaticPaths;
+
+const { category } = Astro.props as { category: Category };
+---
+
+<CategoryView locale="en" category={category} />

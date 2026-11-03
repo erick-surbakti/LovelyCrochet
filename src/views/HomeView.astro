@@ -1,0 +1,110 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import CategoryShowcase from '@/components/sections/CategoryShowcase.astro';
+import ProductRow from '@/components/sections/ProductRow.astro';
+import ProcessTimeline from '@/components/sections/ProcessTimeline.astro';
+import StitchCounter from '@/components/sections/StitchCounter.astro';
+import Testimonials from '@/components/sections/Testimonials.astro';
+import GalleryStrip from '@/components/sections/GalleryStrip.astro';
+import WhyHandmade from '@/components/sections/WhyHandmade.astro';
+import LocalTrust from '@/components/sections/LocalTrust.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import FaqList from '@/components/ui/FaqList.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import YarnThread from '@/components/ui/YarnThread.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { htmlLang, path, staticAlternates, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getFaqs, getProducts } from '@/lib/content';
+import { localBusiness, organization, website } from '@/lib/schema';
+import { siteFacts } from '@/lib/siteFacts';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const meta = pageMeta.home[locale];
+const facts = siteFacts(locale);
+
+const products = await getProducts();
+const bestsellers = products.filter((p) => p.data.bestseller).slice(0, 8);
+const faqs = (await getFaqs()).filter((f) => f.data.preview).slice(0, 5);
+
+const copy = {
+  id: {
+    colKicker: 'Koleksi pilihan',
+    colTitle: 'Mau merajut kebahagiaan untuk siapa?',
+    colLede:
+      'Semuanya dirajut tangan di studio kami. Mulai dari boneka yang empuk dipeluk sampai buket yang tidak pernah layu.',
+    bestKicker: 'Paling dicari',
+    bestTitle: 'Favorit pelanggan',
+    faqKicker: 'Sebelum pesan',
+    faqTitle: 'Pertanyaan yang sering muncul',
+    faqAll: 'Lihat semua FAQ',
+  },
+  en: {
+    colKicker: 'Collections',
+    colTitle: 'Who are you crocheting joy for?',
+    colLede: 'All hand-crocheted in our studio. From dolls made to be hugged to bouquets that never wilt.',
+    bestKicker: 'Most loved',
+    bestTitle: 'Customer favourites',
+    faqKicker: 'Before you order',
+    faqTitle: 'Questions people ask',
+    faqAll: 'See all FAQs',
+  },
+}[locale];
+
+const schema = [
+  organization(facts),
+  website(facts, { locale: htmlLang[locale], searchPath: path('search', locale) }),
+  localBusiness(facts),
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('home')}
+  schema={schema}
+  ogImageAlt={`${site.name}: ${t('site.tagline')}`}>
+  <Hero locale={locale} />
+  <YarnThread from={88} to={14} />
+  <CategoryShowcase locale={locale} kicker={copy.colKicker} title={copy.colTitle} lede={copy.colLede} />
+  <YarnThread from={14} to={82} />
+  <ProductRow
+    id="bestsellers-title"
+    locale={locale}
+    products={bestsellers}
+    kicker={copy.bestKicker}
+    title={copy.bestTitle}
+    morph
+    cta={{ href: path('shop', locale), label: t('cta.allProducts') }}
+  />
+  <YarnThread from={82} to={20} />
+  <ProcessTimeline locale={locale} />
+  <StitchCounter locale={locale} />
+  <YarnThread from={20} to={76} loop={false} />
+  <Testimonials locale={locale} />
+  <GalleryStrip locale={locale} />
+  <YarnThread from={76} to={16} />
+  <WhyHandmade locale={locale} />
+  <LocalTrust locale={locale} />
+  <YarnThread from={16} to={70} />
+  <section class="container-lc py-16" aria-labelledby="faq-preview-title">
+    <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <div>
+        <SectionTitle id="faq-preview-title" kicker={copy.faqKicker} title={copy.faqTitle} />
+        <a href={path('faq', locale)} class="link-hand mt-6 inline-block">
+          {copy.faqAll} →
+        </a>
+      </div>
+      <FaqList items={faqs.map((f) => ({ q: f.data.q[locale], a: f.data.a[locale] }))} />
+    </div>
+  </section>
+  <YarnThread from={70} to={50} loop={false} />
+  <CtaBand locale={locale} context="home" />
+</BaseLayout>

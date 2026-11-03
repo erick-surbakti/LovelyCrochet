@@ -1,0 +1,237 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import FaqList from '@/components/ui/FaqList.astro';
+import Img from '@/components/ui/Img.astro';
+import ProductCard from '@/components/ui/ProductCard.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import TrustBadges from '@/components/ui/TrustBadges.astro';
+import YarnThread from '@/components/ui/YarnThread.astro';
+import { locality, site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { path, staticAlternates, type Locale } from '@/i18n/routes';
+import { categoryUrl, getCategories, getProducts, occasionUrl, getOccasions } from '@/lib/content';
+import { formatTime } from '@/lib/format';
+import { faqPage, localBusiness } from '@/lib/schema';
+import { siteFacts } from '@/lib/siteFacts';
+import { generalMessage } from '@/lib/whatsapp';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const meta = pageMeta.bekasi[locale];
+const products = (await getProducts()).filter((p) => p.data.availability === 'ready').slice(0, 4);
+const bouquets = (await getCategories()).find((c) => c.id === 'buket-bunga-rajut')!;
+const wisuda = (await getOccasions()).find((o) => o.id === 'wisuda')!;
+const cutoff = formatTime(site.shipping.sameDayCutoff, locale);
+
+/* Delivery estimates by area. PLACEHOLDER times: confirm against real GoSend/GrabExpress runs. */
+const areas = [
+  ['Bekasi Selatan, Bekasi Timur, Bekasi Barat, Bekasi Utara', '1–2', 'GoSend / GrabExpress'],
+  ['Jatiasih, Pondok Gede, Summarecon Bekasi, Grand Galaxy', '1–2', 'GoSend / GrabExpress'],
+  ['Harapan Indah, Tambun', '1,5–2,5', 'GoSend / GrabExpress'],
+  ['Cikarang', '2–3', 'GrabExpress / GoSend'],
+  ['Jakarta Timur, Jakarta Utara', '2–3', 'GoSend / GrabExpress'],
+  ['Jakarta Pusat, Selatan, Barat; Depok', '2,5–4', 'GrabExpress / GoSend'],
+  ['Bogor, Tangerang, Tangerang Selatan', '3–4', 'GrabExpress / GoSend'],
+];
+
+const copy = {
+  id: {
+    kicker: 'Rajutan Bekasi',
+    lede: `LovelyCrochet adalah studio rajut rumahan di ${locality}. Kami merajut buket bunga, boneka amigurumi, tas, dan kado custom untuk warga Bekasi dan sekitarnya, dan mengantarnya di hari yang sama.`,
+    whyTitle: 'Kenapa pesan dari perajin lokal?',
+    why: [
+      'Kamu bisa memesan pagi dan kadonya sampai sore. Untuk produk ready stock, bayar sebelum pukul ' +
+        cutoff +
+        ' WIB dan kurir instan menjemput langsung dari studio kami.',
+      'Tidak perlu khawatir buket penyok di ekspedisi. Pengiriman same-day dibawa langsung oleh kurir motor dalam kotak berpenyangga, tanpa transit di gudang.',
+      'Ngobrol soal warna, ukuran, atau ide custom jadi lebih gampang karena kita ada di kota yang sama dan zona waktu yang sama. Balasan WhatsApp kami biasanya hitungan menit di jam kerja.',
+    ],
+    areaTitle: 'Area dan perkiraan waktu antar same-day',
+    areaCol: ['Area', 'Perkiraan (jam setelah dijemput)', 'Kurir'],
+    areaNote:
+      'Perkiraan waktu dan ongkir mengikuti aplikasi kurir saat pemesanan dan bisa lebih lama di jam sibuk atau saat hujan.',
+    momentsTitle: 'Momen yang sering kami antar di Bekasi',
+    moments: [
+      'Wisuda di kampus-kampus sekitar Bekasi dan Jakarta Timur. Buket diantar langsung ke gedung acara, lengkap dengan nama penerima di kartu.',
+      'Ulang tahun dan kejutan kantor di kawasan industri Cikarang dan perkantoran Bekasi. Gantungan kunci rajut cocok untuk kado rekan kerja.',
+      'Kunjungan lahiran di rumah sakit ibu dan anak di Bekasi. Boneka kelinci atau penguin dalam kotak kado bisa dikirim ke kamar pasien.',
+      'Hampers Lebaran untuk keluarga besar di Bekasi dan Jabodetabek, dikirim ke banyak alamat sekaligus.',
+    ],
+    ready: 'Siap antar hari ini',
+    faqTitle: 'Tanya jawab pengiriman Bekasi',
+    faqs: [
+      [
+        'Apakah bisa ambil sendiri ke studio?',
+        'Bisa dengan janji temu terlebih dahulu, karena studio kami adalah rumah. Chat kami untuk mengatur waktu ambil.',
+      ],
+      [
+        'Sampai jam berapa pesanan same-day diterima?',
+        `Pembayaran untuk produk ready stock harus masuk sebelum pukul ${cutoff} WIB, Senin–Sabtu.`,
+      ],
+      [
+        'Berapa ongkir same-day di Bekasi?',
+        'Mengikuti tarif GoSend atau GrabExpress saat pemesanan. Biasanya sekitar Rp 15.000–35.000 di dalam Kota Bekasi.',
+      ],
+      [
+        'Apakah bisa kirim same-day ke Cikarang?',
+        'Bisa, dengan perkiraan 2–3 jam setelah dijemput. Untuk pesanan sore, kami sarankan bayar lebih awal.',
+      ],
+    ],
+    links: 'Lihat juga',
+  },
+  en: {
+    kicker: 'Crochet in Bekasi',
+    lede: `LovelyCrochet is a home crochet studio in ${locality}. We crochet bouquets, amigurumi, bags and custom gifts for people in and around Bekasi, and deliver them the same day.`,
+    whyTitle: 'Why order from a local maker?',
+    why: [
+      `Order in the morning and your gift arrives by the afternoon. For ready-stock pieces, pay before ${cutoff} WIB and an instant courier picks up straight from our studio.`,
+      'No more crushed bouquets in transit. Same-day orders travel with a motorbike courier in a supported box, without passing through a warehouse.',
+      "Talking through colours, sizes or a custom idea is easier when we're in the same city and time zone. During working hours we usually reply on WhatsApp within minutes.",
+    ],
+    areaTitle: 'Same-day areas and estimated delivery times',
+    areaCol: ['Area', 'Estimate (hours after pickup)', 'Courier'],
+    areaNote: 'Times and fees follow the courier app at booking and can run longer at rush hour or in the rain.',
+    momentsTitle: 'Moments we often deliver for in Bekasi',
+    moments: [
+      'Graduations at campuses around Bekasi and East Jakarta, with bouquets delivered straight to the venue and the recipient’s name on the card.',
+      'Birthdays and office surprises in the Cikarang industrial estates and Bekasi business districts. Crochet keychains make great gifts for colleagues.',
+      'Hospital visits after a birth at Bekasi maternity hospitals. Bootie and bunny sets can be delivered to the patient’s room.',
+      'Eid hampers for extended families across Bekasi and Jabodetabek, shipped to many addresses at once.',
+    ],
+    ready: 'Ready to deliver today',
+    faqTitle: 'Bekasi delivery questions',
+    faqs: [
+      [
+        'Can I pick up from the studio?',
+        'Yes, by appointment, because our studio is our home. Message us to arrange a pickup time.',
+      ],
+      [
+        'What time is the same-day cut-off?',
+        `Payment for ready-stock pieces needs to arrive before ${cutoff} WIB, Monday to Saturday.`,
+      ],
+      [
+        'How much is same-day delivery in Bekasi?',
+        'It follows the GoSend or GrabExpress rate at booking, usually around Rp 15.000–35.000 within Kota Bekasi.',
+      ],
+      [
+        'Can you deliver same-day to Cikarang?',
+        'Yes, usually 2–3 hours after pickup. For afternoon orders, pay early if you can.',
+      ],
+    ],
+    links: 'See also',
+  },
+}[locale];
+const faqs = copy.faqs.map(([q, a]) => ({ q: q!, a: a! }));
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('bekasi')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('bekasi')[locale] }]}
+  schema={[localBusiness(siteFacts(locale)), faqPage(faqs)]}
+  waMessage={generalMessage(locale, locale === 'id' ? 'pengiriman same-day di Bekasi' : 'same-day delivery in Bekasi')}>
+  <section class="container-lc grid items-center gap-10 pt-8 pb-8 lg:grid-cols-[1.2fr_0.8fr]">
+    <div>
+      <SectionTitle as="h1" kicker={copy.kicker} title={meta.h1} lede={copy.lede} />
+      <TrustBadges locale={locale} class="mt-8 !justify-start" />
+    </div>
+    <div class="polaroid mx-auto w-full max-w-sm" style="--tilt:2deg">
+      <Img
+        name="boneka-penguin-rajut-kupluk-biru-kotak-kado"
+        locale={locale}
+        sizes="(min-width: 1024px) 380px, 90vw"
+        class="aspect-[4/5] w-full object-cover"
+      />
+    </div>
+  </section>
+
+  <YarnThread from={80} to={20} />
+
+  <section class="container-lc grid gap-12 py-10 lg:grid-cols-2">
+    <div>
+      <h2 class="text-step-3">{copy.whyTitle}</h2>
+      <div class="prose-lc mt-4">
+        {copy.why.map((p) => (
+          <p>{p}</p>
+        ))}
+      </div>
+    </div>
+    <div>
+      <h2 class="text-step-3">{copy.momentsTitle}</h2>
+      <ul class="prose-lc mt-4">
+        {copy.moments.map((m) => (
+          <li>{m}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="container-lc py-10" aria-labelledby="areas">
+    <h2 id="areas" class="text-step-3">
+      {copy.areaTitle}
+    </h2>
+    <div class="prose-lc mt-6 !max-w-none">
+      <table>
+        <thead>
+          <tr>
+            {copy.areaCol.map((c) => (
+              <th scope="col">{c}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {areas.map(([area, hours, courier]) => (
+            <tr>
+              <th scope="row">{area}</th>
+              <td>{locale === 'en' ? hours!.replace(',', '.') : hours}</td>
+              <td>{courier}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="text-step--1 text-cocoa-soft">{copy.areaNote}</p>
+    </div>
+  </section>
+
+  <section class="container-lc py-10" aria-labelledby="ready">
+    <h2 id="ready" class="text-step-3">
+      {copy.ready}
+    </h2>
+    <div class="mt-10 grid grid-cols-2 gap-x-4 gap-y-12 md:gap-x-8 lg:grid-cols-4">
+      {products.map((p, i) => (
+        <ProductCard product={p} locale={locale} morph tilt={[-1, 1, -0.5, 1.5][i]} />
+      ))}
+    </div>
+    <p class="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+      <span class="font-bold">{copy.links}:</span>
+      <a href={categoryUrl(bouquets, locale)} class="link-hand">
+        {bouquets.data.name[locale]} {locale === 'id' ? 'Bekasi' : 'in Bekasi'}
+      </a>
+      <a href={occasionUrl(wisuda, locale)} class="link-hand">
+        {wisuda.data.title[locale]}
+      </a>
+      <a href={path('shipping', locale)} class="link-hand">
+        {pageMeta.shipping[locale].label}
+      </a>
+      <a href={path('contact', locale)} class="link-hand">
+        {pageMeta.contact[locale].label}
+      </a>
+    </p>
+  </section>
+
+  <section class="container-lc py-12" aria-labelledby="bekasi-faq">
+    <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      <h2 id="bekasi-faq" class="text-step-3">
+        {copy.faqTitle}
+      </h2>
+      <FaqList items={faqs} />
+    </div>
+  </section>
+
+  <CtaBand locale={locale} context="bekasi" />
+</BaseLayout>

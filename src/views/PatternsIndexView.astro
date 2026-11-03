@@ -1,0 +1,91 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Img from '@/components/ui/Img.astro';
+import SectionTitle from '@/components/ui/SectionTitle.astro';
+import { site } from '@/config/site';
+import { pageMeta } from '@/i18n/pageMeta';
+import { path, staticAlternates, type Locale } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/ui';
+import { getPatterns, patternUrl } from '@/lib/content';
+import { itemList } from '@/lib/schema';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const meta = pageMeta.patterns[locale];
+const patterns = await getPatterns(locale);
+const copy = {
+  id: {
+    lede: 'Pola rajut gratis dari studio kami, ditulis dalam bahasa Indonesia dengan istilah US. Semua bisa dicetak rapi, lengkap dengan daftar bahan, gauge, dan instruksi per putaran. Bebas dipakai untuk belajar dan untuk dijual hasil rajutannya. Cukup sebutkan LovelyCrochet sebagai sumber pola.',
+    level: 'Tingkat',
+    time: 'Waktu',
+    new: 'Baru belajar? Mulai dari sini',
+    beginner: 'Cara merajut untuk pemula',
+  },
+  en: {
+    lede: 'Free patterns from our studio, written in US terms. Each one prints cleanly and includes materials, gauge and round-by-round instructions. Use them to learn, and feel free to sell what you make. Just credit LovelyCrochet as the pattern source.',
+    level: 'Level',
+    time: 'Time',
+    new: 'New to crochet? Start here',
+    beginner: 'Crochet for beginners',
+  },
+}[locale];
+const beginnerHref =
+  locale === 'id' ? '/jurnal/cara-merajut-untuk-pemula/' : '/en/journal/crochet-for-beginners-basic-stitches/';
+---
+
+<BaseLayout
+  locale={locale}
+  title={meta.title}
+  description={meta.description}
+  alternates={staticAlternates('patterns')}
+  breadcrumbs={[{ name: meta.label, path: staticAlternates('patterns')[locale] }]}
+  schema={[itemList(patterns.map((p) => ({ url: new URL(patternUrl(p), site.url).toString(), name: p.data.title })))]}>
+  <section class="container-lc pt-8 pb-6">
+    <SectionTitle as="h1" title={meta.h1} lede={copy.lede} />
+    <p class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+      <span class="font-bold">{copy.new}:</span>
+      <a href={beginnerHref} class="link-hand">
+        {copy.beginner}
+      </a>
+      <a href={path('glossary', locale)} class="link-hand">
+        {t('nav.glossary')}
+      </a>
+    </p>
+  </section>
+  <section class="container-lc py-10" aria-label={meta.h1}>
+    <ul class="grid gap-10 md:grid-cols-2">
+      {patterns.map((p, i) => (
+        <li>
+          <a href={patternUrl(p)} class="group grid gap-6 sm:grid-cols-[0.9fr_1.1fr] sm:items-center">
+            <div class="polaroid" style={`--tilt:${i % 2 ? 2 : -2}deg`}>
+              <Img
+                name={p.data.image}
+                locale={locale}
+                sizes="(min-width: 768px) 260px, 90vw"
+                widths={[320, 480, 640]}
+                class="aspect-square w-full object-cover"
+              />
+            </div>
+            <div>
+              <h2 class="text-step-2">
+                <span class="link-draw">{p.data.title}</span>
+              </h2>
+              <p class="mt-2 text-cocoa-soft">{p.data.description}</p>
+              <p class="mt-3 flex flex-wrap gap-2">
+                <span class="marker marker--sage">
+                  {copy.level}: {p.data.difficulty}
+                </span>
+                <span class="marker marker--oat">
+                  {copy.time}: {p.data.time}
+                </span>
+              </p>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Type check (astro check)
+        run: npm run check
+      - name: Lint
+        run: npm run lint
+      - name: Formatting
+        run: npm run format:check
+      - name: Unit tests (schema builders, WhatsApp links, formatting)
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Validate JSON-LD
+        run: npm run validate:jsonld
+      - name: Check internal links and OG images
+        run: npm run check:links
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+      - name: E2E smoke tests
+        run: npm run test:e2e
+      - name: Lighthouse CI (fails on budget regressions)
+        run: npx lhci autorun

@@ -1,0 +1,33 @@
+---
+/** Section heading with a small yarn knot that draws in as it scrolls into view. */
+interface Props {
+  kicker?: string;
+  title: string;
+  lede?: string;
+  id?: string;
+  align?: 'left' | 'center';
+  as?: 'h1' | 'h2';
+  class?: string;
+}
+const { kicker, title, lede, id, align = 'left', as: Tag = 'h2', class: cls } = Astro.props;
+---
+
+<div class:list={['relative', align === 'center' ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl', cls]}>
+  {kicker && <p class="kicker">{kicker}</p>}
+  <Tag id={id} class="relative mt-2 inline-block text-step-4">
+    <span class="relative z-10">{title}</span>
+    <svg
+      class="absolute right-0 -bottom-7 w-12 md:-right-14 md:-bottom-4 md:w-20"
+      viewBox="0 0 80 50"
+      aria-hidden="true"
+      focusable="false">
+      <path
+        class="yarn-path yarn-draw"
+        pathLength="1"
+        stroke="var(--color-rose-clay)"
+        stroke-width="3"
+        d="M2 40 C18 44 30 38 38 28 C46 16 40 4 30 8 C20 12 26 30 42 32 C56 34 66 24 78 26"></path>
+    </svg>
+  </Tag>
+  {lede && <p class="mt-4 text-step-1 text-cocoa-soft">{lede}</p>}
+</div>
