@@ -2,12 +2,12 @@
 key: privacy
 lang: id
 updated: 2026-10-20
-lede: Bagaimana LovelyCrochet mengumpulkan, memakai, menyimpan, dan melindungi data pribadimu, sesuai Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi.
+lede: Bagaimana Simpul Mungil mengumpulkan, memakai, menyimpan, dan melindungi data pribadimu, sesuai Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi.
 ---
 
 ## Siapa kami
 
-LovelyCrochet adalah usaha rajutan rumahan di Bekasi, Jawa Barat. Untuk urusan data pribadi, kamu bisa menghubungi kami lewat email purnamaw689@gmail.com atau WhatsApp +62 812-9676-1659.
+Simpul Mungil adalah usaha rajutan rumahan di Bekasi, Jawa Barat. Untuk urusan data pribadi, kamu bisa menghubungi kami lewat email purnamaw689@gmail.com atau WhatsApp +62 812-9676-1659.
 
 ## Data yang kami kumpulkan
 

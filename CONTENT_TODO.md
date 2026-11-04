@@ -7,7 +7,7 @@ Most facts live in one file: `src/config/site.ts`.
 
 WhatsApp +62 812-9676-1659 · email purnamaw689@gmail.com · Kota Bekasi · Monday–Saturday 09.00–18.00 WIB ·
 BCA (+ QRIS and e-wallets) · founded 2026 · 50% deposit for pre-orders and custom orders · domain lovelycrochet.shop ·
-founder name "Lovely Admin" · 8 product photos (AI-enhanced lighting, real pieces) · no workshops.
+founder display name "Admin Simpul Mungil" (renamed from "Lovely Admin") · 8 product photos (AI-enhanced lighting, real pieces) · no workshops.
 
 ## 1. Prices: my estimates, please confirm
 
@@ -68,7 +68,7 @@ Accessories currently means keychains only. If you also sell scrunchies, headban
 
 ## 6. Written by me, please rewrite in your own words
 
-- **About page story** (`src/views/AboutView.astro`): how LovelyCrochet started is invented. Tell me your real story (a few sentences is enough).
+- **About page story** (`src/views/AboutView.astro`): how Simpul Mungil started is invented. Tell me your real story (a few sentences is enough).
 - **Hours of work per piece** (journal post "Berapa jam merajut satu boneka", process section): estimates. Adjust to your experience.
 
 ## 7. Before going live
@@ -76,6 +76,10 @@ Accessories currently means keychains only. If you also sell scrunchies, headban
 - **Analytics:** create a Plausible site, then set `site.analytics.enabled = true`.
 - **Newsletter:** Netlify Forms activates on the first Netlify deploy. Turn on email notifications.
 - **Domain:** connect `lovelycrochet.shop` (registered at AnymHost) to your host. www redirects to the bare domain.
+- **Brand domain (recommended):** the brand is now **Simpul Mungil**, but the site still runs on `lovelycrochet.shop`.
+  `simpulmungil.com`, `.shop` and `.id` were all unregistered on 2026-11-04. Buy one (ideally `.com` or `.id`), add it in Netlify,
+  then change `url` in `src/config/site.ts` and `SITE` in `astro.config.mjs`, and redirect `lovelycrochet.shop` to it
+  in `public/_redirects`. Also claim `@simpulmungil` on Instagram, TikTok and Shopee, and check PDKI before investing in the name.
 - **Legal pages:** `src/content/pages/*/privacy.md` and `terms.md` are drafts referencing UU PDP No. 27/2022, not legal advice.
 - **Character dolls** (Hello Kitty, Donald Duck) are trademarked characters. You chose to sell them; be aware marketplaces or rights holders may ask for removal.
 - **Photos:** current photos are 896 × 1195 px. Higher-resolution originals (1600 px+) will look sharper on big screens.

@@ -1,9 +1,9 @@
 {
-  "name": "lovelycrochet",
+  "name": "simpul-mungil",
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "LovelyCrochet — rajutan & crochet handmade dari Bekasi.",
+  "description": "Simpul Mungil — rajutan & crochet handmade dari Bekasi.",
   "engines": {
     "node": ">=22.12.0"
   },

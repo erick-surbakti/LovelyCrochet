@@ -51,7 +51,7 @@ const usage = Object.keys(data).map((name) => `| \`${name}.jpg\` | ${USED[name] 
 
 const md = `# IMAGE_MAP
 
-> **Status:** 8 product photos supplied by LovelyCrochet (real pieces; lighting and background
+> **Status:** 8 product photos supplied by Simpul Mungil (real pieces; lighting and background
 > enhanced with AI by the owner) plus 4 clearly labelled **illustrations** used only for the
 > Bouquets, Bags and Clothing categories and the heart pattern, until real photos of those exist.
 > This file is generated from \`src/data/images.json\` with \`npm run images:map\`.

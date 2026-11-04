@@ -2,12 +2,12 @@
 key: terms
 lang: en
 updated: 2026-10-20
-lede: The terms that apply when you order from LovelyCrochet, whether on WhatsApp, through this website or on a marketplace.
+lede: The terms that apply when you order from Simpul Mungil, whether on WhatsApp, through this website or on a marketplace.
 ---
 
 ## About these terms
 
-By ordering from LovelyCrochet you confirm that you have read and agree to these terms. For marketplace purchases, that marketplace's terms also apply.
+By ordering from Simpul Mungil you confirm that you have read and agree to these terms. For marketplace purchases, that marketplace's terms also apply.
 
 ## Handmade products
 
@@ -36,8 +36,8 @@ Orders needed sooner than the usual lead time carry a 20% priority fee, if the q
 
 ## Designs and copyright
 
-- The designs, photos, free patterns and text on this website belong to LovelyCrochet. Do not copy or resell them without written permission.
-- Free patterns may be used for learning, and items made from them may be sold if LovelyCrochet is credited as the pattern source.
+- The designs, photos, free patterns and text on this website belong to Simpul Mungil. Do not copy or resell them without written permission.
+- Free patterns may be used for learning, and items made from them may be sold if Simpul Mungil is credited as the pattern source.
 - For orders that copy someone else's character, logo or brand, you confirm you have the right to order it. We may decline orders that infringe copyright or trademarks.
 - We may photograph custom orders for our portfolio unless you ask us not to.
 
@@ -61,4 +61,4 @@ If something goes wrong, please contact us first on WhatsApp or by email. We're 
 
 ## Contact
 
-LovelyCrochet, Kota Bekasi, West Java, Indonesia. WhatsApp +62 812-9676-1659, email purnamaw689@gmail.com.
+Simpul Mungil, Kota Bekasi, West Java, Indonesia. WhatsApp +62 812-9676-1659, email purnamaw689@gmail.com.

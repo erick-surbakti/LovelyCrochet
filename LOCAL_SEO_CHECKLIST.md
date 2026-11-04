@@ -1,4 +1,4 @@
-# LOCAL_SEO_CHECKLIST: LovelyCrochet, Bekasi
+# LOCAL_SEO_CHECKLIST: Simpul Mungil, Bekasi
 
 Work through this once at launch, then revisit the monthly items.
 
@@ -7,7 +7,7 @@ Work through this once at launch, then revisit the monthly items.
 Use exactly this, character for character, on the website, Google, Bing, Apple, marketplaces and social bios:
 
 ```
-LovelyCrochet
+Simpul Mungil
 Kota Bekasi, Jawa Barat, Indonesia
 +62 812-9676-1659
 https://lovelycrochet.shop
@@ -64,7 +64,7 @@ and nowhere else. If you publish a street address on Google, add the same one to
 
 ## 5. Marketplace consistency (Shopee, Tokopedia, TikTok Shop)
 
-- [ ] Store name exactly **LovelyCrochet**.
+- [ ] Store name exactly **Simpul Mungil**.
 - [ ] Location set to **Kota Bekasi**.
 - [ ] Same logo, same product names and the same photos as the website.
 - [ ] Store description links to `lovelycrochet.shop` where allowed.

@@ -73,4 +73,4 @@ Bulu kecil di area yang sering bergesekan adalah hal normal. Cukur perlahan deng
 
 ## Perlu perbaikan?
 
-Jika ada benang yang putus atau bagian yang lepas pada produk LovelyCrochet, jangan dipotong. Ikat sementara, lalu kirim foto ke WhatsApp kami. Kami akan membantu memperbaikinya.
+Jika ada benang yang putus atau bagian yang lepas pada produk Simpul Mungil, jangan dipotong. Ikat sementara, lalu kirim foto ke WhatsApp kami. Kami akan membantu memperbaikinya.

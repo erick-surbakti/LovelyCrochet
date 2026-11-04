@@ -114,7 +114,7 @@ const yarnBall = (cx, cy, r, fill, line) => `<g>
 const hook = (x, y, angle) =>
   `<g transform="rotate(${angle} ${x} ${y})"><rect x="${x}" y="${y}" width="420" height="16" rx="8" fill="#B8BCC2"/><rect x="${x + 240}" y="${y - 10}" width="200" height="36" rx="18" fill="${C.rose}"/><path d="M${x} ${y + 8} q-18 0 -16 -18" stroke="#B8BCC2" stroke-width="12" fill="none" stroke-linecap="round"/></g>`;
 
-const tag = (x, y, angle, text = 'LovelyCrochet') => `<g transform="rotate(${angle} ${x} ${y})">
+const tag = (x, y, angle, text = 'Simpul Mungil') => `<g transform="rotate(${angle} ${x} ${y})">
   <path d="M${x} ${y} h230 l40 40 l-40 40 h-230z" fill="${C.white}" filter="url(#soft)"/>
   <circle cx="${x + 238}" cy="${y + 40}" r="8" fill="${C.oat}"/>
   <text x="${x + 22}" y="${y + 52}" font-family="Georgia, serif" font-size="34" font-style="italic" fill="${C.cocoa}">${text}</text>

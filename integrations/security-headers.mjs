@@ -25,7 +25,7 @@ function htmlFiles(dir) {
 /** @returns {import('astro').AstroIntegration} */
 export default function securityHeaders() {
   return {
-    name: 'lovelycrochet:security-headers',
+    name: 'simpul-mungil:security-headers',
     hooks: {
       'astro:build:done': ({ dir, logger }) => {
         const out = fileURLToPath(dir);

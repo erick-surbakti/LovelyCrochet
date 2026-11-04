@@ -13,7 +13,7 @@ Legend: **T** = transactional, **C** = commercial investigation, **I** = informa
 
 | URL | Primary keyword | Secondary / long-tail | Intent | Cannibalisation guard |
 |---|---|---|---|---|
-| `/` | crochet bekasi | lovelycrochet, rajutan handmade, toko rajut online, kado rajut handmade | N / L | Home targets the brand + broad "crochet bekasi". The local service intent lives on `/bekasi/`; Home links to it with the anchor "rajutan Bekasi". |
+| `/` | crochet bekasi | simpul mungil, rajutan handmade, toko rajut online, kado rajut handmade | N / L | Home targets the brand + broad "crochet bekasi". The local service intent lives on `/bekasi/`; Home links to it with the anchor "rajutan Bekasi". |
 | `/bekasi/` | rajutan bekasi | crochet & rajutan handmade di bekasi, buket rajut bekasi same day, kado handmade bekasi, toko rajut bekasi selatan | L / T | Owns all "…bekasi" local queries except the bouquet one below. |
 | `/koleksi/` | rajutan handmade | jual rajutan, produk rajut, crochet handmade indonesia | T | Filtered states (`?warna=`, `?harga=`…) are `noindex` + canonical to `/koleksi/`. |
 | `/koleksi/buket-bunga-rajut/` | buket bunga rajut | buket bunga rajut bekasi, bunga rajut abadi, buket rajut murah, bunga flanel vs rajut | T | Owns "buket bunga rajut bekasi" (category + local paragraph). `/bekasi/` links here for bouquets. |
@@ -51,10 +51,10 @@ Legend: **T** = transactional, **C** = commercial investigation, **I** = informa
 | `/kamus-rajut/{term}/` (11 pages) | e.g. "tusuk tunggal", "magic ring", "hakpen" | "{term} adalah", "{term} crochet" | I | One page per major term only; minor terms live as anchors on the hub (no thin pages). |
 | `/panduan-perawatan/` | cara mencuci rajutan | merawat benang cotton milk, menjemur rajutan | I | See journal #2 guard. |
 | `/panduan-ukuran/` | ukuran cardigan rajut | ukuran tas rajut, ukuran bucket hat | I | — |
-| `/tentang-kami/` | lovelycrochet | perajin rajut bekasi | N | — |
+| `/tentang-kami/` | simpul mungil | perajin rajut bekasi | N | — |
 | `/faq/` | cara pesan rajutan | ongkir rajutan, pembayaran qris rajutan | I / N | — |
 | `/pengiriman-pengembalian/` | pengiriman rajutan | same day bekasi, kebijakan retur | N | — |
-| `/kontak/` | kontak lovelycrochet | whatsapp lovelycrochet | N | — |
+| `/kontak/` | kontak simpul mungil | whatsapp simpul mungil | N | — |
 
 Not created on purpose: separate Jakarta/Depok/Bogor/Tangerang area pages. Their only unique facts
 (delivery time and courier) fit in one table on `/bekasi/` and `/pengiriman-pengembalian/`; separate pages
@@ -68,7 +68,7 @@ they start, set `workshops: true` in `src/config/site.ts`, build the page and ad
 
 | URL | Primary keyword | Secondary | Intent |
 |---|---|---|---|
-| `/en/` | handmade crochet indonesia | crochet gifts bekasi, lovelycrochet | N / L |
+| `/en/` | handmade crochet indonesia | crochet gifts bekasi, simpul mungil | N / L |
 | `/en/bekasi/` | crochet bekasi | handmade crochet jakarta delivery, crochet shop bekasi | L |
 | `/en/shop/` | handmade crochet shop | buy crochet indonesia | T |
 | `/en/shop/crochet-flower-bouquets/` | crochet flower bouquet | everlasting crochet flowers, crochet bouquet jakarta | T |

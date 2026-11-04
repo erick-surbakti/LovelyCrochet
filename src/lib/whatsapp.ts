@@ -23,7 +23,7 @@ export interface ProductMessageInput {
 export function productMessage(i: ProductMessageInput): string {
   const id = i.locale === 'id';
   const lines = [
-    id ? `Halo LovelyCrochet! Aku mau pesan:` : `Hi LovelyCrochet! I'd like to order:`,
+    id ? `Halo Simpul Mungil! Aku mau pesan:` : `Hi Simpul Mungil! I'd like to order:`,
     ``,
     `• ${id ? 'Produk' : 'Product'}: ${i.name}`,
   ];
@@ -52,7 +52,7 @@ export interface CustomOrderInput {
 export function customOrderMessage(i: CustomOrderInput): string {
   const id = i.locale === 'id';
   const lines = [
-    id ? `Halo LovelyCrochet! Aku mau pesanan custom:` : `Hi LovelyCrochet! I'd like a custom order:`,
+    id ? `Halo Simpul Mungil! Aku mau pesanan custom:` : `Hi Simpul Mungil! I'd like a custom order:`,
     ``,
     `• ${id ? 'Jenis' : 'Type'}: ${i.type}`,
     `• ${id ? 'Ukuran' : 'Size'}: ${i.size}`,
@@ -73,12 +73,12 @@ export function customOrderMessage(i: CustomOrderInput): string {
 export function generalMessage(locale: Locale, context?: string): string {
   if (locale === 'id') {
     return context
-      ? `Halo LovelyCrochet! Aku mau tanya soal ${context}.`
-      : `Halo LovelyCrochet! Aku mau tanya-tanya soal rajutan 🧶`;
+      ? `Halo Simpul Mungil! Aku mau tanya soal ${context}.`
+      : `Halo Simpul Mungil! Aku mau tanya-tanya soal rajutan 🧶`;
   }
   return context
-    ? `Hi LovelyCrochet! I have a question about ${context}.`
-    : `Hi LovelyCrochet! I have a question about your crochet pieces 🧶`;
+    ? `Hi Simpul Mungil! I have a question about ${context}.`
+    : `Hi Simpul Mungil! I have a question about your crochet pieces 🧶`;
 }
 
 /**
@@ -87,7 +87,7 @@ export function generalMessage(locale: Locale, context?: string): string {
  */
 export function withUtm(url: string, campaign: string, content?: string): string {
   const u = new URL(url);
-  if (!u.searchParams.has('utm_source')) u.searchParams.set('utm_source', 'lovelycrochet.shop');
+  if (!u.searchParams.has('utm_source')) u.searchParams.set('utm_source', new URL(site.url).hostname);
   if (!u.searchParams.has('utm_medium')) u.searchParams.set('utm_medium', 'referral');
   if (!u.searchParams.has('utm_campaign')) u.searchParams.set('utm_campaign', campaign);
   if (content && !u.searchParams.has('utm_content')) u.searchParams.set('utm_content', content);

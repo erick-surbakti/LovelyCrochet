@@ -18,14 +18,14 @@ import {
 } from '@/lib/schema';
 
 const site: SiteFacts = {
-  name: 'LovelyCrochet',
+  name: 'Simpul Mungil',
   url: 'https://lovelycrochet.shop',
   email: 'halo@lovelycrochet.shop',
   telephone: '+6281296761659',
   logo: '/logo.png',
   image: '/og/index.png',
   description: 'Rajutan tangan dari Bekasi.',
-  founder: 'Lovely Admin',
+  founder: 'Admin Simpul Mungil',
   foundingYear: 2021,
   address: {
     streetAddress: null,
@@ -49,7 +49,7 @@ const baseProduct: ProductInput = {
   description: 'desc',
   sku: 'LC-1',
   images: ['https://lovelycrochet.shop/a.jpg'],
-  brand: 'LovelyCrochet',
+  brand: 'Simpul Mungil',
   category: 'Buket',
   price: 185000,
   currency: 'IDR',
@@ -165,7 +165,7 @@ describe('other builders', () => {
       description: 'D',
       image: 'https://x/i.jpg',
       datePublished: new Date('2026-07-08T00:00:00Z'),
-      author: 'Lovely Admin',
+      author: 'Admin Simpul Mungil',
       locale: 'id-ID',
       publisherId: 'https://x/#organization',
     });
@@ -202,13 +202,13 @@ describe('other builders', () => {
       caption: 'c',
       width: 1,
       height: 2,
-      creator: 'LovelyCrochet',
-      creditText: 'LovelyCrochet',
+      creator: 'Simpul Mungil',
+      creditText: 'Simpul Mungil',
       pageUrl: 'p',
     });
     expect(img).toMatchObject({
-      creditText: 'LovelyCrochet',
-      creator: { '@type': 'Organization', name: 'LovelyCrochet' },
+      creditText: 'Simpul Mungil',
+      creator: { '@type': 'Organization', name: 'Simpul Mungil' },
     });
   });
 

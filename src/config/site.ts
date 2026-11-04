@@ -1,5 +1,5 @@
 /**
- * LovelyCrochet — single source of truth for business facts.
+ * Simpul Mungil — single source of truth for business facts.
  *
  * Every page, the footer, the contact page, JSON-LD schema and the WhatsApp
  * links read from this file. Edit a value here and it changes everywhere.
@@ -18,13 +18,13 @@ export interface OpeningHours {
 }
 
 export const site = {
-  name: 'LovelyCrochet',
-  legalName: 'LovelyCrochet',
+  name: 'Simpul Mungil',
+  legalName: 'Simpul Mungil',
   /** Canonical origin (domain registered at AnymHost). www redirects here. */
   url: 'https://lovelycrochet.shop',
   /** Other domains you own that should 301-redirect to `url` (none yet). */
   alternateDomains: [] as string[],
-  founder: 'Lovely Admin',
+  founder: 'Admin Simpul Mungil',
   foundingYear: 2026,
   email: 'purnamaw689@gmail.com',
 
@@ -154,7 +154,7 @@ export const site = {
   },
 
   /** Photo credit used in ImageObject schema. */
-  photoCredit: 'LovelyCrochet',
+  photoCredit: 'Simpul Mungil',
 } as const;
 
 export type Site = typeof site;

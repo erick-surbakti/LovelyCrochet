@@ -1,6 +1,6 @@
-# LovelyCrochet
+# Simpul Mungil
 
-Bilingual (Indonesian / English) website for **LovelyCrochet**, a handmade crochet studio in Bekasi.
+Bilingual (Indonesian / English) website for **Simpul Mungil**, a handmade crochet studio in Bekasi.
 Built with Astro 7 as a fully static site: zero JavaScript by default, small Preact islands for the
 interactive parts, and Lighthouse 100/100/100/100 on mobile and desktop.
 

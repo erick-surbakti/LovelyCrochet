@@ -14,46 +14,46 @@ export interface PageMeta {
 export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   home: {
     id: {
-      title: 'LovelyCrochet: Crochet & Rajutan Handmade Bekasi',
+      title: 'Simpul Mungil: Crochet & Rajutan Handmade Bekasi',
       description:
         'Buket bunga rajut, boneka amigurumi, tas rajut, dan kado handmade dari Bekasi. Bisa custom, same-day Jabodetabek, kirim ke seluruh Indonesia.',
       label: 'Beranda',
-      h1: 'Rajutan tangan yang lovely, dari Bekasi.',
+      h1: 'Rajutan tangan yang mungil, dari Bekasi.',
     },
     en: {
-      title: 'LovelyCrochet: Handmade Crochet from Bekasi, Indonesia',
+      title: 'Simpul Mungil: Handmade Crochet from Bekasi, Indonesia',
       description:
         'Crochet flower bouquets, amigurumi, crochet bags and handmade gifts from Bekasi. Custom orders, same-day Jabodetabek, shipping across Indonesia.',
       label: 'Home',
-      h1: 'Lovely hand-crocheted pieces from Bekasi.',
+      h1: 'Mungil means little: hand-crocheted with love in Bekasi.',
     },
   },
   shop: {
     id: {
-      title: 'Koleksi Rajutan Handmade | LovelyCrochet',
+      title: 'Koleksi Rajutan Handmade | Simpul Mungil',
       description:
-        'Semua koleksi rajutan handmade LovelyCrochet. Boneka amigurumi, gantungan kunci, buket bunga rajut, tas, dan pakaian rajut. Bisa custom.',
+        'Semua koleksi rajutan handmade Simpul Mungil. Boneka amigurumi, gantungan kunci, buket bunga rajut, tas, dan pakaian rajut. Bisa custom.',
       label: 'Koleksi',
       h1: 'Koleksi rajutan tangan',
     },
     en: {
-      title: 'Shop Handmade Crochet | LovelyCrochet',
+      title: 'Shop Handmade Crochet | Simpul Mungil',
       description:
-        'Shop every LovelyCrochet piece: amigurumi, keychains, crochet bouquets, bags and clothing. Custom orders welcome.',
+        'Shop every Simpul Mungil piece: amigurumi, keychains, crochet bouquets, bags and clothing. Custom orders welcome.',
       label: 'Shop',
       h1: 'The hand-crocheted collection',
     },
   },
   custom: {
     id: {
-      title: 'Pesan Rajutan Custom: Boneka, Buket & Nama | LovelyCrochet',
+      title: 'Pesan Rajutan Custom: Boneka, Buket & Nama | Simpul Mungil',
       description:
         'Rancang rajutan custom-mu sendiri. Pilih jenis, ukuran, warna, dan personalisasi, lalu kirim lewat WhatsApp. DP 50%, pengerjaan 3–14 hari kerja.',
       label: 'Pesanan Custom',
       h1: 'Rancang rajutanmu sendiri',
     },
     en: {
-      title: 'Custom Crochet Orders: Dolls, Bouquets & Names | LovelyCrochet',
+      title: 'Custom Crochet Orders: Dolls, Bouquets & Names | Simpul Mungil',
       description:
         'Design your own crochet piece. Pick the type, size, colours and personalisation, then send it on WhatsApp. 50% deposit, 3–14 working days.',
       label: 'Custom Order',
@@ -62,14 +62,14 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   },
   gifts: {
     id: {
-      title: 'Ide Kado Handmade per Momen | LovelyCrochet',
+      title: 'Ide Kado Handmade per Momen | Simpul Mungil',
       description:
         'Panduan kado rajut handmade untuk wisuda, ulang tahun, anniversary, Valentine, Hari Ibu, Lebaran, baby shower, dan kado korporat.',
       label: 'Hadiah',
       h1: 'Kado rajut untuk setiap momen',
     },
     en: {
-      title: 'Handmade Gift Guides by Occasion | LovelyCrochet',
+      title: 'Handmade Gift Guides by Occasion | Simpul Mungil',
       description:
         "Handmade crochet gift guides for graduations, birthdays, anniversaries, Valentine's Day, Mother's Day, Eid, baby showers and corporate gifts.",
       label: 'Gifts',
@@ -78,30 +78,30 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   },
   about: {
     id: {
-      title: 'Tentang LovelyCrochet, Studio Rajut di Bekasi',
+      title: 'Tentang Simpul Mungil, Studio Rajut di Bekasi',
       description:
-        'Kenalan dengan LovelyCrochet, studio rajut rumahan di Bekasi. Cerita, nilai, filosofi bahan, dan proses di balik setiap rajutan tangan kami.',
+        'Kenalan dengan Simpul Mungil, studio rajut rumahan di Bekasi. Cerita, nilai, filosofi bahan, dan proses di balik setiap rajutan tangan kami.',
       label: 'Tentang Kami',
       h1: 'Setiap simpul bercerita',
     },
     en: {
-      title: 'About LovelyCrochet, a Crochet Studio in Bekasi',
+      title: 'About Simpul Mungil, a Crochet Studio in Bekasi',
       description:
-        'Meet LovelyCrochet, a home crochet studio in Bekasi, Indonesia. Our story, values, materials and the process behind every hand-made piece.',
+        'Meet Simpul Mungil, a home crochet studio in Bekasi, Indonesia. Our story, values, materials and the process behind every hand-made piece.',
       label: 'About',
       h1: 'Every stitch tells a story',
     },
   },
   journal: {
     id: {
-      title: 'Jurnal Rajut: Tips Merajut & Merawat | LovelyCrochet',
+      title: 'Jurnal Rajut: Tips Merajut & Merawat | Simpul Mungil',
       description:
         'Artikel seputar merajut. Jenis benang, tusuk dasar untuk pemula, cara merawat rajutan, ide kado, dan cerita di balik layar studio kami.',
       label: 'Jurnal',
       h1: 'Jurnal rajut',
     },
     en: {
-      title: 'Crochet Journal: Tips, Care & Stories | LovelyCrochet',
+      title: 'Crochet Journal: Tips, Care & Stories | Simpul Mungil',
       description:
         'Articles about crochet. Yarn types, beginner stitches, caring for crochet, gift ideas and behind-the-scenes stories from our studio.',
       label: 'Journal',
@@ -110,14 +110,14 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   },
   patterns: {
     id: {
-      title: 'Pola Rajut Gratis Bahasa Indonesia | LovelyCrochet',
+      title: 'Pola Rajut Gratis Bahasa Indonesia | Simpul Mungil',
       description:
         'Pola rajut gratis dalam bahasa Indonesia, siap cetak. Lengkap dengan daftar bahan, ukuran hakpen, gauge, singkatan, dan instruksi per putaran.',
       label: 'Pola Gratis',
       h1: 'Pola rajut gratis',
     },
     en: {
-      title: 'Free Crochet Patterns, Printable | LovelyCrochet',
+      title: 'Free Crochet Patterns, Printable | Simpul Mungil',
       description:
         'Free printable crochet patterns with materials, hook size, gauge, abbreviations and round-by-round instructions. Beginner friendly.',
       label: 'Free Patterns',
@@ -133,7 +133,7 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
       h1: 'Kamus rajut A–Z',
     },
     en: {
-      title: 'Crochet Glossary: US vs UK Terms A–Z | LovelyCrochet',
+      title: 'Crochet Glossary: US vs UK Terms A–Z | Simpul Mungil',
       description:
         'An A–Z crochet glossary with Indonesian equivalents and US vs UK terminology. Chain, single crochet, magic ring, increases and more.',
       label: 'Crochet Glossary',
@@ -142,14 +142,14 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   },
   care: {
     id: {
-      title: 'Cara Mencuci & Merawat Rajutan | LovelyCrochet',
+      title: 'Cara Mencuci & Merawat Rajutan | Simpul Mungil',
       description:
         'Panduan mencuci, mengeringkan, menyimpan, dan membentuk ulang rajutan untuk setiap jenis benang. Cotton milk, katun, acrylic, polyester, dan wol.',
       label: 'Panduan Perawatan',
       h1: 'Panduan perawatan rajutan',
     },
     en: {
-      title: 'How to Wash & Care for Crochet | LovelyCrochet',
+      title: 'How to Wash & Care for Crochet | Simpul Mungil',
       description:
         'How to wash, dry, store and reshape crochet for each fibre. Milk cotton, cotton, acrylic, polyester and wool, with a quick reference table.',
       label: 'Care Guide',
@@ -158,30 +158,30 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   },
   size: {
     id: {
-      title: 'Panduan Ukuran Boneka, Pakaian & Tas Rajut | LovelyCrochet',
+      title: 'Panduan Ukuran Boneka, Pakaian & Tas Rajut | Simpul Mungil',
       description:
-        'Ukuran boneka rajut LovelyCrochet, cara mengukur badan untuk pakaian rajut, dan patokan ukuran tas rajut custom. Semua dalam sentimeter.',
+        'Ukuran boneka rajut Simpul Mungil, cara mengukur badan untuk pakaian rajut, dan patokan ukuran tas rajut custom. Semua dalam sentimeter.',
       label: 'Panduan Ukuran',
       h1: 'Panduan ukuran',
     },
     en: {
-      title: 'Size Guide: Crochet Dolls, Clothing & Bags | LovelyCrochet',
+      title: 'Size Guide: Crochet Dolls, Clothing & Bags | Simpul Mungil',
       description:
-        'LovelyCrochet doll sizes, how to measure for crochet clothing, and size guidelines for custom crochet bags. All in centimetres.',
+        'Simpul Mungil doll sizes, how to measure for crochet clothing, and size guidelines for custom crochet bags. All in centimetres.',
       label: 'Size Guide',
       h1: 'Size guide',
     },
   },
   faq: {
     id: {
-      title: 'FAQ: Pemesanan, Pembayaran & Pengiriman | LovelyCrochet',
+      title: 'FAQ: Pemesanan, Pembayaran & Pengiriman | Simpul Mungil',
       description:
         'Jawaban untuk pertanyaan seputar cara pesan, pembayaran QRIS dan transfer, pengiriman same-day, pesanan custom, pengembalian, dan perawatan rajutan.',
       label: 'FAQ',
       h1: 'Pertanyaan yang sering ditanyakan',
     },
     en: {
-      title: 'FAQ: Ordering, Payment & Shipping | LovelyCrochet',
+      title: 'FAQ: Ordering, Payment & Shipping | Simpul Mungil',
       description:
         'Answers about ordering, paying by QRIS or transfer, same-day delivery, custom orders, returns and caring for your crochet.',
       label: 'FAQ',
@@ -190,14 +190,14 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   },
   shipping: {
     id: {
-      title: 'Pengiriman & Pengembalian | LovelyCrochet',
+      title: 'Pengiriman & Pengembalian | Simpul Mungil',
       description:
         'Info pengiriman same-day Bekasi & Jabodetabek, kurir ke seluruh Indonesia, pengiriman internasional, serta kebijakan penukaran dan pengembalian.',
       label: 'Pengiriman & Pengembalian',
       h1: 'Pengiriman & pengembalian',
     },
     en: {
-      title: 'Shipping & Returns | LovelyCrochet',
+      title: 'Shipping & Returns | Simpul Mungil',
       description:
         'Same-day delivery in Bekasi and Jabodetabek, couriers across Indonesia, international shipping, and our exchange and returns policy.',
       label: 'Shipping & Returns',
@@ -206,62 +206,62 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   },
   privacy: {
     id: {
-      title: 'Kebijakan Privasi | LovelyCrochet',
+      title: 'Kebijakan Privasi | Simpul Mungil',
       description:
-        'Bagaimana LovelyCrochet mengumpulkan, memakai, dan melindungi data pribadimu saat kamu memesan atau mendaftar kabar terbaru.',
+        'Bagaimana Simpul Mungil mengumpulkan, memakai, dan melindungi data pribadimu saat kamu memesan atau mendaftar kabar terbaru.',
       label: 'Kebijakan Privasi',
       h1: 'Kebijakan privasi',
     },
     en: {
-      title: 'Privacy Policy | LovelyCrochet',
+      title: 'Privacy Policy | Simpul Mungil',
       description:
-        'How LovelyCrochet collects, uses and protects your personal data when you order or sign up for updates.',
+        'How Simpul Mungil collects, uses and protects your personal data when you order or sign up for updates.',
       label: 'Privacy Policy',
       h1: 'Privacy policy',
     },
   },
   terms: {
     id: {
-      title: 'Syarat & Ketentuan | LovelyCrochet',
+      title: 'Syarat & Ketentuan | Simpul Mungil',
       description:
-        'Syarat dan ketentuan pemesanan di LovelyCrochet, termasuk harga, pembayaran, pesanan custom, hak cipta desain, dan penyelesaian masalah.',
+        'Syarat dan ketentuan pemesanan di Simpul Mungil, termasuk harga, pembayaran, pesanan custom, hak cipta desain, dan penyelesaian masalah.',
       label: 'Syarat & Ketentuan',
       h1: 'Syarat & ketentuan',
     },
     en: {
-      title: 'Terms & Conditions | LovelyCrochet',
+      title: 'Terms & Conditions | Simpul Mungil',
       description:
-        'Terms for ordering from LovelyCrochet, covering prices, payment, custom orders, design copyright and resolving problems.',
+        'Terms for ordering from Simpul Mungil, covering prices, payment, custom orders, design copyright and resolving problems.',
       label: 'Terms & Conditions',
       h1: 'Terms & conditions',
     },
   },
   contact: {
     id: {
-      title: 'Kontak LovelyCrochet: WhatsApp & Email',
+      title: 'Kontak Simpul Mungil: WhatsApp & Email',
       description:
-        'Hubungi LovelyCrochet lewat WhatsApp atau email. Studio rumahan di Kota Bekasi, balas chat Senin–Sabtu 09.00–18.00 WIB.',
+        'Hubungi Simpul Mungil lewat WhatsApp atau email. Studio rumahan di Kota Bekasi, balas chat Senin–Sabtu 09.00–18.00 WIB.',
       label: 'Kontak',
       h1: 'Yuk, ngobrol!',
     },
     en: {
-      title: 'Contact LovelyCrochet: WhatsApp & Email',
+      title: 'Contact Simpul Mungil: WhatsApp & Email',
       description:
-        'Reach LovelyCrochet on WhatsApp or email. Home studio in Kota Bekasi, chat replies Monday–Saturday 09:00–18:00 WIB.',
+        'Reach Simpul Mungil on WhatsApp or email. Home studio in Kota Bekasi, chat replies Monday–Saturday 09:00–18:00 WIB.',
       label: 'Contact',
       h1: "Let's talk!",
     },
   },
   bekasi: {
     id: {
-      title: 'Crochet & Rajutan Handmade di Bekasi | LovelyCrochet',
+      title: 'Crochet & Rajutan Handmade di Bekasi | Simpul Mungil',
       description:
         'Rajutan handmade dari Kota Bekasi. Boneka rajut, buket bunga rajut, dan kado custom dengan pengiriman same-day ke seluruh Bekasi, Cikarang, dan Jabodetabek.',
       label: 'Rajutan Bekasi',
       h1: 'Crochet & rajutan handmade di Bekasi',
     },
     en: {
-      title: 'Handmade Crochet in Bekasi, Same-Day Delivery | LovelyCrochet',
+      title: 'Handmade Crochet in Bekasi, Same-Day Delivery | Simpul Mungil',
       description:
         'Handmade crochet from Kota Bekasi. Amigurumi, bouquets and custom gifts with same-day delivery across Bekasi, Cikarang and Jabodetabek.',
       label: 'Crochet in Bekasi',
@@ -270,28 +270,28 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   },
   search: {
     id: {
-      title: 'Cari di LovelyCrochet',
-      description: 'Cari produk, artikel, pola gratis, dan istilah rajut di LovelyCrochet.',
+      title: 'Cari di Simpul Mungil',
+      description: 'Cari produk, artikel, pola gratis, dan istilah rajut di Simpul Mungil.',
       label: 'Cari',
       h1: 'Cari',
     },
     en: {
-      title: 'Search LovelyCrochet',
-      description: 'Search products, articles, free patterns and crochet terms on LovelyCrochet.',
+      title: 'Search Simpul Mungil',
+      description: 'Search products, articles, free patterns and crochet terms on Simpul Mungil.',
       label: 'Search',
       h1: 'Search',
     },
   },
   thanks: {
     id: {
-      title: 'Terima Kasih Sudah Mendaftar | LovelyCrochet',
+      title: 'Terima Kasih Sudah Mendaftar | Simpul Mungil',
       description:
         'Pendaftaranmu sudah kami terima. Pola tulip mini gratis bisa langsung kamu buka dan cetak dari halaman ini.',
       label: 'Terima Kasih',
       h1: 'Terima kasih, simpulnya sudah terikat!',
     },
     en: {
-      title: 'Thanks for Signing Up | LovelyCrochet',
+      title: 'Thanks for Signing Up | Simpul Mungil',
       description: 'We have your sign-up. Your free mini tulip pattern is ready to open and print from this page.',
       label: 'Thank You',
       h1: 'Thank you, the knot is tied!',

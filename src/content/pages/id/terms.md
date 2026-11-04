@@ -2,12 +2,12 @@
 key: terms
 lang: id
 updated: 2026-10-20
-lede: Syarat dan ketentuan yang berlaku saat kamu memesan dari LovelyCrochet, baik lewat WhatsApp, website, maupun marketplace.
+lede: Syarat dan ketentuan yang berlaku saat kamu memesan dari Simpul Mungil, baik lewat WhatsApp, website, maupun marketplace.
 ---
 
 ## Tentang ketentuan ini
 
-Dengan memesan dari LovelyCrochet, kamu dianggap telah membaca dan menyetujui syarat dan ketentuan ini. Untuk pembelian lewat marketplace, ketentuan marketplace tersebut juga berlaku.
+Dengan memesan dari Simpul Mungil, kamu dianggap telah membaca dan menyetujui syarat dan ketentuan ini. Untuk pembelian lewat marketplace, ketentuan marketplace tersebut juga berlaku.
 
 ## Produk handmade
 
@@ -36,8 +36,8 @@ Pesanan yang dibutuhkan lebih cepat dari waktu pengerjaan normal dikenakan biaya
 
 ## Desain dan hak cipta
 
-- Desain, foto, pola gratis, dan teks di website ini adalah milik LovelyCrochet. Dilarang menyalin atau menjual ulang tanpa izin tertulis.
-- Pola gratis boleh dipakai untuk belajar, dan hasil rajutannya boleh dijual dengan mencantumkan LovelyCrochet sebagai sumber pola.
+- Desain, foto, pola gratis, dan teks di website ini adalah milik Simpul Mungil. Dilarang menyalin atau menjual ulang tanpa izin tertulis.
+- Pola gratis boleh dipakai untuk belajar, dan hasil rajutannya boleh dijual dengan mencantumkan Simpul Mungil sebagai sumber pola.
 - Untuk pesanan yang meniru karakter, logo, atau merek milik pihak lain, kamu menjamin punya hak untuk memesannya. Kami berhak menolak pesanan yang melanggar hak cipta atau merek.
 - Kami boleh memotret hasil pesanan custom untuk portofolio, kecuali kamu meminta sebaliknya.
 
@@ -61,4 +61,4 @@ Jika ada masalah, hubungi kami lebih dulu lewat WhatsApp atau email. Kami berkom
 
 ## Kontak
 
-LovelyCrochet, Kota Bekasi, Jawa Barat. WhatsApp +62 812-9676-1659, email purnamaw689@gmail.com.
+Simpul Mungil, Kota Bekasi, Jawa Barat. WhatsApp +62 812-9676-1659, email purnamaw689@gmail.com.

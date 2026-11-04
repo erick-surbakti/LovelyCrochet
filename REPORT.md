@@ -1,4 +1,4 @@
-# LovelyCrochet: Final Report
+# Simpul Mungil: Final Report
 
 Build date: 3 November 2026 · Astro 7.4.4 · Tailwind 4.3.3 · Preact 11.1.1 · Node 24
 
@@ -125,7 +125,7 @@ published. Google accepts this for service-area businesses.
    the brand palette and named as if they were the real photos. IMAGE_MAP describes the intended photos.
 2. **Products:** the 12 products, prices, sizes, variants and stock levels are invented to match the stand-ins.
 3. **Business facts** given by you: domain lovelycrochet.shop (others redirect), WhatsApp +62 812-9676-1659,
-   founder "Lovely Admin", no workshops. Everything else in `site.ts` marked `PLACEHOLDER` is assumed.
+   founder "Admin Simpul Mungil", no workshops. Everything else in `site.ts` marked `PLACEHOLDER` is assumed.
 4. **Policies** (DP 50%, 3-day exchange, 48-hour damage report, 20% priority fee, 14.00 WIB cut-off, lead times) are assumptions.
 5. **Social and marketplace links** are left empty (`null`) rather than guessed, so those buttons are hidden.
 6. **Testimonials and Stitch Counter numbers** are never fabricated: production hides them until real data exists.

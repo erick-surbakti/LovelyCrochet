@@ -10,9 +10,9 @@ function collectErrors(page: Page) {
 test('home loads with hero, schema and no console errors', async ({ page }) => {
   const errors = collectErrors(page);
   await page.goto('/');
-  await expect(page).toHaveTitle(/LovelyCrochet/);
+  await expect(page).toHaveTitle(/Simpul Mungil/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'id-ID');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Lovely');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Mungil');
   const ld = await page.locator('script[type="application/ld+json"]').first().textContent();
   const types = (JSON.parse(ld ?? '{}')['@graph'] as { '@type': string }[]).map((n) => n['@type']);
   expect(types).toEqual(expect.arrayContaining(['Organization', 'WebSite', 'Store']));

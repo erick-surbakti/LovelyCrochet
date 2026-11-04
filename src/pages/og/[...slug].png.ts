@@ -162,8 +162,8 @@ export const GET: APIRoute = async ({ props }) => {
           ),
           h('div', { display: 'flex', alignItems: 'center', fontSize: 30 }, [
             h('div', { display: 'flex', fontFamily: 'Fraunces', fontSize: 40 }, [
-              h('span', {}, 'Lovely'),
-              h('span', { color: '#9A4A3F' }, 'Crochet'),
+              h('span', {}, 'Simpul\u00a0'),
+              h('span', { color: '#9A4A3F' }, 'Mungil'),
             ]),
             h(
               'div',

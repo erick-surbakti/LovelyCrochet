@@ -2,12 +2,12 @@
 key: privacy
 lang: en
 updated: 2026-10-20
-lede: How LovelyCrochet collects, uses, stores and protects your personal data, in line with Indonesia's Personal Data Protection Law (Law No. 27 of 2022).
+lede: How Simpul Mungil collects, uses, stores and protects your personal data, in line with Indonesia's Personal Data Protection Law (Law No. 27 of 2022).
 ---
 
 ## Who we are
 
-LovelyCrochet is a home crochet business in Bekasi, West Java, Indonesia. For anything about your personal data, contact us at purnamaw689@gmail.com or on WhatsApp at +62 812-9676-1659.
+Simpul Mungil is a home crochet business in Bekasi, West Java, Indonesia. For anything about your personal data, contact us at purnamaw689@gmail.com or on WhatsApp at +62 812-9676-1659.
 
 ## What we collect
 

@@ -73,4 +73,4 @@ Small bobbles where the fabric rubs are normal. Shave them gently with a fabric 
 
 ## Need a repair?
 
-If a strand breaks or a part comes loose on a LovelyCrochet piece, don't cut it. Tie it off temporarily and send a photo to our WhatsApp. We'll help repair it.
+If a strand breaks or a part comes loose on a Simpul Mungil piece, don't cut it. Tie it off temporarily and send a photo to our WhatsApp. We'll help repair it.

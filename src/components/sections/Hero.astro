@@ -21,12 +21,12 @@ const copy = {
   en: {
     kicker: 'Home crochet studio · Bekasi',
     before: '',
-    after: 'hand-crocheted pieces from Bekasi.',
+    after: 'means little: hand-crocheted with love in Bekasi.',
     lede: 'Amigurumi made to be hugged, bouquets that never wilt, and crochet bags and clothing made to order. Each one made stitch by stitch, made to order if you like, and shipped across Indonesia.',
   },
 }[locale];
 
-const word = 'Lovely'.split('');
+const word = 'Mungil'.split('');
 const collage = [
   { name: 'boneka-penguin-rajut-pink-topi-syal', cls: 'c-1', depth: 18, tilt: -5 },
   { name: 'boneka-husky-rajut-amigurumi-kotak-kado', cls: 'c-2', depth: 30, tilt: 4 },
@@ -41,7 +41,7 @@ const collage = [
       <h1 id="hero-title" class="mt-4 text-step-4 leading-[1.02]">
         {copy.before && <span class="block">{copy.before}</span>}
         <span class="hero-lovely relative my-1 inline-block text-step-6 leading-[0.95] text-rose-clay">
-          <span class="sr-only-lc">Lovely</span>
+          <span class="sr-only-lc">Mungil</span>
           <span aria-hidden="true">
             {word.map((ch, i) => (
               <span class="hero-letter" style={`--i:${i}`}>
