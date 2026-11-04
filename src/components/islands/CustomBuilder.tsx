@@ -110,15 +110,27 @@ function Preview({ type, colors, label }: { type: PieceType['key']; colors: stri
           <circle cx="128" cy="124" r="16" fill={c} />
           <path d="M128 112 a6 6 0 1 1 0.1 0" fill="none" />
         </g>
-      ) : type === 'pakaian' ? (
-        <g stroke={stroke} stroke-width="2">
+      ) : type === 'renda' ? (
+        <g stroke={stroke} stroke-width="1.5">
+          <path d="M60 40 L34 58 L26 150 L174 150 L166 58 L140 40 Q100 62 60 40Z" fill="#FFFDF8" />
+          {[0, 1, 2, 3, 4, 5, 6].map((i) => {
+            const t = Math.PI * (0.15 + (i / 6) * 0.7);
+            const cx = 100 - Math.cos(t) * 46;
+            const cy = 44 + Math.sin(t) * 34;
+            return (
+              <g key={i}>
+                <circle cx={cx} cy={cy} r="12" fill={a} />
+                <circle cx={cx} cy={cy} r="6" fill="none" stroke={b} stroke-width="2" stroke-dasharray="2 2" />
+                <circle cx={cx} cy={cy} r="2.5" fill={c} />
+              </g>
+            );
+          })}
           <path
-            d="M70 40 L36 62 L22 140 L44 144 L54 90 L56 176 H144 L146 90 L156 144 L178 140 L164 62 L130 40 Q100 62 70 40Z"
-            fill={a}
+            d="M26 150 Q40 160 54 150 Q68 160 82 150 Q96 160 110 150 Q124 160 138 150 Q152 160 166 150 Q170 156 174 150"
+            fill="none"
+            stroke={a}
+            stroke-width="5"
           />
-          <path d="M70 40 Q100 70 100 176 M130 40 Q100 70 100 176" fill="none" stroke={b} stroke-width="6" />
-          <rect x="60" y="104" width="28" height="28" rx="4" fill={c} />
-          <rect x="112" y="104" width="28" height="28" rx="4" fill={c} />
         </g>
       ) : type === 'aksesoris' ? (
         <g stroke={stroke} stroke-width="2">

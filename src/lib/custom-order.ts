@@ -1,7 +1,7 @@
 /** Custom-order rules shared by the builder island, the custom page and tests. */
 
 export interface PieceType {
-  key: 'buket' | 'boneka' | 'tas' | 'aksesoris' | 'pakaian';
+  key: 'buket' | 'boneka' | 'tas' | 'aksesoris' | 'renda';
   name: { id: string; en: string };
   /** Working days, counted from the deposit. */
   leadDays: [number, number];
@@ -49,12 +49,13 @@ export const PIECE_TYPES: PieceType[] = [
     ],
   },
   {
-    key: 'pakaian',
-    name: { id: 'Pakaian rajut', en: 'Crochet clothing' },
-    leadDays: [10, 14],
+    key: 'renda',
+    name: { id: 'Renda rajut untuk baju', en: 'Crochet lace for clothing' },
+    leadDays: [5, 7],
     sizes: [
-      { key: 'atasan', label: { id: 'Atasan / crop top', en: 'Top / crop top' }, from: 325000 },
-      { key: 'cardigan', label: { id: 'Cardigan / outer', en: 'Cardigan / outer' }, from: 495000 },
+      { key: 'motif', label: { id: 'Motif bunga (per buah)', en: 'Flower motif (each)' }, from: 25000 },
+      { key: 'pinggiran', label: { id: 'Renda pinggiran (per meter)', en: 'Lace trim (per metre)' }, from: 45000 },
+      { key: 'kerah', label: { id: 'Kerah renda', en: 'Lace collar' }, from: 85000 },
     ],
   },
 ];

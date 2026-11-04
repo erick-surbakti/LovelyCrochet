@@ -50,10 +50,6 @@ If the courier caused the damage, we'll still handle the claim with them for you
 - **Pre-Order and custom pieces cannot be exchanged or returned**, because they were made just for you.
 - Slight colour differences caused by phone screens are not considered defects.
 
-## Clothing size adjustments
-
-For clothing made to your measurements, we'll alter it once at no extra crochet cost if it doesn't match our [Size Guide](/en/size-guide/). The buyer pays reshipping.
-
 ## Refunds
 
 If a refund is approved, we send it to the bank account or e-wallet you choose within 3 working days of receiving the item back, or of the damage claim being approved.

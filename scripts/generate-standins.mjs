@@ -1,6 +1,6 @@
 /**
  * Generates the 4 category/pattern illustrations (1600×2000 JPG) used where no
- * real photo exists yet (bouquets, bags, clothing, heart pattern).
+ * real photo exists yet (bouquets, bags, crochet lace, heart pattern).
  *
  *   node scripts/generate-standins.mjs
  *
@@ -368,6 +368,38 @@ const scenes = {
       ${tag(240, 1620, -4)}`,
   }),
 
+  'renda-rajut-kerah-blus': scene({
+    top: C.blush,
+    bottom: '#F7DDD6',
+    table: C.oat,
+    body: `
+      ${groundShadow(800, 1690, 460, 50, 0.25)}
+      <path d="M800 230 q-40 -60 0 -110 q40 50 0 110" stroke="${C.cocoa}" stroke-width="10" fill="none"/>
+      <path d="M560 300 Q800 200 1040 300" stroke="${C.cocoaSoft}" stroke-width="22" fill="none" stroke-linecap="round"/>
+      <g filter="url(#soft)">
+        <path d="M560 310 L330 470 L240 980 L400 1010 L470 700 L470 1560 H1130 L1130 700 L1200 1010 L1360 980 L1270 470 L1040 310 Q800 430 560 310Z" fill="${C.white}"/>
+        <path d="M800 400 V1560" stroke="${C.oat}" stroke-width="6"/>
+        ${[0, 1, 2, 3].map((i) => `<circle cx="800" cy="${560 + i * 220}" r="14" fill="${C.oat}"/>`).join('')}
+      </g>
+      <g filter="url(#soft)">
+        ${Array.from({ length: 9 }, (_, i) => {
+          const a = Math.PI * (0.12 + (i / 8) * 0.76);
+          const cx = 800 - Math.cos(a) * 290;
+          const cy = 330 + Math.sin(a) * 210;
+          return `<circle cx="${cx}" cy="${cy}" r="70" fill="${C.cream}" stroke="${C.kraft}" stroke-width="4"/>
+            <circle cx="${cx}" cy="${cy}" r="40" fill="none" stroke="${C.kraft}" stroke-width="3" stroke-dasharray="6 6"/>
+            <circle cx="${cx}" cy="${cy}" r="14" fill="${C.blush}"/>
+            ${[0, 1, 2, 3, 4, 5].map((k) => `<circle cx="${cx + Math.cos((k / 6) * Math.PI * 2) * 27}" cy="${cy + Math.sin((k / 6) * Math.PI * 2) * 27}" r="6" fill="${C.blush}"/>`).join('')}`;
+        }).join('')}
+      </g>
+      <g filter="url(#soft)" transform="translate(1180 1500) rotate(-8)">
+        <ellipse cx="0" cy="0" rx="120" ry="120" fill="${C.cream}" stroke="${C.kraft}" stroke-width="4"/>
+        <ellipse cx="0" cy="0" rx="80" ry="80" fill="none" stroke="${C.kraft}" stroke-width="3" stroke-dasharray="8 8"/>
+        <ellipse cx="0" cy="0" rx="40" ry="40" fill="${C.oat}"/>
+        <path d="M-120 0 C-260 20 -380 0 -520 60" stroke="${C.cream}" stroke-width="44" fill="none"/>
+        ${[0, 1, 2, 3, 4, 5, 6].map((k) => `<circle cx="${-150 - k * 55}" cy="${8 + k * 7}" r="11" fill="none" stroke="${C.kraft}" stroke-width="3"/>`).join('')}
+      </g>`,
+  }),
   'cardigan-rajut-granny-oat': scene({
     top: C.rose,
     bottom: '#D9958A',
@@ -449,7 +481,7 @@ const scenes = {
 const KEEP = {
   'buket-bunga-tulip-rajut-pastel-bekasi': 'ilustrasi-buket-tulip-rajut',
   'tas-tote-rajut-sage-katun': 'ilustrasi-tas-tote-rajut',
-  'cardigan-rajut-granny-oat': 'ilustrasi-cardigan-rajut',
+  'renda-rajut-kerah-blus': 'ilustrasi-renda-rajut',
   'gantungan-kunci-hati-rajut-rose': 'ilustrasi-gantungan-kunci-hati-rajut',
 };
 

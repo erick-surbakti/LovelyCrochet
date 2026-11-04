@@ -50,10 +50,6 @@ Kerusakan karena kurir tetap kami bantu urus klaimnya ke pihak ekspedisi.
 - **Pre-Order dan pesanan custom tidak bisa ditukar atau dikembalikan**, karena dibuat khusus untukmu.
 - Perbedaan warna tipis karena layar HP bukan termasuk cacat produk.
 
-## Penyesuaian ukuran pakaian
-
-Untuk pakaian yang dibuat sesuai ukuran yang kamu kirim, kami bantu permak satu kali tanpa biaya rajut tambahan jika hasilnya tidak sesuai [Panduan Ukuran](/panduan-ukuran/). Ongkir pengiriman ulang ditanggung pembeli.
-
 ## Pengembalian dana
 
 Jika pengembalian dana disetujui, dana dikirim ke rekening atau e-wallet yang kamu tentukan maksimal 3 hari kerja setelah barang kami terima kembali, atau setelah klaim kerusakan disetujui.

@@ -39,7 +39,7 @@ const USED = {
     "Product: Kelinci · Dolls category · gallery · Mother's Day & baby shower guides · About · journal (yarn, care)",
   'ilustrasi-buket-tulip-rajut': 'Bouquets category · tulip pattern · journal (graduation ideas)',
   'ilustrasi-tas-tote-rajut': 'Bags category',
-  'ilustrasi-cardigan-rajut': 'Clothing category',
+  'ilustrasi-renda-rajut': 'Crochet lace category',
   'ilustrasi-gantungan-kunci-hati-rajut': 'Heart keychain pattern · journal (crochet for beginners)',
 };
 
@@ -53,7 +53,7 @@ const md = `# IMAGE_MAP
 
 > **Status:** 8 product photos supplied by Simpul Mungil (real pieces; lighting and background
 > enhanced with AI by the owner) plus 4 clearly labelled **illustrations** used only for the
-> Bouquets, Bags and Clothing categories and the heart pattern, until real photos of those exist.
+> Bouquets, Bags and Crochet Lace categories and the heart pattern, until real photos of those exist.
 > This file is generated from \`src/data/images.json\` with \`npm run images:map\`.
 
 ## How to add or replace a photo

@@ -1,8 +1,8 @@
 ---
 key: size
 lang: id
-updated: 2026-11-03
-lede: Ukuran boneka rajut kami dalam sentimeter, cara mengukur badan untuk pesanan pakaian rajut, dan patokan ukuran tas rajut custom.
+updated: 2026-11-04
+lede: Ukuran boneka rajut kami dalam sentimeter, cara mengukur panjang renda rajut untuk baju, dan patokan ukuran tas rajut custom.
 ---
 
 ## Ukuran boneka dan gantungan kunci
@@ -20,27 +20,26 @@ Semua ukuran adalah perkiraan, karena setiap boneka dirajut tangan. Selisih ±1�
 
 Untuk pesanan custom, kamu bisa meminta ukuran lain. Harga dan waktu pengerjaan akan menyesuaikan.
 
-## Cara mengukur badan untuk pakaian rajut
+## Cara mengukur panjang renda untuk baju
 
-Siapkan meteran jahit (meteran kain), bukan meteran besi. Ukur di atas pakaian tipis, dan jangan tarik meteran terlalu kencang. Kalau ragu, ukur pakaian favoritmu yang sudah pas, lalu kirim angkanya ke kami.
+Siapkan meteran jahit (meteran kain), bukan meteran besi. Ukur langsung di baju yang ingin kamu percantik, dalam keadaan rata dan tidak ditarik.
 
-- **Lingkar dada.** Lingkarkan meteran di bagian dada yang paling lebar, sejajar lantai, di bawah ketiak.
-- **Panjang badan.** Dari titik tertinggi bahu (dekat leher) lurus ke bawah sampai panjang yang kamu inginkan.
-- **Panjang lengan.** Dari ujung bahu sampai pergelangan tangan, dengan lengan sedikit ditekuk.
-- **Lingkar pinggang.** Untuk atasan crop atau rok, lingkarkan meteran di bagian pinggang terkecil.
+- **Kerah.** Lingkarkan meteran mengikuti garis kerah, dari satu ujung ke ujung lainnya.
+- **Ujung lengan.** Ukur keliling ujung lengan, lalu kalikan dua untuk sepasang lengan.
+- **Pinggiran rok, baju, atau kerudung.** Ukur keliling bagian bawah yang ingin diberi renda.
+- **Tambahkan 2–3 cm** dari hasil ukur untuk sambungan dan kerapian.
 
-## Patokan ukuran pakaian
+Kirim angka-angka ini saat memesan, beserta foto bajunya, supaya kami bisa menyarankan lebar dan motif renda yang pas.
 
-Ukuran di bawah adalah ukuran **badan pemakai** sebagai titik awal. Karena pakaian rajut kami dibuat sesuai pesanan, kami akan menyesuaikan kelonggarannya dengan model yang kamu pilih.
+## Patokan lebar renda
 
-| Ukuran | Lingkar dada badan |
-| --- | --- |
-| S | 80–86 cm |
-| M | 87–93 cm |
-| L | 94–100 cm |
-| XL | 101–108 cm |
+| Pilihan | Perkiraan lebar | Cocok untuk |
+| --- | --- | --- |
+| Renda tipis | ±1,5–2 cm | Ujung lengan, kerudung, saku |
+| Renda sedang | ±3–4 cm | Pinggiran baju dan rok |
+| Kerah renda | ±5–8 cm | Kerah kemeja, blus, dan kebaya |
 
-Lihat koleksi [pakaian rajut](/koleksi/pakaian-rajut/) kami atau mulai [pesanan custom](/pesanan-custom/).
+Lihat kategori [renda rajut](/koleksi/renda-rajut/) kami atau mulai [pesanan custom](/pesanan-custom/).
 
 ## Patokan ukuran tas rajut
 
@@ -53,7 +52,3 @@ Tas rajut kami dibuat sesuai pesanan. Ini patokan ukuran yang bisa kamu pakai sa
 | Tote besar | ±35 × 35 cm | Laptop 13", botol minum, buku |
 
 Lihat koleksi [tas rajut](/koleksi/tas-rajut/) kami.
-
-## Kalau ukurannya tidak pas
-
-Untuk pakaian yang dibuat sesuai ukuran yang kamu kirim, kami bantu permak satu kali tanpa biaya rajut tambahan jika hasilnya tidak sesuai ukuran yang disepakati. Ongkos kirim ulang ditanggung pembeli. Detailnya di [Pengiriman & Pengembalian](/pengiriman-pengembalian/).

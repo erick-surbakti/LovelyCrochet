@@ -20,7 +20,7 @@ Legend: **T** = transactional, **C** = commercial investigation, **I** = informa
 | `/koleksi/boneka-rajut/` | boneka rajut | boneka rajut custom, amigurumi custom indonesia, boneka amigurumi | T | Owns "boneka rajut custom"; custom page targets the process, not the product type. |
 | `/koleksi/tas-rajut/` | tas rajut handmade | tas rajut wanita, tas rajut granny square, tote bag rajut | T | — |
 | `/koleksi/aksesoris-rajut/` | gantungan kunci rajut | gantungan kunci boneka rajut, keychain rajut, suvenir rajut | T | Owns plural "gantungan kunci rajut" (browse intent); the product page owns the specific design. |
-| `/koleksi/pakaian-rajut/` | pakaian rajut | baju rajut rumbai, atasan rajut, outer rajut custom | T | — |
+| `/koleksi/renda-rajut/` | renda rajut | renda rajut untuk baju, kerah renda rajut, renda kebaya handmade | T | — |
 | `/produk/boneka-hello-kitty-rajut/` | boneka hello kitty rajut | hello kitty rajut, amigurumi hello kitty, boneka rajut karakter | T | Category owns the generic "boneka rajut" query. |
 | `/produk/boneka-donald-duck-rajut/` | boneka donald duck rajut | donald duck rajut, amigurumi donald duck | T | — |
 | `/produk/boneka-penguin-rajut/` | boneka penguin rajut | amigurumi penguin, boneka penguin rajut pink | T | — |
@@ -75,7 +75,7 @@ they start, set `workshops: true` in `src/config/site.ts`, build the page and ad
 | `/en/shop/amigurumi-dolls/` | custom amigurumi | amigurumi indonesia, crochet doll | T |
 | `/en/shop/crochet-bags/` | handmade crochet bag | granny square bag, crochet tote | T |
 | `/en/shop/crochet-accessories/` | crochet keychain | crochet doll keychain | T |
-| `/en/shop/crochet-clothing/` | crochet clothing | crochet fringe top, crochet cardigan | T |
+| `/en/shop/crochet-lace/` | crochet lace trim | crochet lace collar, handmade lace for clothes | T |
 | `/en/products/{slug}/` | product name, e.g. "crochet hello kitty doll" | product + "handmade" | T |
 | `/en/custom-order/` | custom crochet order | custom amigurumi from photo | T |
 | `/en/gifts/` | handmade gift ideas indonesia | — | C |

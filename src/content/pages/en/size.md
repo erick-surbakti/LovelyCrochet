@@ -1,8 +1,8 @@
 ---
 key: size
 lang: en
-updated: 2026-11-03
-lede: Our crochet doll sizes in centimetres, how to measure for crochet clothing orders, and size guidelines for custom crochet bags.
+updated: 2026-11-04
+lede: Our crochet doll sizes in centimetres, how to measure crochet lace for your clothes, and size guidelines for custom crochet bags.
 ---
 
 ## Doll and keychain sizes
@@ -20,27 +20,26 @@ All sizes are approximate, because every doll is crocheted by hand. A difference
 
 For custom orders you can ask for a different size. The price and lead time will change to match.
 
-## How to measure for crochet clothing
+## How to measure lace for your clothes
 
-Use a soft tailor's tape, not a metal one. Measure over thin clothing and don't pull the tape tight. If in doubt, measure a favourite piece that already fits and send us the numbers.
+Use a soft tailor's tape, not a metal one. Measure the piece you want to dress up while it lies flat, without stretching it.
 
-- **Chest.** Wrap the tape around the fullest part of the chest, level with the floor, just under the arms.
-- **Body length.** From the highest point of the shoulder (by the neck) straight down to the length you want.
-- **Sleeve length.** From the shoulder edge to the wrist, with the arm slightly bent.
-- **Waist.** For crop tops or skirts, wrap the tape around the narrowest part of the waist.
+- **Collar.** Run the tape along the collar line from one end to the other.
+- **Sleeve cuffs.** Measure around one cuff, then double it for a pair.
+- **Hem of a skirt, top or headscarf.** Measure around the edge you want to trim.
+- **Add 2–3 cm** to your measurement for the join and a neat finish.
 
-## Clothing size guide
+Send these numbers with a photo of the piece when you order, so we can suggest the right lace width and motif.
 
-These are **body** measurements as a starting point. Because our crochet clothing is made to order, we'll adjust the ease to suit the style you choose.
+## Lace width guide
 
-| Size | Body chest |
-| --- | --- |
-| S | 80–86 cm |
-| M | 87–93 cm |
-| L | 94–100 cm |
-| XL | 101–108 cm |
+| Option | Approximate width | Best for |
+| --- | --- | --- |
+| Narrow lace | about 1.5–2 cm | Cuffs, headscarves, pockets |
+| Medium lace | about 3–4 cm | Hems of tops and skirts |
+| Lace collar | about 5–8 cm | Shirt, blouse and kebaya collars |
 
-See our [crochet clothing](/en/shop/crochet-clothing/) or start a [custom order](/en/custom-order/).
+See our [crochet lace](/en/shop/crochet-lace/) category or start a [custom order](/en/custom-order/).
 
 ## Crochet bag size guide
 
@@ -53,7 +52,3 @@ Our crochet bags are made to order. Use these sizes as a guide when ordering.
 | Large tote | about 35 × 35 cm | 13" laptop, water bottle, books |
 
 See our [crochet bags](/en/shop/crochet-bags/).
-
-## If the size isn't right
-
-For clothing made to the measurements you sent, we'll alter it once at no extra crochet cost if it doesn't match the agreed size. The buyer covers return shipping. Details are on [Shipping & Returns](/en/shipping-returns/).

@@ -179,22 +179,22 @@
       "en": "Crochet tote inspiration. Order a custom crochet bag from Simpul Mungil, Bekasi."
     }
   },
-  "ilustrasi-cardigan-rajut": {
+  "ilustrasi-renda-rajut": {
     "role": "illustration",
-    "subject": "Illustration (not a product photo) of a crochet cardigan with granny square patches, used for the clothing category",
-    "colors": ["oat", "rose clay", "sage", "butter", "blush"],
+    "subject": "Illustration (not a product photo) of a white blouse with a crochet lace collar of round motifs, and a roll of crochet lace trim, used for the crochet lace category",
+    "colors": ["white", "cream", "blush", "kraft"],
     "material": "Ilustrasi digital / digital illustration",
     "alt": {
-      "id": "Ilustrasi cardigan rajut warna krem dengan tambalan granny square warna-warni",
-      "en": "Illustration of a cream crochet cardigan with colourful granny square patches"
+      "id": "Ilustrasi blus putih dengan kerah renda rajut dari motif bulat dan gulungan renda pinggiran",
+      "en": "Illustration of a white blouse with a crochet lace collar of round motifs and a roll of lace trim"
     },
     "caption": {
-      "id": "Ilustrasi pakaian rajut. Foto koleksi pakaian segera hadir.",
-      "en": "Illustration of crochet clothing. Clothing photos coming soon."
+      "id": "Ilustrasi renda rajut untuk baju. Foto koleksi renda segera hadir.",
+      "en": "Illustration of crochet lace for clothing. Lace photos coming soon."
     },
     "pinterest": {
-      "id": "Inspirasi pakaian rajut handmade. Pesan pakaian rajut custom di Simpul Mungil Bekasi.",
-      "en": "Handmade crochet clothing inspiration. Order custom crochet clothing from Simpul Mungil, Bekasi."
+      "id": "Inspirasi renda rajut handmade untuk kerah, lengan, dan pinggiran baju. Pesan custom di Simpul Mungil Bekasi.",
+      "en": "Handmade crochet lace inspiration for collars, cuffs and hems. Order custom lace from Simpul Mungil, Bekasi."
     }
   },
   "ilustrasi-gantungan-kunci-hati-rajut": {

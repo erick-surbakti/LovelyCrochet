@@ -24,7 +24,7 @@ export const GET: APIRoute = async () => {
   const lines = [
     `# ${site.name}`,
     '',
-    `> ${site.name} is a handmade crochet micro-business (home studio) in ${locality}, ${site.address.region}, Indonesia. It hand-crochets flower bouquets, amigurumi dolls, bags, accessories, clothing, home decor and baby gifts, takes custom orders via WhatsApp (${site.phone.display}), delivers same-day in Bekasi and Jabodetabek and ships across Indonesia. Indonesian is the default language; English pages live under /en/.`,
+    `> ${site.name} is a handmade crochet micro-business (home studio) in ${locality}, ${site.address.region}, Indonesia. It hand-crochets amigurumi dolls, doll keychains, flower bouquets, bags and crochet lace for clothing, takes custom orders via WhatsApp (${site.phone.display}), delivers same-day in Bekasi and Jabodetabek and ships across Indonesia. Indonesian is the default language; English pages live under /en/.`,
     '',
     '## Key facts',
     `- Orders: WhatsApp ${site.phone.display} (primary). Chat hours Monday–Saturday ${site.hours[0]?.opens}–${site.hours[0]?.closes} WIB (UTC+7).`,

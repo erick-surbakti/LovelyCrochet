@@ -32,14 +32,14 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
     id: {
       title: 'Koleksi Rajutan Handmade | Simpul Mungil',
       description:
-        'Semua koleksi rajutan handmade Simpul Mungil. Boneka amigurumi, gantungan kunci, buket bunga rajut, tas, dan pakaian rajut. Bisa custom.',
+        'Semua koleksi rajutan handmade Simpul Mungil. Boneka amigurumi, gantungan kunci, buket bunga rajut, tas, dan renda rajut. Bisa custom.',
       label: 'Koleksi',
       h1: 'Koleksi rajutan tangan',
     },
     en: {
       title: 'Shop Handmade Crochet | Simpul Mungil',
       description:
-        'Shop every Simpul Mungil piece: amigurumi, keychains, crochet bouquets, bags and clothing. Custom orders welcome.',
+        'Shop every Simpul Mungil piece: amigurumi, keychains, crochet bouquets, bags and lace. Custom orders welcome.',
       label: 'Shop',
       h1: 'The hand-crocheted collection',
     },
@@ -158,16 +158,16 @@ export const pageMeta: Record<StaticRouteKey, Record<Locale, PageMeta>> = {
   },
   size: {
     id: {
-      title: 'Panduan Ukuran Boneka, Pakaian & Tas Rajut | Simpul Mungil',
+      title: 'Panduan Ukuran Boneka, Renda & Tas Rajut | Simpul Mungil',
       description:
-        'Ukuran boneka rajut Simpul Mungil, cara mengukur badan untuk pakaian rajut, dan patokan ukuran tas rajut custom. Semua dalam sentimeter.',
+        'Ukuran boneka rajut Simpul Mungil, cara mengukur panjang renda untuk baju, dan patokan ukuran tas rajut custom. Semua dalam sentimeter.',
       label: 'Panduan Ukuran',
       h1: 'Panduan ukuran',
     },
     en: {
-      title: 'Size Guide: Crochet Dolls, Clothing & Bags | Simpul Mungil',
+      title: 'Size Guide: Crochet Dolls, Lace & Bags | Simpul Mungil',
       description:
-        'Simpul Mungil doll sizes, how to measure for crochet clothing, and size guidelines for custom crochet bags. All in centimetres.',
+        'Simpul Mungil doll sizes, how to measure lace for your clothes, and size guidelines for custom crochet bags. All in centimetres.',
       label: 'Size Guide',
       h1: 'Size guide',
     },

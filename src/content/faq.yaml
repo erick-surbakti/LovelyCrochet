@@ -78,8 +78,8 @@
   preview: true
   q: { id: "Berapa lama pesanan custom?", en: "How long do custom orders take?" }
   a:
-    id: Tergantung jenis dan ukurannya. Aksesoris 3–5 hari kerja, buket 3–7 hari kerja, boneka 7–14 hari kerja, dan pakaian 10–14 hari kerja. Waktu dihitung sejak DP diterima dan desain disetujui.
-    en: It depends on the type and size. Accessories take 3–5 working days, bouquets 3–7, dolls 7–14 and clothing 10–14. The clock starts once the deposit is paid and the design is approved.
+    id: Tergantung jenis dan ukurannya. Aksesoris 3–5 hari kerja, buket 3–7 hari kerja, boneka 5–14 hari kerja, tas 7–14 hari kerja, dan renda 5–7 hari kerja. Waktu dihitung sejak DP diterima dan desain disetujui.
+    en: It depends on the type and size. Accessories take 3–5 working days, bouquets 3–7, dolls 5–14, bags 7–14 and lace 5–7. The clock starts once the deposit is paid and the design is approved.
 - id: dari-foto
   group: custom
   order: 12

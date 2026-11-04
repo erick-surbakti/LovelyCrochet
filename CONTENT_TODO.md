@@ -35,9 +35,12 @@ and `site.priceRange` (Rp 65.000 – Rp 300.000).
 
 ## 3. Categories without photos yet
 
-Bouquets, Bags and Clothing show a labelled **illustration** and a "photos coming soon, order custom" panel.
-Their intro text describes typical pieces (e.g. lined bags, fringed clothing, campus-colour bouquets). Please check it matches what you actually make,
-and send photos when you have them: they become real products the same way the dolls did.
+Bouquets, Bags and Crochet Lace show a labelled **illustration** and a "photos coming soon, order custom" panel.
+The Crochet Lace category (renamed from Clothing on 2026-11-04, because full garments are not offered yet) covers lace trims,
+collars and flower motifs for clothes. **Please confirm:** do you attach the lace to the customer's garment, sell the lace for them
+to sew on, or both? The category FAQ currently says "we'll explain the options" until you confirm. Lace prices in
+`src/lib/custom-order.ts` (motif from Rp 25.000, trim from Rp 45.000/m, collar from Rp 85.000) are my estimates.
+Send photos of your bouquets, bags and lace when you have them: they become real products the same way the dolls did.
 Accessories currently means keychains only. If you also sell scrunchies, headbands or clips, tell me.
 
 ## 4. Not provided yet (hidden on the site until set)
@@ -60,7 +63,6 @@ Accessories currently means keychains only. If you also sell scrunchies, headban
 | Exchange window (ready stock) | `site.returns`, FAQ, shipping page | 3 days |
 | Damage report window | same | 48 hours, unboxing video |
 | Priority (rush) fee | FAQ, custom page, terms | 20% |
-| Free alteration of made-to-measure clothing | size guide, shipping, category FAQ | once |
 | Revisions | FAQ, custom page, terms | 2 free at design stage |
 | Order deadlines (Valentine 7 Feb, Hari Ibu early Dec, Lebaran 3 weeks before) | `src/content/occasions.yaml` | as written |
 | Same-day delivery times per area | `src/views/BekasiView.astro` (`areas`) | 1–4 hours |

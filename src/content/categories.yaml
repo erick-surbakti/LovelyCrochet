@@ -146,39 +146,39 @@
         id: Bisa. Sebutkan warna yang kamu mau saat memesan, misalnya disamakan dengan warna hewan peliharaan atau warna favorit penerima.
         en: Yes. Tell us the colours you'd like when you order, for example to match a pet or the recipient's favourite colour.
 
-- id: pakaian-rajut
+- id: renda-rajut
   order: 5
-  image: ilustrasi-cardigan-rajut
-  slug: { id: "pakaian-rajut", en: "crochet-clothing" }
-  name: { id: "Pakaian Rajut", en: "Crochet Clothing" }
+  image: ilustrasi-renda-rajut
+  slug: { id: "renda-rajut", en: "crochet-lace" }
+  name: { id: "Renda Rajut untuk Baju", en: "Crochet Lace for Clothing" }
   short:
-    id: Atasan, outer, dan pakaian rajut berumbai yang dibuat sesuai ukuranmu.
-    en: Tops, outerwear and fringed crochet pieces made to your measurements.
+    id: Renda pinggiran, kerah renda, dan motif bunga rajut untuk mempercantik bajumu.
+    en: Lace trims, lace collars and crochet flower motifs to dress up your clothes.
   seoTitle:
-    id: Pakaian Rajut Custom, Atasan & Outer Rumbai | Simpul Mungil
-    en: Made-to-Measure Crochet Clothing & Fringe Tops | Simpul Mungil
+    id: Renda Rajut untuk Kerah & Pinggiran Baju | Simpul Mungil
+    en: Handmade Crochet Lace Trims & Collars | Simpul Mungil
   seoDescription:
-    id: Pakaian rajut handmade dari Bekasi, dari atasan sampai outer berumbai, dibuat sesuai ukuran badanmu. Pesan custom lewat WhatsApp.
-    en: Handmade crochet clothing from Bekasi, from tops to fringed outerwear, made to your measurements. Order custom pieces on WhatsApp.
+    id: Renda rajut handmade dari Bekasi untuk kerah, lengan, dan pinggiran baju atau kebaya. Bisa custom warna dan motif. Pesan lewat WhatsApp.
+    en: Handmade crochet lace from Bekasi for collars, cuffs and hems of shirts or kebaya. Custom colours and motifs. Order on WhatsApp.
   intro:
     id:
-      - Pakaian rajut di toko sering dibuat satu ukuran untuk semua. Di Simpul Mungil, atasan, outer, dan pakaian rajut berumbai dibuat setelah kami menerima ukuran badanmu, yaitu lingkar dada, panjang badan, dan panjang lengan. Karena itu pakaian di kategori ini dibuat sesuai pesanan, dengan waktu pengerjaan sekitar 10 sampai 14 hari kerja.
-      - Rumbai memberi gerakan dan kesan santai pada pakaian rajut, cocok untuk jalan-jalan, foto, atau acara santai. Kamu bisa memilih panjang rumbai, warna, dan model sesuai selera. Pola rajut yang berongga juga membuat pakaian tetap nyaman dipakai di cuaca Indonesia.
-      - Bingung soal ukuran? Panduan Ukuran kami menjelaskan cara mengukur badan sendiri dengan meteran jahit, ditambah tabel ukuran S sampai XL sebagai titik awal. Foto koleksi pakaian kami segera hadir. Sementara itu, ceritakan model yang kamu mau lewat pesanan custom.
+      - Baju polos bisa langsung terlihat istimewa dengan sentuhan renda rajut. Kami merajut renda pinggiran, kerah renda, dan motif bunga satu per satu dengan hakpen kecil dan benang halus, sehingga hasilnya ringan, rapi, dan tidak membuat baju terasa berat.
+      - Renda rajut cocok untuk mempercantik kerah kemeja, ujung lengan, pinggiran rok, kerudung, atau kebaya untuk acara wisuda dan kondangan. Kamu bisa memilih warna benang, lebar renda, dan motifnya, mulai dari motif bunga kecil sampai pola bulat seperti doily.
+      - Ceritakan baju yang ingin kamu percantik dan bagian mana yang mau diberi renda. Kami bantu hitung panjang renda yang dibutuhkan, harga, dan waktu pengerjaannya sebelum mulai merajut. Foto koleksi renda kami segera hadir.
     en:
-      - Shop-bought knitwear is often one size fits all. At Simpul Mungil, tops, outerwear and fringed crochet pieces are made once we have your measurements, which are chest, body length and sleeve length. That's why everything in this category is made to order, with a lead time of about 10 to 14 working days.
-      - Fringe adds movement and a relaxed feel to crochet clothing, perfect for outings, photos or casual events. You can choose the fringe length, colour and style. Open crochet stitches also keep the pieces comfortable in Indonesian weather.
-      - Not sure about sizing? Our Size Guide shows how to measure yourself with a tailor's tape and gives an S to XL chart as a starting point. Photos of our clothing are coming soon. In the meantime, tell us the style you want through a custom order.
+      - A plain piece of clothing can look special with a touch of crochet lace. We crochet lace trims, lace collars and flower motifs one by one with a small hook and fine yarn, so the lace stays light and neat and doesn't weigh the fabric down.
+      - Crochet lace suits shirt collars, sleeve cuffs, skirt hems, headscarves, or a kebaya for a graduation or wedding. You choose the yarn colour, lace width and motif, from small flowers to round doily-style patterns.
+      - Tell us about the piece you'd like to dress up and where the lace should go. We'll work out the length of lace needed, the price and the lead time with you before we start. Photos of our lace are coming soon.
   faq:
-    - q: { id: "Apakah pakaian rajut panas dipakai di Indonesia?", en: "Is crochet clothing too warm for Indonesia?" }
+    - q: { id: "Apakah renda bisa langsung dipasangkan di baju saya?", en: "Can you attach the lace to my clothes?" }
       a:
-        id: Pola rajut yang berongga membiarkan udara mengalir, jadi tetap nyaman dipakai, terutama di ruangan ber-AC, kafe, atau malam hari.
-        en: Open crochet stitches let air through, so the pieces stay comfortable, especially in air-conditioned rooms, cafés and evenings.
-    - q: { id: "Bagaimana kalau ukurannya tidak pas?", en: "What if the size doesn't fit?" }
+        id: Ceritakan dulu lewat WhatsApp baju dan bagian yang ingin diberi renda. Kami akan menjelaskan pilihan pemasangannya serta biaya dan waktunya sebelum kamu memesan.
+        en: Tell us on WhatsApp about the piece and where the lace should go. We'll explain the attachment options, cost and timing before you order.
+    - q: { id: "Bagaimana cara mengukur panjang renda yang dibutuhkan?", en: "How do I measure how much lace I need?" }
       a:
-        id: Kami bantu permak satu kali tanpa biaya rajut tambahan jika hasilnya tidak sesuai ukuran yang disepakati. Ongkir pengiriman ulang ditanggung pembeli.
-        en: We'll alter it once at no extra crochet cost if it doesn't match the agreed measurements. The buyer covers return shipping.
-    - q: { id: "Bagaimana cara mencuci pakaian rajut berumbai?", en: "How do I wash fringed crochet clothing?" }
+        id: Ukur keliling bagian yang ingin diberi renda dengan meteran jahit, misalnya keliling kerah atau ujung lengan, lalu tambahkan 2–3 cm untuk sambungan. Caranya ada di Panduan Ukuran.
+        en: Measure around the area you want to trim with a tailor's tape, such as the collar or cuff, then add 2–3 cm for the join. Details are in the Size Guide.
+    - q: { id: "Bagaimana cara mencuci baju yang diberi renda rajut?", en: "How do I wash clothes with crochet lace?" }
       a:
-        id: Cuci tangan dengan air dingin, jangan diperas, lalu keringkan mendatar. Rapikan rumbai dengan jari selagi masih lembap supaya tidak kusut.
-        en: Hand-wash in cool water, don't wring, and dry flat. Comb the fringe straight with your fingers while it's still damp so it doesn't tangle.
+        id: Cuci tangan dengan air dingin, jangan diperas, lalu keringkan mendatar. Rapikan bentuk renda dengan jari selagi masih lembap supaya tidak melengkung.
+        en: Hand-wash in cool water, don't wring, and dry flat. Ease the lace back into shape with your fingers while it's still damp so it doesn't curl.
